@@ -1,0 +1,13 @@
+- we discussed about our goal
+- we discussed about data,
+- we understood the pdf how info is stored
+- we choose the best loader
+- pymupdf4llm, light weight and good for our word
+- pdf to markdown checked and have some html issue
+- but can be fixed later if we want
+- uv is very good for virtual environment
+= pdf_to_markdown is written, tested
+- chunking file written and tested
+- vector store on queue
+- for now source is given manually apple
+- have to fix that
