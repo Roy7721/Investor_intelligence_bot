@@ -133,13 +133,38 @@ TABLE_TO_TEXT_SYSTEM_PROMPT = """You convert financial tables into clear, natura
 Rewrite every row of the given table as one or more complete sentences, preserving every number and label exactly.
 Do not summarize, round, or omit any figures. Do not add commentary or analysis.
 """
-def table_to_text(table_chunk_text: str) -> str:
+import time
+from openai import RateLimitError
+
+def table_to_text(table_chunk_text: str, max_retries: int = 3) -> str:
+    for attempt in range(max_retries):
+        try:
+            messages = [
+                {"role": "system", "content": TABLE_TO_TEXT_SYSTEM_PROMPT},
+                {"role": "user", "content": table_chunk_text},
+            ]
+            response = LLM_MODEL.invoke(messages)
+            result = response.content.strip() if response.content else ""
+            return result if result else table_chunk_text  # fallback if empty
+
+        except RateLimitError:
+            wait_time = 5 * (attempt + 1)  # 5s, 10s, 15s — growing backoff
+            print(f"Rate limited, waiting {wait_time}s before retry...")
+            time.sleep(wait_time)
+
+    print("Max retries hit — falling back to raw table text.")
+    return table_chunk_text
     messages = [
         {"role": "system", "content": TABLE_TO_TEXT_SYSTEM_PROMPT},
         {"role": "user", "content": table_chunk_text},
     ]
     response = LLM_MODEL.invoke(messages)
-    return response.content
+    result = response.content.strip() if response.content else ""
+
+    if not result:
+        return table_chunk_text  # fallback: keep raw table rather than storing nothing
+
+    return result
 
 def convert_table_chunks(chunks: list[dict]) -> list[dict]:
     """Replaces every table chunk's text with an LLM-converted natural-language version."""
@@ -150,7 +175,7 @@ def convert_table_chunks(chunks: list[dict]) -> list[dict]:
     return chunks
 
 if __name__ == "__main__":
-    content = read_markdown("./data/markdown/2024_Apple.md")
+    content = read_markdown("./data/markdown/2024_Tesla.md")
     raw_blocks = [b.strip() for b in re.split(r"\n{2,}", content) if b.strip()]
     raw_blocks = [re.sub("<br>", "", b) for b in raw_blocks]
     raw_blocks = remove_repeating_boilerplate(raw_blocks, min_repeats=5)

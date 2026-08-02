@@ -31,7 +31,7 @@ def embed_and_store(chunks: list[dict],name: str):
 import json
 from pathlib import Path
 
-CONVERTED_CHUNKS_CACHE = Path("./data/apple_converted_chunks.json")
+CONVERTED_CHUNKS_CACHE = Path("./data/tesla_converted_chunks.json")
 
 if __name__ == "__main__":
     if CONVERTED_CHUNKS_CACHE.exists():
@@ -39,8 +39,8 @@ if __name__ == "__main__":
         chunks = json.loads(CONVERTED_CHUNKS_CACHE.read_text(encoding="utf-8"))
     else:
         chunks = chunk_markdown(
-            markdown_file="./data/markdown/2024_Apple.md",
-            source_company="Apple",
+            markdown_file="./data/markdown/2024_Tesla.md",
+            source_company="Tesla",
             filing_year=2024,
         )
 

@@ -19,6 +19,20 @@
 - contextual retrieval
 - small to large retrieval
 - bm25
-- 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
+- 
 
 - latency issue
+
+
+
+
+
+
+
+
+
+
+
+
+
+- multi layer perceptrons

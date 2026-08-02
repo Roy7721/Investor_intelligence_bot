@@ -37,7 +37,7 @@ def ask(question: str, source_company: str) -> str:
 if __name__ == "__main__":
 
     response = ask(
-        question= "what was the apple's total Net sales in September 28 2024", 
-        source_company= "Apple")
+        question= "what was the tesla's Automotive sales in 2024", 
+        source_company= "Tesla")
 
     print(response)
