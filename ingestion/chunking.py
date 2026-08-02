@@ -94,7 +94,7 @@ def chunk_markdown(
 
 if __name__ == "__main__":
     chunks = chunk_markdown(
-        markdown_file="./apple_full.md",
+        markdown_file="./data/markdown/2024_Apple.md",
         source_company="Apple",
         filing_year=2024,
     )

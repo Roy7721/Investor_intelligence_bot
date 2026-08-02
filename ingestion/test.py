@@ -1,33 +1,13 @@
-from pathlib import Path 
-markdown_file = Path("./apple_full.md")
+from vector_store.vector_store import _client, _embedder
 
-content = markdown_file.read_text(encoding = "utf-8")
+collection = _client.get_or_create_collection(name="investor_intelligence", embedding_function=_embedder)
+print("Total chunks in collection:", collection.count())
 
-import re
-
-blocks = re.split(r"\n{2,}", content) 
-
-prose_block = []
-table_block = []
-
-for block in blocks:
-    print(block) 
-
-    
-
-    lines = block.strip().split("\n")
-    is_table = any(line.strip().startswith("|") or line.strip().endswith("|") for line in lines)
-
-    block = re.sub("<br>", "",block)
-    
-    if is_table:
-        
-        table_block.append(block)
-
-    else:
-        prose_block.append(block)
-
-prose_text = "\n\n".join(prose_block)
-table_text = "\n\n".join(table_block)
-    
-print(table_block)
+# also pull a few real documents to see what's actually stored
+# find the income statement chunk directly
+all_tables = collection.get(where={"content_type": "table"}, limit=48)
+for doc in all_tables["documents"]:
+    if "391,035" in doc or "net income" in doc.lower():
+        print("FOUND IT:")
+        print(doc[:400])
+        print("=" * 80)
