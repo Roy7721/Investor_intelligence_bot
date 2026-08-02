@@ -21,6 +21,17 @@
 - bm25
 - 
 
+- caching the chunk and check 
+- to avoid llm run,
+- using hash
+- 
+- query non- transformed table
+- adding caption in front of porse
+- pattern search
+- dependency on loader
+- header short issue
+- hearder merging style
+
 - latency issue
 
 

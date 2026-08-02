@@ -11,7 +11,7 @@ api_key = os.getenv("GROQ_API_KEY")
 LLM_MAX_TOKENS = 3000
 
 LLM_MODEL = ChatOpenAI(
-    model="openai/gpt-oss-120b",
+    model="llama-3.3-70b-versatile",
     base_url="https://api.groq.com/openai/v1",
     api_key=api_key,
     max_tokens=LLM_MAX_TOKENS,
@@ -55,4 +55,4 @@ root_path = Path(__file__).resolve().parents[1]
 
 CHROMA_PERSIST_DIR = root_path / "CHROMA_PERSIST_DIR" / "chroma_store"
 
-RETRIEVAL_TOP_K = 25
+RETRIEVAL_TOP_K = 10
