@@ -82,15 +82,20 @@ if __name__ == "__main__":
         )
         print("Converting table chunks to natural language...")
         chunks = convert_table_chunks(chunks)
-        print("Done.")
+
+        pending = [c for c in chunks if c.get("conversion_status") == "pending"]
 
         cache_file.parent.mkdir(parents=True, exist_ok=True)
+        if pending:
+            partial_file = cache_file.with_suffix(".partial.json")
+            partial_file.write_text(json.dumps(chunks), encoding="utf-8")
+            print(f"Saved PARTIAL cache: {partial_file.name}")
+            raise SystemExit(
+                f"Aborted: {len(pending)} tables unconverted. "
+                f"Nothing embedded. Resume when quota resets."
+            )
+
         cache_file.write_text(json.dumps(chunks), encoding="utf-8")
         print(f"Saved cache: {cache_file.name}")
 
-    # Debug — outside the if/else, runs on both paths
-    for i, chunk in enumerate(chunks):
-        if not chunk["text"].strip():
-            print(f"EMPTY CHUNK at index {i} — content_type={chunk['content_type']}")
-
-    embed_and_store(chunks=chunks, name="investor_intelligence")
+    embed_and_store(chunks, name="investor_intelligence")

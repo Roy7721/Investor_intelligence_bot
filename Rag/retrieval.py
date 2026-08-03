@@ -90,7 +90,7 @@ def build_context(retrieved_chunks: list[dict]) -> str:
 
 if __name__ == "__main__":
 
-    chunks = retrieve_chunks(question="What was Apples's total net sales in 2024?", source_company="Apple")
+    chunks = retrieve_chunks(question="What was Microsoft's total Revenue in 2024?", source_company="Microsoft")
 
     
 

@@ -240,7 +240,35 @@ TABLE_TO_TEXT_SYSTEM_PROMPT = """You convert financial tables into clear, natura
 Rewrite every row of the given table as one or more complete sentences, preserving every number and label exactly.
 Do not summarize, round, or omit any figures. Do not add commentary or analysis.
 """
+import re
 
+LONG_WAIT_THRESHOLD_SECONDS = 90
+
+_WAIT_SPEC_RE = re.compile(r"try again in\s+([0-9hms.]+)", re.IGNORECASE)
+_UNIT_RE = re.compile(r"([\d.]+)\s*([hms])")
+
+
+class QuotaExhausted(Exception):
+    """The failure is about the account, not this table."""
+
+    def __init__(self, wait_seconds: float, detail: str):
+        self.wait_seconds = wait_seconds
+        self.detail = detail
+        super().__init__(detail)
+
+
+def _parse_retry_after(error: Exception) -> float | None:
+    """Pull the server's own wait time out of the error text. None if absent."""
+    match = _WAIT_SPEC_RE.search(str(error))
+    if not match:
+        return None
+    seconds = 0.0
+    found = False
+    unit_dict = {"h": 3600.0, "m": 60.0, "s": 1.0}
+    for value, unit in _UNIT_RE.findall(match.group(1)):
+        seconds += float(value) * unit_dict[unit]
+        found = True
+    return seconds if found else None
 
 def table_to_text(table_chunk_text: str, max_retries: int = 3) -> tuple[str, str]:
     """
@@ -270,30 +298,53 @@ def table_to_text(table_chunk_text: str, max_retries: int = 3) -> tuple[str, str
 
         except RateLimitError as e:
             print(f"    GROQ ERROR: {e}")
-            wait = 5 * (attempt + 1)
-            print(f"Rate limited, waiting {wait}s before retry...")
-            time.sleep(wait)
+            wait = _parse_retry_after(e)
+
+            if wait is not None and wait > LONG_WAIT_THRESHOLD_SECONDS:
+                raise QuotaExhausted(wait, str(e)) from e
+
+            if wait is None:
+                wait = 5 * (attempt + 1)
+                print(f"    No wait time in the message; backing off {wait}s.")
+            else:
+                wait += 1
+                print(f"    Server asked for {wait:.1f}s; sleeping.")
+
+            if attempt < max_retries - 1:
+                time.sleep(wait)
 
     print("Max retries hit — falling back to raw table text.")
     return table_chunk_text, "raw_fallback"
 
 
 def convert_table_chunks(chunks: list[dict]) -> list[dict]:
-    """Replace every table chunk's text with an LLM-converted version."""
     tables = [c for c in chunks if c["content_type"] == "table"]
     total = len(tables)
 
+    for chunk in tables:
+        chunk["conversion_status"] = "pending"
+
     for n, chunk in enumerate(tables, start=1):
-        text, status = table_to_text(chunk["text"])
+        try:
+            text, status = table_to_text(chunk["text"])
+        except QuotaExhausted as e:
+            print(f"\nABORTING RUN at table {n}/{total}.")
+            print(f"  Daily quota exhausted; server asked for {e.wait_seconds / 60:.0f}m.")
+            print(f"  {total - n + 1} tables left unconverted.")
+            break
+
         chunk["text"] = text
         chunk["conversion_status"] = status
         print(f"  table {n}/{total}: {status}")
         time.sleep(2.5)
 
-    failed = sum(1 for c in tables if c["conversion_status"] == "raw_fallback")
-    if failed:
-        print(f"WARNING: {failed}/{total} tables fell back to raw table text.")
+    converted = sum(1 for c in tables if c["conversion_status"] == "converted")
+    fallback = sum(1 for c in tables if c["conversion_status"] == "raw_fallback")
+    pending = sum(1 for c in tables if c["conversion_status"] == "pending")
 
+    print(f"Tables: {converted} converted, {fallback} raw_fallback, {pending} pending.")
+    if pending:
+        print(f"WARNING: run aborted — {pending}/{total} tables never attempted.")
     return chunks
 
 
@@ -303,50 +354,53 @@ def convert_table_chunks(chunks: list[dict]) -> list[dict]:
 
 if __name__ == "__main__":
 
-    import re
 
-    content = read_markdown("./data/markdown/2024_Apple.md")
-    raw_blocks = [b.strip() for b in re.split(r"\n{2,}", content) if b.strip()]
-    raw_blocks = [re.sub("<br>", "", b) for b in raw_blocks]
-    raw_blocks = remove_repeating_boilerplate(raw_blocks)
+    chunks = chunk_markdown(
+            markdown_file="./data/markdown/2024_Microsoft.md",
+            source_company="Microsoft",
+            filing_year=2024,
+        )
+    
+    tables = sum(1 for c in chunks if c["content_type"] == "table")
+    print(f"Total chunks: {len(chunks)}  (tables: {tables})")
+    
+    short = [c for c in chunks if len(c["text"].strip()) < 60]
+    print(f"\nChunks under 60 chars: {len(short)}")
+    for c in short[:20]:
+            print(f"  ({c['content_type']}) {c['text']!r}")
+    
+    print("\nSample chunks with heading context:")
+    for c in chunks[:5]:
+            print(f"  ---\n{c['text'][:200]}")
+    
+    print("\nTable chunks (first 3):")
+    for c in [c for c in chunks if c["content_type"] == "table"][10:15]:
+            print(f"  ---\n{c['text'][:300]}")
 
-    WRAPPED = re.compile(r"^(?:<u>|\*\*|__|_)(.{3,90}?)(?:</u>|\*\*|__|_)$")
+    # import re
 
-    candidates = []
-    for i, b in enumerate(raw_blocks):
-        s = b.strip()
-        if is_heading_block(s) or is_table_block(s) or "\n" in s:
-            continue
-        m = WRAPPED.fullmatch(s)
-        if m and re.search(r"[A-Za-z]{3,}", m.group(1)) \
-        and not m.group(1).rstrip().endswith((".", ",", ";", ":")):
-            candidates.append((i, s))
+    # content = read_markdown("./data/markdown/2024_Apple.md")
+    # raw_blocks = [b.strip() for b in re.split(r"\n{2,}", content) if b.strip()]
+    # raw_blocks = [re.sub("<br>", "", b) for b in raw_blocks]
+    # raw_blocks = remove_repeating_boilerplate(raw_blocks)
 
-    print(f"Heading-shaped blocks with no # marker: {len(candidates)}")
-    for i, s in candidates:
-        print(f"  [{i}] {s}")
+    # WRAPPED = re.compile(r"^(?:<u>|\*\*|__|_)(.{3,90}?)(?:</u>|\*\*|__|_)$")
 
-    # chunks = chunk_markdown(
-    #     markdown_file="./data/markdown/2024_Microsoft.md",
-    #     source_company="Microsoft",
-    #     filing_year=2024,
-    # )
+    # candidates = []
+    # for i, b in enumerate(raw_blocks):
+    #     s = b.strip()
+    #     if is_heading_block(s) or is_table_block(s) or "\n" in s:
+    #         continue
+    #     m = WRAPPED.fullmatch(s)
+    #     if m and re.search(r"[A-Za-z]{3,}", m.group(1)) \
+    #     and not m.group(1).rstrip().endswith((".", ",", ";", ":")):
+    #         candidates.append((i, s))
 
-    # tables = sum(1 for c in chunks if c["content_type"] == "table")
-    # print(f"Total chunks: {len(chunks)}  (tables: {tables})")
+    # print(f"Heading-shaped blocks with no # marker: {len(candidates)}")
+    # for i, s in candidates:
+    #     print(f"  [{i}] {s}")
 
-    # short = [c for c in chunks if len(c["text"].strip()) < 60]
-    # print(f"\nChunks under 60 chars: {len(short)}")
-    # for c in short[:20]:
-    #     print(f"  ({c['content_type']}) {c['text']!r}")
-
-    # print("\nSample chunks with heading context:")
-    # for c in chunks[:5]:
-    #     print(f"  ---\n{c['text'][:200]}")
-
-    # print("\nTable chunks (first 3):")
-    # for c in [c for c in chunks if c["content_type"] == "table"][10:15]:
-    #     print(f"  ---\n{c['text'][:300]}")
+    
 
 
 """
