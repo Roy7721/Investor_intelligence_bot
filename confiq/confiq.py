@@ -8,10 +8,11 @@ load_dotenv()
 
 api_key = os.getenv("GROQ_API_KEY")
 
-LLM_MAX_TOKENS = 3000
+LLM_MAX_TOKENS = 4000
+#openai/gpt-oss-120b
 
 LLM_MODEL = ChatOpenAI(
-    model="llama-3.3-70b-versatile",
+    model="openai/gpt-oss-120b",
     base_url="https://api.groq.com/openai/v1",
     api_key=api_key,
     max_tokens=LLM_MAX_TOKENS,

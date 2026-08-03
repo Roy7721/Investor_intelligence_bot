@@ -17,7 +17,7 @@ def find_repeating_blocks(raw_blocks: list[str], min_repeats: int = 5) -> dict:
 
 
 if __name__ == "__main__":
-    content = Path("./apple_full.md").read_text(encoding="utf-8")
+    content = Path("./data/markdown/2024_Apple.md").read_text(encoding="utf-8")
     raw_blocks = [b.strip() for b in re.split(r"\n{2,}", content) if b.strip()]
 
     flagged = find_repeating_blocks(raw_blocks)

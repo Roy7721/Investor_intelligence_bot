@@ -268,10 +268,11 @@ def table_to_text(table_chunk_text: str, max_retries: int = 3) -> tuple[str, str
             print("Empty conversion — falling back to raw table text.")
             return table_chunk_text, "raw_fallback"
 
-        except RateLimitError:
-            wait_time = 5 * (attempt + 1)
-            print(f"Rate limited, waiting {wait_time}s before retry...")
-            time.sleep(wait_time)
+        except RateLimitError as e:
+            print(f"    GROQ ERROR: {e}")
+            wait = 5 * (attempt + 1)
+            print(f"Rate limited, waiting {wait}s before retry...")
+            time.sleep(wait)
 
     print("Max retries hit — falling back to raw table text.")
     return table_chunk_text, "raw_fallback"
@@ -301,27 +302,51 @@ def convert_table_chunks(chunks: list[dict]) -> list[dict]:
 # --------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    chunks = chunk_markdown(
-        markdown_file="./data/markdown/2024_Tesla.md",
-        source_company="Tesla",
-        filing_year=2024,
-    )
 
-    tables = sum(1 for c in chunks if c["content_type"] == "table")
-    print(f"Total chunks: {len(chunks)}  (tables: {tables})")
+    import re
 
-    short = [c for c in chunks if len(c["text"].strip()) < 60]
-    print(f"\nChunks under 60 chars: {len(short)}")
-    for c in short[:20]:
-        print(f"  ({c['content_type']}) {c['text']!r}")
+    content = read_markdown("./data/markdown/2024_Apple.md")
+    raw_blocks = [b.strip() for b in re.split(r"\n{2,}", content) if b.strip()]
+    raw_blocks = [re.sub("<br>", "", b) for b in raw_blocks]
+    raw_blocks = remove_repeating_boilerplate(raw_blocks)
 
-    print("\nSample chunks with heading context:")
-    for c in chunks[:5]:
-        print(f"  ---\n{c['text'][:200]}")
+    WRAPPED = re.compile(r"^(?:<u>|\*\*|__|_)(.{3,90}?)(?:</u>|\*\*|__|_)$")
 
-    print("\nTable chunks (first 3):")
-    for c in [c for c in chunks if c["content_type"] == "table"][10:15]:
-        print(f"  ---\n{c['text'][:300]}")
+    candidates = []
+    for i, b in enumerate(raw_blocks):
+        s = b.strip()
+        if is_heading_block(s) or is_table_block(s) or "\n" in s:
+            continue
+        m = WRAPPED.fullmatch(s)
+        if m and re.search(r"[A-Za-z]{3,}", m.group(1)) \
+        and not m.group(1).rstrip().endswith((".", ",", ";", ":")):
+            candidates.append((i, s))
+
+    print(f"Heading-shaped blocks with no # marker: {len(candidates)}")
+    for i, s in candidates:
+        print(f"  [{i}] {s}")
+
+    # chunks = chunk_markdown(
+    #     markdown_file="./data/markdown/2024_Microsoft.md",
+    #     source_company="Microsoft",
+    #     filing_year=2024,
+    # )
+
+    # tables = sum(1 for c in chunks if c["content_type"] == "table")
+    # print(f"Total chunks: {len(chunks)}  (tables: {tables})")
+
+    # short = [c for c in chunks if len(c["text"].strip()) < 60]
+    # print(f"\nChunks under 60 chars: {len(short)}")
+    # for c in short[:20]:
+    #     print(f"  ({c['content_type']}) {c['text']!r}")
+
+    # print("\nSample chunks with heading context:")
+    # for c in chunks[:5]:
+    #     print(f"  ---\n{c['text'][:200]}")
+
+    # print("\nTable chunks (first 3):")
+    # for c in [c for c in chunks if c["content_type"] == "table"][10:15]:
+    #     print(f"  ---\n{c['text'][:300]}")
 
 
 """

@@ -1,0 +1,33 @@
+# Investor Intelligence Bot — pinned to the versions this pipeline was built
+# and verified against (Apple & Tesla 2024 10-Ks).
+#
+#   python -m venv venv
+#   venv\Scripts\pip install -r requirements.txt
+
+# --- Ingestion ---------------------------------------------------------
+pymupdf4llm==1.28.0              # PDF -> markdown, with table detection
+langchain-text-splitters==1.1.2  # RecursiveCharacterTextSplitter for prose
+
+# --- Models ------------------------------------------------------------
+langchain-openai==1.4.1          # ChatOpenAI pointed at Groq's OpenAI-compatible endpoint
+openai==2.52.0                   # raw client for OpenRouter embeddings
+
+# --- Storage -----------------------------------------------------------
+chromadb==1.5.9                  # persistent vector store
+
+# --- Config ------------------------------------------------------------
+python-dotenv==1.2.2             # loads GROQ_API_KEY / OPENROUTER_API_KEY from .env
+
+# --- Planned: app layer ------------------------------------------------
+# Listed in the original stack plan but not yet wired up — nothing in the
+# codebase imports these today.
+fastapi==0.141.1
+uvicorn==0.52.0
+
+# Removed from the previous requirements.text and why:
+#   sqlalchemy, psycopg2-binary  — no relational database in this design
+#   jinja2, python-multipart     — no templating or file-upload endpoint yet
+#   langchain-experimental       — was only for SemanticChunker, rejected in section 3
+#   pydantic                     — transitive via fastapi/langchain, not imported directly
+#   sentence-transformers        — was all-MiniLM-L6-v2, replaced by OpenRouter embeddings
+#                                  (section 5); still installed locally but unused

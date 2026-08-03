@@ -60,11 +60,13 @@ def embed_and_store(chunks: list[dict], name: str):
 if __name__ == "__main__":
     root_path = Path(__file__).resolve().parents[1]
 
-    source_company = "Tesla"
+    source_company = "Microsoft"
     filing_year = 2024
+    pdf_path = root_path / "data" / "raw_pdfs" / "2024_Microsoft.pdf"
+    md_path  = root_path / "data" / "markdown" / "2024_Microsoft.md"
 
-    pdf_path = root_path / "data" / "raw_pdfs" / "2024_Tesla.pdf"
-    md_path = root_path / "data" / "markdown" / "2024_Tesla.md"
+    from confiq.confiq import LLM_MODEL, LLM_MAX_TOKENS
+    print(f"MODEL: {LLM_MODEL.model_name}  MAX_TOKENS: {LLM_MAX_TOKENS}")
 
     cache_file = cache_path_for(root_path, md_path, source_company, filing_year)
 

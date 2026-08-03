@@ -1,3 +1,24 @@
+# Secrets
 .env
-./notes.txt
-./check_quota.py
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtual environments
+venv/
+.venv/
+
+# Vector store — large regenerable binaries. data_level0.bin is already 17MB,
+# and every re-ingestion rewrites the whole file into a brand new git blob.
+# Rebuild with: python -m vector_store.vector_store
+CHROMA_PERSIST_DIR/
+
+# Personal scratch
+notes.txt
+check_quota.py
+
+# NOTE: data/cache/*.json is deliberately NOT ignored. Those converted chunks
+# cost 10-15 minutes of LLM calls against a limited daily free-tier quota to
+# regenerate, and they are small (~200-280KB). They stay in the repo.
