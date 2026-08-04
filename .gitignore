@@ -19,6 +19,9 @@ CHROMA_PERSIST_DIR/
 notes.txt
 check_quota.py
 
+# Working issue list — raw findings, superseded by journey.md once written up.
+OPEN_ISSUES.md
+
 # NOTE: data/cache/*.json is deliberately NOT ignored. Those converted chunks
 # cost 10-15 minutes of LLM calls against a limited daily free-tier quota to
 # regenerate, and they are small (~200-280KB). They stay in the repo.

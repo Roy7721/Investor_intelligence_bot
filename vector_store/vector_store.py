@@ -13,7 +13,7 @@ _client = chromadb.PersistentClient(path=CHROMA_PERSIST_DIR)
 _embedder = OpenRouterEmbeddingFunction(api_key=OPENROUTER_API_KEY, model=EMBEDDING_MODEL)
 
 # Bump this whenever chunking or table_to_text logic changes.
-PIPELINE_VERSION = 5
+PIPELINE_VERSION = 6
 
 
 

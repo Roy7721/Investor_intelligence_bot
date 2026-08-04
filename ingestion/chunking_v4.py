@@ -51,7 +51,7 @@ from openai import RateLimitError
 from confiq.confiq import LLM_MODEL
 
 
-PIPELINE_VERSION = 5
+PIPELINE_VERSION = 7
 
 # Deliberately conservative. Only kills blocks with essentially no content
 # ("x", "o" checkbox marks). Short-but-real answers like "None." survive,
@@ -98,21 +98,51 @@ def is_table_block(block: str) -> bool:
     )
 
 
+UNDERLINED = re.compile(r"^<u>(.{3,90}?)</u>$")
+
+
 def is_heading_block(block: str) -> bool:
     """
-    A block is a heading if it is a single line beginning with a markdown
-    '#' marker.
+    A block is a heading if it is a single line that either:
+      - begins with a markdown '#' marker (Rule A), or
+      - is wrapped in <u>...</u> (Rule B, fallback)
 
-    Rule A (structural), chosen over a length threshold: this reads the
-    document's own markup rather than inferring from size. Its failure mode
-    is inherited from pymupdf4llm's heading detection — it may MISS a
-    heading, but it never merges real content into the wrong section, which
-    a length rule would (e.g. "None." is short but is real content).
+    Rule B exists because pymupdf4llm detects headings by font size.
+    Microsoft underlines its note headings at body text size, so they
+    are never marked. Bold is deliberately NOT accepted: it produced
+    17 false positives on Apple and Tesla cover pages.
     """
     stripped = block.strip()
     if "\n" in stripped:
         return False
-    return stripped.startswith("#")
+
+    if stripped.startswith("#"):
+        return True
+
+    m = UNDERLINED.fullmatch(stripped)
+    if not m:
+        return False
+
+    inner = m.group(1)
+    if not re.search(r"[A-Za-z]{3,}", inner):
+        return False
+    if inner.rstrip().endswith((".", ",", ";", ":")):
+        return False
+    return True
+
+
+def clean_heading(block: str) -> str:
+    """
+    Normalize a heading before it becomes context.
+
+    Removes <u> tags so markup is not embedded as text, and gives
+    promoted headings a '##' marker so all heading context looks the
+    same regardless of which rule caught it.
+    """
+    s = block.strip()
+    if s.startswith("#"):
+        return s.replace("<u>", "").replace("</u>", "")
+    return "## " + s.replace("<u>", "").replace("</u>", "")
 
 
 def is_degenerate(block: str) -> bool:
@@ -146,7 +176,7 @@ def attach_headings(raw_blocks: list[str]) -> list[tuple[str, str]]:
         if is_heading_block(block):
             if not prev_was_heading:
                 pending = []          # new heading run — start fresh
-            pending.append(block.strip())
+            pending.append(clean_heading(block))
             prev_was_heading = True
             continue
 
@@ -216,6 +246,7 @@ def chunk_markdown(
                 "content_type": "table",
                 "source_company": source_company,
                 "filing_year": filing_year,
+                "heading_context": context,
                 "conversion_status": "pending",
             })
         else:
@@ -226,6 +257,7 @@ def chunk_markdown(
                     "content_type": "prose",
                     "source_company": source_company,
                     "filing_year": filing_year,
+                    "heading_context": context,
                     "conversion_status": "n/a",
                 })
 
@@ -240,7 +272,6 @@ TABLE_TO_TEXT_SYSTEM_PROMPT = """You convert financial tables into clear, natura
 Rewrite every row of the given table as one or more complete sentences, preserving every number and label exactly.
 Do not summarize, round, or omit any figures. Do not add commentary or analysis.
 """
-import re
 
 LONG_WAIT_THRESHOLD_SECONDS = 90
 
@@ -325,15 +356,24 @@ def convert_table_chunks(chunks: list[dict]) -> list[dict]:
         chunk["conversion_status"] = "pending"
 
     for n, chunk in enumerate(tables, start=1):
+        heading = chunk.get("heading_context", "")
+        body = chunk["text"]
+
+        # Send the table WITHOUT its heading. The heading is not table data,
+        # and the LLM's reply replaces whatever we send it.
+        if heading and body.startswith(heading):
+            body = body[len(heading):].lstrip("\n")
+
         try:
-            text, status = table_to_text(chunk["text"])
+            text, status = table_to_text(body)
         except QuotaExhausted as e:
             print(f"\nABORTING RUN at table {n}/{total}.")
             print(f"  Daily quota exhausted; server asked for {e.wait_seconds / 60:.0f}m.")
             print(f"  {total - n + 1} tables left unconverted.")
             break
 
-        chunk["text"] = text
+        # Put the heading back ourselves. Never rely on the LLM to keep it.
+        chunk["text"] = "\n".join(p for p in (heading, text) if p)
         chunk["conversion_status"] = status
         print(f"  table {n}/{total}: {status}")
         time.sleep(2.5)
@@ -361,21 +401,17 @@ if __name__ == "__main__":
             filing_year=2024,
         )
     
-    tables = sum(1 for c in chunks if c["content_type"] == "table")
-    print(f"Total chunks: {len(chunks)}  (tables: {tables})")
-    
-    short = [c for c in chunks if len(c["text"].strip()) < 60]
-    print(f"\nChunks under 60 chars: {len(short)}")
-    for c in short[:20]:
-            print(f"  ({c['content_type']}) {c['text']!r}")
-    
-    print("\nSample chunks with heading context:")
-    for c in chunks[:5]:
-            print(f"  ---\n{c['text'][:200]}")
-    
-    print("\nTable chunks (first 3):")
-    for c in [c for c in chunks if c["content_type"] == "table"][10:15]:
-            print(f"  ---\n{c['text'][:300]}")
+    print("\nheading_context check:")
+    missing = sum(1 for c in chunks if "heading_context" not in c)
+    blank = sum(1 for c in chunks if not c.get("heading_context"))
+    print(f"  chunks missing the field : {missing}")
+    print(f"  chunks with blank heading: {blank} / {len(chunks)}")
+
+    print("\n  First 5 TABLE chunks:")
+    for c in [c for c in chunks if c["content_type"] == "table"][:5]:
+        print(f"    {c['heading_context']!r}")
+
+
 
     # import re
 
