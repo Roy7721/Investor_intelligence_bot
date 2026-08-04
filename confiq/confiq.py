@@ -56,4 +56,11 @@ root_path = Path(__file__).resolve().parents[1]
 
 CHROMA_PERSIST_DIR = root_path / "CHROMA_PERSIST_DIR" / "chroma_store"
 
+# One spelling of this string in the codebase. The write side uses
+# get_or_create_collection and the read side uses get_collection, so a typo at
+# a call site would silently create a second, empty collection: embeddings go
+# in, retrieval keeps querying the old one, and you get zero results with no
+# error anywhere. Import this; never pass the name as a literal.
+COLLECTION_NAME = "investor_intelligence"
+
 RETRIEVAL_TOP_K = 10

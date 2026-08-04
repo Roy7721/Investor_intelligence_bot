@@ -1,5 +1,6 @@
 """
-chunking_v4.py — PIPELINE_VERSION 5
+chunking_v4.py — PIPELINE_VERSION 7 (see the constant below; this file is the
+single source of truth for it, vector_store imports it)
 
 Changes vs v3
 -------------

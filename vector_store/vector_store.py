@@ -2,18 +2,24 @@ import json
 import hashlib
 from pathlib import Path
 
-from ingestion.chunking_v4 import chunk_markdown, convert_table_chunks
+from ingestion.chunking_v4 import (
+    chunk_markdown, convert_table_chunks, PIPELINE_VERSION,
+)
 import chromadb
 from confiq.confiq import (
-    CHROMA_PERSIST_DIR, EMBEDDING_MODEL,
+    CHROMA_PERSIST_DIR, COLLECTION_NAME, EMBEDDING_MODEL,
     OpenRouterEmbeddingFunction, OPENROUTER_API_KEY,
 )
 
 _client = chromadb.PersistentClient(path=CHROMA_PERSIST_DIR)
 _embedder = OpenRouterEmbeddingFunction(api_key=OPENROUTER_API_KEY, model=EMBEDDING_MODEL)
 
-# Bump this whenever chunking or table_to_text logic changes.
-PIPELINE_VERSION = 6
+# PIPELINE_VERSION is imported from the chunker, not redeclared here. It used
+# to exist in both files and the two drifted (chunker 7, this file 6). Since
+# cache_path_for() reads it, bumping the chunker's copy silently did nothing:
+# the path still resolved to the old filename, cache_file.exists() hit, and
+# chunks from the previous chunker were loaded with no error and no warning.
+# That is the failure that makes a correct fix look broken.
 
 
 
@@ -23,7 +29,7 @@ def cache_path_for(root: Path, md_path: Path, company: str, year: int) -> Path:
     return root / "data" / "cache" / f"{company}_{year}_{md_hash}_v{PIPELINE_VERSION}.json"
 
 
-def embed_and_store(chunks: list[dict], name: str):
+def embed_and_store(chunks: list[dict], name: str = COLLECTION_NAME):
     """Replace this filing's data in the collection. Idempotent."""
     if not chunks:
         raise ValueError("embed_and_store received no chunks")
@@ -98,4 +104,6 @@ if __name__ == "__main__":
         cache_file.write_text(json.dumps(chunks), encoding="utf-8")
         print(f"Saved cache: {cache_file.name}")
 
-    embed_and_store(chunks, name="investor_intelligence")
+    # Outside the if/else on purpose: this must run on a cache hit as well as a
+    # cache miss. Indent it into the else and cache hits silently store nothing.
+    embed_and_store(chunks)

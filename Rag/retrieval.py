@@ -1,7 +1,5 @@
 from vector_store.vector_store import _client, _embedder
-from confiq.confiq import RETRIEVAL_TOP_K
-
-COLLECTION_NAME = "investor_intelligence"
+from confiq.confiq import COLLECTION_NAME, RETRIEVAL_TOP_K
 
 
 def retrieve_chunks(
