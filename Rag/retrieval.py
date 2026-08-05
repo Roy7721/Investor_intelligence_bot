@@ -1,5 +1,5 @@
-from vector_store.vector_store import _client, _embedder
-from confiq.confiq import COLLECTION_NAME, RETRIEVAL_TOP_K
+from vector_store.vector_store_v2 import _client, _embedder
+from config.config import COLLECTION_NAME, RETRIEVAL_TOP_K
 
 
 def retrieve_chunks(
@@ -70,8 +70,6 @@ def retrieve_chunks(
                 "content_type": metadata["content_type"],
                 "source_company": metadata["source_company"],
                 "filing_year": metadata["filing_year"],
-                # Older chunks predate this field — default rather than KeyError.
-                "conversion_status": metadata.get("conversion_status", "unknown"),
             })
 
     return chunks
@@ -86,24 +84,62 @@ def build_context(retrieved_chunks: list[dict]) -> str:
 
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    chunks = retrieve_chunks(question="What does Note 10 of Microsoft's 10-K cover?", source_company="Microsoft")
+#     chunks = retrieve_chunks(question="What does Note 10 of Microsoft's 10-K cover?", source_company="Microsoft")
+#     eval_questions = [
+#     "Total revenue in FY2024?",
+#     "Net income in FY2024?",
+#     "Intelligent Cloud revenue 2024?",
+#     "R&D spend 2024?",
+#     "Diluted EPS 2024?",
+#     "Server products and cloud services revenue 2024?",
+#     "Gross carrying amount of marketing-related intangible assets?",
+#     "Intangible assets from Activision Blizzard?",
+#     "Shares repurchased in FY2024? State units.",
+#     "Total stockholders' equity at 30 June 2024? State units.",
+#     "What does Note 10 cover?",
+#     "What does Note 13 cover?",
+#     "Which note covers unearned revenue?",
+#     "Summarise the debt note.",
+#     "What is in the employee stock and savings plans note?",
+#     "Who is the auditor?",
+#     "What AI-related risks are listed?",
+#     "What is said about cloud competition?",
+#     "Revenue recognition policy for software licences?",
+#     "Do the three segments sum to total revenue?",
+#     "Intelligent Cloud growth 2023 to 2024, dollars and percent?",
+#     "More Personal Computing share of total revenue?",
+#     "Which segment grew fastest in 2024?",
+#     "Productivity and Business Processes revenue: 2023 vs 2024?",
+#     "Did operating expenses rise or fall vs 2023?",
+#     "What were Apple's net sales in 2024?",
+#     "Compare Microsoft's revenue with Tesla's.",
+#     "Revenue forecast for 2026?",
+#     "How many people work in Azure?",
+#     "Share price in August 2026?",
+#     "What was announced at Build 2025?",
+#     "Why did revenue fall in 2024?",
+#     "How much was paid to acquire OpenAI?",
+#     "Gaming Cloud segment revenue?",
+# ]
+#     for i in eval_questions:
+#         chunks = retrieve_chunks(question=str(i), source_company="Microsoft")
+#         print(build_context(chunks))
 
-    
 
-    tables = sum(1 for c in chunks if c["content_type"] == "table")
-    degraded = sum(1 for c in chunks if c["conversion_status"] == "raw_fallback")
-    print(f"Retrieved {len(chunks)} chunks ({tables} tables, {degraded} raw_fallback)")
+    # tables = sum(1 for c in chunks if c["content_type"] == "table")
+    # degraded = sum(1 for c in chunks if c["conversion_status"] == "raw_fallback")
+    # print(f"Retrieved {len(chunks)} chunks ({tables} tables, {degraded} raw_fallback)")
     
-    if not chunks:
-        raise SystemExit("No chunks retrieved.")
+    # if not chunks:
+    #     raise SystemExit("No chunks retrieved.")
 
-    print("\nRanking:")
-    for c in chunks:
-            preview = c["text"].replace("\n", " ")[:70]
-            print(f"  {c['distance']:.4f}  {c['content_type']:<5}  {preview}")
+    # print("\nRanking:")
+    # for c in chunks:
+    #         preview = c["text"].replace("\n", " ")[:70]
+    #         print(f"  {c['distance']:.4f}  {c['content_type']:<5}  {preview}")
     
-    print("\nContext preview:")
+    # print("\nContext preview:")
     
-    print(build_context(chunks)[:1000])
+   # print(build_context(chunks)[:1000])

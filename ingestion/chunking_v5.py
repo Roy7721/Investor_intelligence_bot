@@ -1,7 +1,8 @@
 from pathlib import Path
 import re
 from config.config import MIN_BODY_CHARS
-from langchain_text_splitters import RecursiveCharacterTextSplitter, Language
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from collections import Counter
 
 def read_markdown(markdown_path : str):
     return Path(markdown_path).read_text(encoding='utf-8')
@@ -10,6 +11,19 @@ def read_markdown(markdown_path : str):
 def is_table_block(block:str) -> bool:
     return any(line.strip().startswith("|") or line.strip().endswith("|")
                for line in block.split('\n'))
+
+UNITS_RE = re.compile(r"^\(?\s*in\s+(millions|thousands|billions)\b(?:,\s*[a-zA-Z]+)?", re.I)
+
+def remove_repeating_boilerplate(blocks: list[str], min_repeats: int = 5) -> list[str]:
+    normalized = [re.sub(r"\d+", "#", b) for b in blocks]
+    counts = Counter(normalized)
+
+    kept: list[str] = []
+    for block, norm in zip(blocks, normalized):
+        if counts[norm] >= min_repeats and not UNITS_RE.match(block.strip("*_ ")):
+            continue
+        kept.append(block)
+    return kept
 
 
 HEADING_RE = re.compile(r"^(#{1,6})\s+\S")
@@ -25,14 +39,16 @@ def heading_level(block: str) -> int | None:
 
 
 
-def is_degenerate(block: str) -> bool:
-    """Blocks with essentially no content"""
-    body = re.sub(r"[#*_<>/\s]", "", block)
-    return len(body) < MIN_BODY_CHARS
+def is_degenerate(block:str)-> bool:
+    body = re.sub(r"[#*_<>/\s-]", "", block)
+    if len(body) < MIN_BODY_CHARS:
+        if block.strip().upper() in {"N/A", "NA", "YES", "NO"}:
+            return False
+        return True
+    return False
 
 def attach_headings(blocks:list[str])-> list[tuple[str,str]]:
 
-    context = ""
     
     pairs: list[tuple[str, str]] = []
     stack: dict[int, str] = {}
@@ -51,6 +67,7 @@ def attach_headings(blocks:list[str])-> list[tuple[str,str]]:
 
     return pairs
 
+
 def chunk_markdown(
     markdown_file: str,
     source_company: str,
@@ -62,7 +79,12 @@ def chunk_markdown(
     content = read_markdown(markdown_path=markdown_file)
     raw_blocks = [b.strip() for b in re.split(r"\n{2,}", content) if b.strip()]
 
+    raw_blocks = remove_repeating_boilerplate(raw_blocks, min_repeats=min_repeats)
+
+
     pairs = attach_headings(raw_blocks)
+
+    pairs = [(b, ctx) for b, ctx in pairs if is_table_block(b) or not is_degenerate(b)]
 
     prose_splitter = RecursiveCharacterTextSplitter(
             chunk_size=chunk_size,
@@ -71,47 +93,50 @@ def chunk_markdown(
         )
 
     chunks: list[dict] = []
+    captions: dict[int, str] = {}
     consumed: set[int] = set()
 
     for i, (block, context) in enumerate(pairs):
-            if i in consumed:
-                continue
-    
-            if is_table_block(block):
-                caption = None
-                if i - 1 >= 0 and (i - 1) not in consumed:
-                    prev_block, prev_context = pairs[i - 1]
-                    # Same context = same section, so the preceding block really
-                    # is about this table. Different context means a heading sat
-                    # between them, i.e. the table opens a new section and the
-                    # block behind it belongs to the previous one — pairing there
-                    # would mislabel the table AND delete a real paragraph.
-                    if not is_table_block(prev_block) and prev_context == context:
-                        caption = prev_block
-                        consumed.add(i - 1)
-    
-                parts = [p for p in (context, caption, block) if p]
+        if not is_table_block(block):
+            continue
+        parts: list[str] = []
+        j = i - 1
+        while j >= 0 and len(parts) < 3:
+            if j in consumed:
+                break
+            prev_block, prev_context = pairs[j]
+            if is_table_block(prev_block) or prev_context != context:
+                break
+            parts.append(prev_block)
+            consumed.add(j)
+            j -= 1
+        if parts:
+            captions[i] = "\n".join(reversed(parts))
+
+    # Pass 2: emit.
+    for i, (block, context) in enumerate(pairs):
+        if i in consumed:
+            continue
+
+        if is_table_block(block):
+            parts = [p for p in (context, captions.get(i), block) if p]
+            chunks.append({"text": "\n".join(parts),
+                            "content_type": "table",
+                            "source_company": source_company,
+                            "filing_year": filing_year,})
+        else:
+            for sub_chunk in prose_splitter.split_text(block):
+                parts = [p for p in (context, sub_chunk) if p]
                 chunks.append({
                     "text": "\n".join(parts),
-                    "content_type": "table",
+                    "content_type": "prose",
                     "source_company": source_company,
                     "filing_year": filing_year,
-                    "heading_context": context,
-                    "conversion_status": "pending",
                 })
-            else:
-                for sub_chunk in prose_splitter.split_text(block):
-                    parts = [p for p in (context, sub_chunk) if p]
-                    chunks.append({
-                        "text": "\n".join(parts),
-                        "content_type": "prose",
-                        "source_company": source_company,
-                        "filing_year": filing_year,
-                        "heading_context": context,
-                        "conversion_status": "n/a",
-                    })
     
     return chunks
+
+
 
 
 

@@ -81,4 +81,4 @@ CHROMA_PERSIST_DIR = ROOT / "CHROMA_PERSIST_DIR" / "chroma_store"
 # error anywhere. Import this; never pass the name as a literal.
 COLLECTION_NAME = "investor_intelligence"
 
-RETRIEVAL_TOP_K = 10
+RETRIEVAL_TOP_K = 5
