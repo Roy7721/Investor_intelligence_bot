@@ -6,7 +6,25 @@ import os
 
 load_dotenv()
 
-api_key = os.getenv("GROQ_API_KEY")
+### elemets that is required for pdf_to_markdown:
+ROOT = Path(__file__).resolve().parents[1]
+
+DATALAB_API_KEY = os.getenv("DATALAB_API_KEY")
+# if not DATALAB_API_KEY:
+#     raise SystemExit(
+#         "DATALAB_API_KEY not set. Add it to .env:\n"
+#         "    DATALAB_API_KEY=...\n"
+#         "Key from https://www.datalab.to/app/api"
+#     )
+
+SUBMIT_URL = "https://www.datalab.to/api/v1/marker"
+POLL_INTERVAL_SECONDS = 3
+MAX_POLLS = 200
+
+## chunking requiements
+MIN_BODY_CHARS = 3
+
+llm_api_key = os.getenv("GROQ_API_KEY")
 
 LLM_MAX_TOKENS = 4000
 #openai/gpt-oss-120b
@@ -14,7 +32,7 @@ LLM_MAX_TOKENS = 4000
 LLM_MODEL = ChatOpenAI(
     model="openai/gpt-oss-120b",
     base_url="https://api.groq.com/openai/v1",
-    api_key=api_key,
+    api_key=llm_api_key,
     max_tokens=LLM_MAX_TOKENS,
 )
 
@@ -52,9 +70,9 @@ class OpenRouterEmbeddingFunction:
     def embed_query(self, input: list[str]) -> list[list[float]]:
         return self(input)
 
-root_path = Path(__file__).resolve().parents[1]
+ROOT
 
-CHROMA_PERSIST_DIR = root_path / "CHROMA_PERSIST_DIR" / "chroma_store"
+CHROMA_PERSIST_DIR = ROOT / "CHROMA_PERSIST_DIR" / "chroma_store"
 
 # One spelling of this string in the codebase. The write side uses
 # get_or_create_collection and the read side uses get_collection, so a typo at
