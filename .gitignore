@@ -22,6 +22,10 @@ check_quota.py
 # Working issue list — raw findings, superseded by journey.md once written up.
 OPEN_ISSUES.md
 
+# Throwaway retrieval experiments and their scratch vector stores.
+Scripts/exp_*.py
+data/experiments/
+
 # NOTE: data/cache/*.json is deliberately NOT ignored. Those converted chunks
 # cost 10-15 minutes of LLM calls against a limited daily free-tier quota to
 # regenerate, and they are small (~200-280KB). They stay in the repo.

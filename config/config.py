@@ -30,7 +30,7 @@ LLM_MAX_TOKENS = 4000
 #openai/gpt-oss-120b
 
 LLM_MODEL = ChatOpenAI(
-    model="openai/gpt-oss-120b",
+    model="llama-3.3-70b-versatile",
     base_url="https://api.groq.com/openai/v1",
     api_key=llm_api_key,
     max_tokens=LLM_MAX_TOKENS,
@@ -81,4 +81,4 @@ CHROMA_PERSIST_DIR = ROOT / "CHROMA_PERSIST_DIR" / "chroma_store"
 # error anywhere. Import this; never pass the name as a literal.
 COLLECTION_NAME = "investor_intelligence"
 
-RETRIEVAL_TOP_K = 5
+RETRIEVAL_TOP_K = 10

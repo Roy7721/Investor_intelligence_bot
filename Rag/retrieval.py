@@ -7,7 +7,7 @@ def retrieve_chunks(
     source_company: str,
     filing_year: int | None = None,
     top_k: int = RETRIEVAL_TOP_K,
-    table_top_k: int = 3,
+    table_top_k: int = 5,
 ) -> list[dict]:
     """
     Retrieve the top-k most relevant chunks generally, PLUS a guaranteed
