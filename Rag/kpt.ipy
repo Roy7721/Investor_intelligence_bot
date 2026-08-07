@@ -1,0 +1,86 @@
+from config.config import LLM_MODEL
+from Rag.retrieval import retrieve_chunks, build_context
+
+
+
+def build_extraction_prompt(
+    company: str,
+    year: int,
+    context: str
+) -> str:
+    """
+    Build KPI extraction prompt.
+    """
+    return f"""
+You are an expert financial analyst.
+
+Company: {company}
+Year: {year}
+
+Context:
+{context}
+
+Extract the following information:
+
+1. Revenue
+2. Net Income
+3. Operating Income
+4. Cash Flow from Operating Activities
+5. Total Assets
+6. Total Liabilities
+7. Top Risk Factors
+8. Top Growth Drivers
+
+Instructions:
+
+- Use only the provided context.
+- Return null if unavailable.
+- Financial values must match the report exactly.
+- Risk factors should be concise.
+- Growth drivers should be concise.
+- Return valid JSON only.
+"""
+
+
+def ask(question: str, source_company: str,
+        filing_year: int | None = None, debug: bool = False) -> str:
+    retrieved = retrieve_chunks(
+        question=question, source_company=source_company, filing_year=filing_year
+    )
+
+    if not retrieved:
+        return f"No data found for '{source_company}'. Please ingest its filing first."
+
+    if debug:
+        print(f"\n--- Retrieved {len(retrieved)} chunks ---")
+        for i, chunk in enumerate(retrieved):
+            print(f"[{i}] {chunk['distance']:.4f} type={chunk['content_type']} | {chunk['text']}")
+        print("--- end retrieved chunks ---\n")
+
+    context = build_context(retrieved)
+
+    # Retrieval is scoped by a metadata filter, but nothing in the chunk TEXT
+    # says whose filing it is — v4 removed the synthetic "{company} {year}"
+    # header because it added no ranking signal. Correct for retrieval, but it
+    # left the generator blind: asked about Apple, it answered with Microsoft's
+    # revenue and had no way to notice. The scope has to be stated here.
+    scope = f"{source_company}'s {filing_year}" if filing_year else f"{source_company}'s"
+    user_prompt = (
+        f"The context below is from {scope} annual filing, and contains data for "
+        f"no other company.\n\n"
+        f"Context:\n{context}\n\n"
+        f"Question: {question}"
+    )
+
+    SYSTEM_PROMPT = build_extraction_prompt()
+
+
+    messages = [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user", "content": user_prompt},
+    ]
+    #return LLM_MODEL.invoke(messages).content
+
+    response = LLM_MODEL.invoke(messages)
+
+    return response.text

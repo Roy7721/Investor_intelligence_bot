@@ -13,7 +13,7 @@ Answer using only the provided context. If the context includes table data, use 
 If the answer isn't in the context, say so clearly instead of guessing.
 If the question names a company, segment, note, or metric that does not appear in the context, say that it does not appear. Do not answer with a similarly named item instead.
 If the question assumes something the context contradicts or does not support, say so rather than accepting the assumption.
-Answer in one short sentence. Give the figure and its units, nothing else.
+Answer in one short sentence. Give the figure and its units, nothing else. If you show a calculation, your verdict must follow from it. Do not state a conclusion your own figures contradict.
 """
 
 
@@ -55,13 +55,19 @@ def ask(question: str, source_company: str,
 
     response = LLM_MODEL.invoke(messages)
 
-    answer = (response.content or "").strip()
+    # answer = (response.content or "").strip()
 
-    if not answer:
-        meta = getattr(response, "response_metadata", {})
-        return f"[empty response — finish_reason={meta.get('finish_reason')}]"
+    # if not answer:
+    #     meta = getattr(response, "response_metadata", {})
+    #     return f"[empty response — finish_reason={meta.get('finish_reason')}]"
 
-    return answer
+    
+
+    # approx_tokens = len(SYSTEM_PROMPT + user_prompt) // 4
+    # if debug or approx_tokens > 4000:
+    #     print(f"[~{approx_tokens} prompt tokens, {len(retrieved)} chunks]")
+
+    return response.text
 
 if __name__ == "__main__":
 
@@ -147,6 +153,7 @@ if __name__ == "__main__":
 
     # --- entity-name traps (the Gaming Cloud failure class) ---
     "What was iPhone segment revenue in fiscal 2024?",
+
     "What were Intelligent Cloud net sales?",
     "What was the Apple Vision Pro segment's revenue?",
     "What were Microsoft's total revenues in 2024?",
@@ -158,8 +165,49 @@ if __name__ == "__main__":
     # --- false premise ---
     "Why did Apple's net income rise in fiscal 2024?",
 ]
-    for q in apple_eval:
+
+    recheck_apple = [
+    "Which reportable segment had the highest net sales in 2024?",
+    "What was iPhone segment revenue in 2024?",
+    "Do Apple's reportable segments sum to total net sales in 2024? Show the calculation.",
+    "What is in the financial instruments note?",
+    "What are Apple's cash and marketable securities by investment category?",
+    "Who is Apple's independent registered public accounting firm?"
+]
+
+    questions = [
+    "What were total revenues in 2024?",
+    "What were automotive revenues in 2024?",
+    "What was energy generation and storage revenue in 2024?",
+    "What was services and other revenue in 2024?",
+    "What was gross profit in 2024?",
+    "What was research and development expense in 2024?",
+    "What was diluted EPS in 2024?",
+    "How much revenue came from automotive regulatory credits in 2024?",
+    
+    "What is in the note on digital assets?",
+    "Which note covers commitments and contingencies?",
+    "Who is Tesla's independent registered public accounting firm?",
+    "On what date did Tesla's 2024 fiscal year end?",
+    
+    "Do automotive, energy generation and storage, and services and other sum to total revenues in 2024? Show the calculation.",
+    "Did net income rise or fall from 2023 to 2024?",
+    "What was total revenue growth from 2023 to 2024, in dollars and percent?",
+    
+    "What were vehicle production and delivery volumes by model in 2024?",
+    "What were revenues by geography in 2024?",
+    
+    "What was Cybertruck segment revenue in 2024?",
+    "Which of Tesla's three reportable segments was largest?",
+    "Why did Tesla's revenue decline in 2024?",
+    "What were Apple's net sales in 2024?",
+    "How many Roadsters were delivered in 2024?",
+    "What is Tesla's revenue forecast for 2026?"
+]
+    for q in questions:
 
         print(f"\n=== {q}")
-        print(ask(question=q, source_company="Apple",filing_year=2024))
-        #time.sleep()
+        print(ask(question=q, source_company="Tesla",filing_year=2024))
+        time.sleep(3)
+
+    #print(ask(question="Who is Apple's independent registered public accounting firm?", source_company="Apple",filing_year=2024, debug=False))

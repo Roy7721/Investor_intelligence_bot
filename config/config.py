@@ -2,6 +2,7 @@ from pathlib import Path
 from langchain_openai import ChatOpenAI
 from openai import OpenAI
 from dotenv import load_dotenv
+from langchain_google_genai import ChatGoogleGenerativeAI
 import os
 
 load_dotenv()
@@ -25,19 +26,40 @@ MAX_POLLS = 200
 MIN_BODY_CHARS = 3
 
 llm_api_key = os.getenv("GROQ_API_KEY")
-
-LLM_MAX_TOKENS = 4000
-#openai/gpt-oss-120b
-
-LLM_MODEL = ChatOpenAI(
-    model="llama-3.3-70b-versatile",
-    base_url="https://api.groq.com/openai/v1",
-    api_key=llm_api_key,
-    max_tokens=LLM_MAX_TOKENS,
-)
-
-
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+
+LLM_MAX_TOKENS = 2000
+#openai/gpt-oss-120b
+#llama-3.1-8b-instant
+#openrouter/auto-beta
+
+# LLM_MODEL = ChatOpenAI(
+#     model="openai/gpt-oss-120b",
+#     base_url="https://api.groq.com/openai/v1",
+#     api_key=llm_api_key,
+#     max_tokens=LLM_MAX_TOKENS,
+# )
+LLM_MODEL = ChatGoogleGenerativeAI(model="gemini-3.1-flash-lite", temperature=None)
+# from langchain_openrouter import ChatOpenRouter
+
+# LLM_MODEL = ChatOpenRouter(
+#     model="openrouter/free",
+#     api_key=OPENROUTER_API_KEY,
+#     max_tokens=LLM_MAX_TOKENS,
+#     temperature=0,
+# )
+
+# from langchain_openai import ChatOpenAI
+
+# LLM_MODEL = ChatOpenAI(
+#     model="nvidia/nemotron-3-ultra-550b-a55b:free",
+#     base_url="https://openrouter.ai/api/v1",
+#     api_key=OPENROUTER_API_KEY,
+#     temperature=0,
+#     max_tokens=LLM_MAX_TOKENS,
+# )
+
+
 EMBEDDING_MODEL = "nvidia/nemotron-3-embed-1b:free"
 
 class OpenRouterEmbeddingFunction:
@@ -81,4 +103,4 @@ CHROMA_PERSIST_DIR = ROOT / "CHROMA_PERSIST_DIR" / "chroma_store"
 # error anywhere. Import this; never pass the name as a literal.
 COLLECTION_NAME = "investor_intelligence"
 
-RETRIEVAL_TOP_K = 10
+RETRIEVAL_TOP_K = 15

@@ -317,7 +317,164 @@ caption was being duplicated. Both directions need a test.
 
 ---
 
-## 14. Where things stand
+## 14. Evaluation, and finding the inputs were wrong
+
+### The prompt did more damage than expected
+
+Adding `"Answer in one short sentence. Give the figure and its units, nothing
+else."` broke four question types at once:
+
+| question | answer | problem |
+|---|---|---|
+| Do the segments sum to total net sales? | `$391,035 million.` | it's a **yes/no** question |
+| What were the product category sales? | `$294,866 million.` | that's *Products*, not the five categories |
+| What is in the financial instruments note? | `$162,099 million.` | **descriptive** question, answered with a number |
+| ...by investment category? | `$156,650 million.` | asked for a breakdown, got one total |
+
+A formatting constraint doesn't just change formatting — it **competes with the
+reasoning instructions already in the prompt**. The fix was to make the format
+conditional on question type rather than absolute.
+
+Confounded, though: the model had been switched from `gpt-oss-120b` to
+`llama-3.3-70b-versatile` in the same change. Two variables, so the regression
+could not be attributed. The lesson from the extractor trial — change one
+thing — applies to prompts too, and was not applied.
+
+### The inputs were excerpts all along
+
+Chasing a failed auditor question surfaced the real problem:
+
+| | PDF used | actual filing |
+|---|---|---|
+| Apple | 39 pages | 121 |
+| Microsoft | 61 pages, "Annual Report 2024" | ~100 |
+| Tesla | (excerpt) | 144 |
+
+Microsoft's had **zero** occurrences of Item 1A, Item 7, Item 8 or Risk
+Factors. Apple's had no audit report.
+
+Which retroactively vindicated a whole class of results treated as failures —
+the AI-risks refusal, the cloud-competition refusal, the Item 1A refusal. The
+pipeline was right every time; the content was never there.
+
+**The weakest link was data acquisition, not engineering.** Days were spent
+tuning extraction and chunking against documents that were missing the sections
+being asked about.
+
+### The auditor question, diagnosed properly
+
+With Apple's full 121-page 10-K ingested (1,218 chunks, up from 252), the
+auditor question still failed — now a genuine miss with an obvious gold chunk:
+
+> "The Company's **independent registered public accounting firm, Ernst & Young
+> LLP**, has issued an audit report..."
+
+That one sentence holds both the query phrase and the answer. It ranked **11**,
+outside top-10.
+
+```
+[1] 0.7677  ... / Report of Independent Re...  "To the Shareholders and the Board of Directors"
+[2] 0.7677  ... / Report of Independent Re...  "To the Shareholders and the Board of Directors"   <- byte-identical
+[3] 0.9575  ... / Consent of Independent Registered P...
+```
+
+Retrieval found the right *region* and returned the chunks without the name.
+The heading `Report of Independent Registered Public Accounting Firm` matches
+the query almost perfectly and is carried by **every chunk in that section**, so
+the salutation at the start ranks equal to the signature at the end.
+
+Same intra-section collapse the A/B experiment found on More Personal
+Computing, reproduced on unrelated content. Two independent confirmations of
+one mechanism.
+
+Ranks 1 and 2 are byte-identical — Apple has two audit reports sharing a
+salutation — so two of ten slots went to the same string.
+
+Fixed by widening `RETRIEVAL_TOP_K` 10 → 15. **It then worked first time on
+Tesla**, which is the part that matters: the fix generalised rather than being
+fitted to one query.
+
+### The free tier kept shaping the architecture
+
+Third time an external limit drove a design decision, after the 256-token
+embedding window and the daily quota:
+
+```
+413 - Request too large. Limit 8000, Requested 8395
+```
+
+Not a rate problem — a **single request** over the per-minute ceiling. Groq
+counts `prompt_tokens + max_tokens`, so `LLM_MAX_TOKENS = 4000` was reserving
+half the budget before any context was added. Dropped to 2000.
+
+This also argues against reasoning models on a constrained tier: `gpt-oss-120b`
+needs a large reservation *and* spends most of it invisibly. That is a cost
+consideration, not just a quality one.
+
+Groq's daily quota then failed to reset for several days, forcing a move to
+Gemini `gemini-3.1-flash-lite`.
+
+### An accidental architectural property
+
+Three model families — `gpt-oss-120b` (Groq), `llama-3.3-70b-versatile`
+(Groq), `gemini-3.1-flash-lite` (Google) — have now run through the same
+`ask()` with **no changes to retrieval or chunking**. The pipeline is
+model-agnostic in practice.
+
+Not designed; forced by quota. Worth claiming anyway.
+
+One seam it exposed: Gemini returns `response.content` as a list of content
+blocks rather than a string, so answers printed as
+`[{'type': 'text', 'text': '...'}]`. Provider differences belong at that
+boundary, normalised in one place.
+
+### Tesla, on the full filing — 21/23
+
+All eight figure lookups correct. Geography summed exactly
+(47,725 + 20,944 + 29,021 = 97,690). Three answers worth noting:
+
+- *"Which of Tesla's three reportable segments was largest?"* →
+  **"Tesla operates as only two reportable segments, not three."** False premise
+  on a count, caught.
+- *"Why did Tesla's revenue decline in 2024?"* → corrected the premise **and**
+  added that automotive sales revenue did fall on lower ASPs. Distinguished a
+  total from a component.
+- *"Who is Tesla's independent registered public accounting firm?"* →
+  **PricewaterhouseCoopers LLP**, first attempt.
+
+One real failure, and an instructive one:
+
+```
+Do automotive, energy, and services sum to total revenues? Show the calculation.
+-> "No, the sum ... is $97,690 million, ... equal to the reported total revenues
+    of $97,690 million."
+```
+
+It says **No**, then demonstrates **Yes**. Self-contradiction is worse than a
+wrong figure: nothing in the output signals which half to trust, and a skim
+reads only the verdict. Prompt now requires the verdict to follow from any
+calculation shown.
+
+### The mislabelling bug
+
+Between runs, `vector_store_v2.__main__` had `md_path` pointed at Apple while
+`source_company` still read `"Microsoft"` — two independent literals that
+drifted. Because `embed_and_store` deletes by `(company, year)` before adding,
+it **wiped Microsoft's chunks** and stored Apple's filing under Microsoft's
+label. Sixteen plausible-looking Apple answers were returned before anyone
+noticed.
+
+Fourth instance this project of one value spelled in two places, after
+`PIPELINE_VERSION`, `COLLECTION_NAME`, and the extractor converters. Fixed by
+deriving company and year from the filename, which is already
+`{year}_{Company}.md`.
+
+The check that makes it visible in one command: for each company, count chunks
+mentioning a term only that company would use.
+
+---
+
+## 15. Where things stand
 
 **Done**
 - Extractor decided and documented: Datalab, with the reasoning and the
