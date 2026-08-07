@@ -1,0 +1,83 @@
+{
+  "company": "Tesla",
+  "year": 2024,
+  "metrics": {
+    "revenue": {
+      "value": 97690,
+      "units": "millions USD",
+      "source_quote": "Total revenues | $ 97,690 | $ 96,773 | $ 81,462 | $ 917 | 1 % | $ 15,311 | 19 %",
+      "error": null,
+      "absent": null
+    },
+    "net_income": {
+      "value": 7153,
+      "units": "millions USD",
+      "source_quote": "Net income | $ 7,153",
+      "error": null,
+      "absent": null
+    },
+    "operating_income": {
+      "value": 7076,
+      "units": "millions USD",
+      "source_quote": "Income from operations | 7,076 | 8,891 | 13,656",
+      "error": null,
+      "absent": null
+    },
+    "operating_cash_flow": {
+      "value": 14923,
+      "units": "millions USD",
+      "source_quote": "Net cash provided by operating activities           | $ 14,923               | $ 13,256   | $ 14,724   |",
+      "error": null,
+      "absent": null
+    },
+    "total_assets": {
+      "value": 122070,
+      "units": "millions USD",
+      "source_quote": "Total assets | $ 122,070",
+      "error": null,
+      "absent": null
+    },
+    "total_liabilities": {
+      "value": 48390,
+      "units": "millions USD",
+      "source_quote": "Total liabilities 48,390",
+      "error": null,
+      "absent": null
+    },
+    "risk_factors": {
+      "value": [
+        "Additional funds may not be available to us when we need or want them.",
+        "We may be unable to meet our projected construction timelines, costs and production ramps at new factories, or we may experience difficulties in generating and maintaining demand for products manufactured there.",
+        "Our business may suffer if our products or features contain defects, fail to perform as expected or take longer than expected to become fully functional.",
+        "If we are unable to attract, hire and retain key employees and qualified personnel, our ability to compete may be harmed.",
+        "There is no guarantee that we will have sufficient cash flow from our business to pay our indebtedness or that we will not incur additional indebtedness.",
+        "We face risks associated with maintaining and expanding our international operations, including unfavorable and uncertain regulatory, political, economic, tax and labor conditions.",
+        "Our operations could be adversely affected by events outside of our control, such as natural disasters, wars or health epidemics.",
+        "Our suppliers may fail to deliver components according to schedules, prices, quality and volumes that are acceptable to us, or we may be unable to manage these components effectively.",
+        "We may experience delays in launching and ramping the production of our products and features, or we may be unable to control our manufacturing costs."
+      ],
+      "units": null,
+      "source_quote": "We may be unable to meet our projected construction timelines, costs and production ramps at new factories, or we may experience difficulties in generating and maintaining demand for products manufactured there.",
+      "error": null,
+      "absent": null
+    },
+    "growth_drivers": {
+      "value": [
+        "Megapack deployments",
+        "Powerwall deployments",
+        "sales of used vehicles",
+        "non-warranty maintenance services and collision revenue",
+        "paid Supercharging revenue",
+        "insurance services revenue",
+        "part sales revenue",
+        "Automotive regulatory credits",
+        "Cybertruck deliveries",
+        "FSD (Supervised) revenue"
+      ],
+      "units": null,
+      "source_quote": "Energy generation and storage revenue increased $4.05 billion, or 67%, in the year ended December 31, 2024 as compared to the year ended December 31, 2023, primarily due to a 16.7 GWh increase in Megapack and Powerwall deployments compared to the prior year. Services and other revenue increased $2.22 billion, or 27%, in the year ended December 31, 2024 as compared to the year ended December 31, 2023, primarily due to increases in sales of used vehicles, non-warranty maintenance services and collision revenue, paid Supercharging revenue, insurance services revenue and part sales revenue. Automotive regulatory credits revenue increased $973 million, or 54%, in the year ended December 31, 2024 as compared to the year ended December 31, 2023, driven by demand for credits in North America as other automobile manufacturers scale back on their battery electric vehicle plans. an increase of approximately 19,000 deliveries of other models primarily due to our production ramp of Cybertruck. Additionally, we recognized $596 million of FSD (Supervised) revenue due to release of certain features in 2024.",
+      "error": null,
+      "absent": null
+    }
+  }
+}

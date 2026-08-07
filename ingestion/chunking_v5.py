@@ -81,6 +81,8 @@ def chunk_markdown(
 
     raw_blocks = remove_repeating_boilerplate(raw_blocks, min_repeats=min_repeats)
 
+    raw_blocks = [b.replace("\\$", "$") for b in raw_blocks]
+
 
     pairs = attach_headings(raw_blocks)
 

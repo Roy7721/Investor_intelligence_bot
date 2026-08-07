@@ -1,0 +1,66 @@
+{
+  "company": "Microsoft",
+  "year": 2024,
+  "metrics": {
+    "revenue": {
+      "value": 245122,
+      "units": "millions USD",
+      "source_quote": "Total revenue | 245,122 | 211,915 | 198,270",
+      "error": null,
+      "absent": null
+    },
+    "net_income": {
+      "value": 88136,
+      "units": "millions USD",
+      "source_quote": "Net income                                                     | <b>88,136</b>     | 72,361      | 22%                      |",
+      "error": null,
+      "absent": null
+    },
+    "operating_income": {
+      "value": 109433,
+      "units": "millions USD",
+      "source_quote": "| Operating income | 109,433 | 88,523 | 24% |",
+      "error": null,
+      "absent": null
+    },
+    "operating_cash_flow": {
+      "value": 118548,
+      "units": "millions USD",
+      "source_quote": "Net cash from operations | 118,548   | 87,582    | 89,035",
+      "error": null,
+      "absent": null
+    },
+    "total_assets": {
+      "value": 512163,
+      "units": "millions USD",
+      "source_quote": "Total assets                                                                             | <u>$ 512,163</u> | <u>$ 411,976</u> |",
+      "error": null,
+      "absent": null
+    },
+    "total_liabilities": {
+      "value": 243686,
+      "units": "millions USD",
+      "source_quote": "Total liabilities                                                                        | 243,686           | 205,753           |",
+      "error": null,
+      "absent": null
+    },
+    "risk_factors": {
+      "value": null,
+      "units": null,
+      "source_quote": null,
+      "error": null,
+      "absent": "Item 1A not present in this filing"
+    },
+    "growth_drivers": {
+      "value": [
+        "Azure",
+        "Office 365 Commercial",
+        "Gaming"
+      ],
+      "units": null,
+      "source_quote": "Intelligent Cloud revenue increased driven by Azure. Productivity and Business Processes revenue increased driven by Office 365 Commercial. More Personal Computing revenue increased driven by Gaming.",
+      "error": null,
+      "absent": null
+    }
+  }
+}

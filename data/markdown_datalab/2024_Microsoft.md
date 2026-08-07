@@ -260,9 +260,9 @@ The dividend declared on June 12, 2024 was included in other current liabilities
 Among Microsoft Corporation, the S&P 500 Index  
 and the NASDAQ Computer Index
 
-![Line graph showing the 5-year cumulative total return for Microsoft Corporation, S&P 500, and NASDAQ Computer Index from 6/19 to 6/24. Microsoft Corporation shows the highest growth, reaching approximately $349.91 by 6/24. The NASDAQ Computer Index follows, reaching approximately $331.25. The S&P 500 shows the lowest growth, reaching approximately $201.54.](f519a5be118c846f631c992412353fb9_img.jpg)
+![Line graph showing the 5-year cumulative total return for Microsoft Corporation, S&P 500, and NASDAQ Computer Index from 6/19 to 6/24. Microsoft Corporation shows the highest growth, reaching approximately $350, followed by NASDAQ Computer at $331.25, and S&P 500 at $201.54.](f519a5be118c846f631c992412353fb9_img.jpg)
 
-The graph illustrates the performance of three investment indices over a five-year period. Microsoft Corporation (squares) starts at \$100 and ends at \$349.91. The NASDAQ Computer Index (circles) starts at \$100 and ends at \$331.25. The S&P 500 (triangles) starts at \$100 and ends at \$201.54. All indices show a general upward trend with some fluctuations, particularly a dip around 6/22.
+The graph illustrates the performance of three investment indices over a five-year period. The Y-axis represents the cumulative total return in dollars, ranging from \$0 to \$400 in increments of \$50. The X-axis shows the dates from 6/19 to 6/24. Microsoft Corporation (squares) starts at \$100 and ends at \$349.91. NASDAQ Computer (circles) starts at \$100 and ends at \$331.25. S&P 500 (triangles) starts at \$100 and ends at \$201.54. All three indices show a general upward trend, with some fluctuations in the middle years.
 
 |                       | 6/19   | 6/20   | 6/21   | 6/22   | 6/23   | 6/24   |
 |-----------------------|--------|--------|--------|--------|--------|--------|
@@ -270,7 +270,7 @@ The graph illustrates the performance of three investment indices over a five-ye
 | S&P 500               | 100.00 | 107.51 | 151.36 | 135.29 | 161.80 | 201.54 |
 | NASDAQ Computer       | 100.00 | 147.90 | 222.50 | 173.91 | 228.85 | 331.25 |
 
-Line graph showing the 5-year cumulative total return for Microsoft Corporation, S&P 500, and NASDAQ Computer Index from 6/19 to 6/24. Microsoft Corporation shows the highest growth, reaching approximately \$349.91 by 6/24. The NASDAQ Computer Index follows, reaching approximately \$331.25. The S&P 500 shows the lowest growth, reaching approximately \$201.54.
+Line graph showing the 5-year cumulative total return for Microsoft Corporation, S&P 500, and NASDAQ Computer Index from 6/19 to 6/24. Microsoft Corporation shows the highest growth, reaching approximately \$350, followed by NASDAQ Computer at \$331.25, and S&P 500 at \$201.54.
 
 |                       | 6/19   | 6/20   | 6/21   | 6/22   | 6/23   | 6/24          |
 |-----------------------|--------|--------|--------|--------|--------|---------------|
@@ -280,7 +280,503 @@ Line graph showing the 5-year cumulative total return for Microsoft Corporation,
 
 \* \$100 invested on 6/30/19 in stock or index, including reinvestment of dividends. Fiscal year ending June 30.
 
-##### More Personal Computing
+### **Note About Forward-Looking Statements**
+
+This report includes estimates, projections, statements relating to our business plans, objectives, and expected operating results that are “forward-looking statements” within the meaning of the Private Securities Litigation Reform Act of 1995, Section 27A of the Securities Act of 1933, and Section 21E of the Securities Exchange Act of 1934. Forward-looking statements may appear throughout this report, including the following sections: “Business” and “Management’s Discussion and Analysis of Financial Condition and Results of Operations”. These forward-looking statements generally are identified by the words “believe,” “project,” “expect,” “anticipate,” “estimate,” “intend,” “strategy,” “future,” “opportunity,” “plan,” “may,” “should,” “will,” “would,” “will be,” “will continue,” “will likely result,” and similar expressions. Forward-looking statements are based on current expectations and assumptions that are subject to risks and uncertainties that may cause actual results to differ materially. We describe risks and uncertainties that could cause actual results and events to differ materially in “Risk Factors,” “Management’s Discussion and Analysis of Financial Condition and Results of Operations,” and “Quantitative and Qualitative Disclosures About Market Risk” in our fiscal year 2024 Form 10-K. Readers are cautioned not to place undue reliance on forward-looking statements, which speak only as of the date they are made. We undertake no obligation to update or revise publicly any forward-looking statements, whether because of new information, future events, or otherwise.
+
+## **BUSINESS**
+
+## **GENERAL**
+
+### **Embracing Our Future**
+
+Microsoft is a technology company committed to making digital technology and artificial intelligence (“AI”) available broadly and doing so responsibly, with a mission to empower every person and every organization on the planet to achieve more. We create platforms and tools, powered by AI, that deliver innovative solutions that meet the evolving needs of our customers. From infrastructure and data, to business applications and collaboration, we provide unique, differentiated value to customers. We strive to create local opportunity, growth, and impact in every country around the world.
+
+We have entered a new age of AI that will fundamentally transform productivity for every individual, organization, and industry on earth, while helping us address some of our most pressing challenges. Microsoft’s AI offerings, including Copilot and our Copilot stack, are already orchestrating a new era of AI transformation, driving better business outcomes across every role and industry. As a company, we believe we can be the democratizing force for this new generation of technology and the opportunity it will help unlock for every country, community, and individual.
+
+We believe AI should be as empowering across communities as it is powerful, and we’re committed to ensuring it is responsibly designed and built with safety and security from the outset.
+
+### **What We Offer**
+
+Founded in 1975, we develop and support software, services, devices, and solutions that deliver new value for customers and help people and businesses realize their full potential.
+
+We offer an array of services, including cloud-based solutions that provide customers with software, services, platforms, and content, and we provide solution support and consulting services. We also deliver relevant online advertising to a global audience.
+
+Our products include operating systems, cross-device productivity and collaboration applications, server applications, business solution applications, desktop and server management tools, software development tools, and video games. We also design and sell devices, including PCs, tablets, gaming and entertainment consoles, other intelligent devices, and related accessories.
+
+### **The Ambitions That Drive Us**
+
+To achieve our vision, our research and development efforts focus on three interconnected ambitions:
+
+- Reinvent productivity and business processes.
+- Build the intelligent cloud and intelligent edge platform.
+- Create more personal computing.
+
+#### ***Reinvent Productivity and Business Processes***
+
+At Microsoft, we provide technology and resources to help our customers create a secure, productive work environment. Our family of products plays a key role in the ways the world works, learns, and connects.
+
+Our growth depends on securely delivering continuous innovation and advancing our leading productivity and collaboration tools and services, including Microsoft 365, LinkedIn, and Dynamics 365. Microsoft 365 is an AI first platform that brings together Office, Windows, Copilot, and Enterprise Mobility + Security to help organizations empower their employees. Copilot for Microsoft 365 combines AI with business data in the Microsoft Graph and Microsoft 365 applications. Microsoft Teams is a comprehensive platform for communication and collaboration, with meetings, calling, chat, file collaboration, and the ability to bring all of the applications teams use into a single place. Microsoft Viva is an employee experience platform that brings together communications, knowledge, learning, resources, and insights.
+
+Together, the Microsoft Cloud, Dynamics 365, Microsoft Teams, and our AI offerings bring a new era of collaborative applications for every role and business function to get insights and business impact faster. Dynamics 365 is a portfolio of intelligent business applications that delivers operational efficiency and breakthrough customer experiences. Our role-based extensions of Microsoft Copilot – Copilot for Sales, Copilot for Service, and Copilot for Finance – bring together the power of Copilot for Microsoft 365 with role-specific insights and workflow assistance to streamline business processes. Copilot Studio allows customers to customize Copilot for Microsoft 365 or build their own Copilot. Microsoft Power Platform helps domain experts drive productivity gains with low-code/no-code tools, robotic process automation, virtual agents, and business intelligence. Copilot Pro is a consumer subscription service that offers faster and more powerful AI assistance in Microsoft 365 apps and on the web. LinkedIn combines our unique data with this new generation of AI to transform the way professionals learn, sell, market, and get hired.
+
+#### ***Build the Intelligent Cloud and Intelligent Edge Platform***
+
+Digital transformation and adoption of AI continues to revolutionize more business workstreams for organizations in every sector across the globe. For enterprises, digital technology empowers employees, optimizes operations, engages customers, and in some cases, changes the very core of products and services. We continue to invest in high performance and sustainable computing to meet the growing demand for fast access to Microsoft services provided by our network of cloud computing and AI infrastructure and datacenters.
+
+Our cloud business benefits from three economies of scale: datacenters that deploy computational resources at significantly lower cost per unit than smaller ones; datacenters that coordinate and aggregate diverse customer, geographic, and application demand patterns, improving the utilization of computing, storage, and network resources; and multi-tenancy locations that lower application maintenance labor costs.
+
+The Microsoft Cloud provides the best integration across the technology stack while offering openness, improving time to value, reducing costs, and increasing agility. As the foundation of the Microsoft Cloud, Azure uniquely offers hybrid consistency, developer productivity, data and AI capabilities, and trusted security and compliance.
+
+We offer supercomputing power for AI at scale to run large workloads, complemented by our rapidly expanding portfolio of AI cloud services and hardware, which includes custom-built silicon and strong partnerships with chip manufacturers. We have introduced purpose-built cloud infrastructure for AI workloads including a custom AI accelerator, Azure Maia, and a custom in-house central processing unit, Azure Cobalt.
+
+Our AI platform, Azure AI, is helping organizations transform, bringing intelligence and insights to the hands of their employees and customers to solve their most pressing challenges. We offer a wide selection of industry-leading frontier and open models, including from partners, as well as state-of-the-art tooling, and AI-optimized infrastructure, delivering the
+
+Copilot stack for Microsoft, enterprises, and developers. Organizations large and small are deploying Azure AI solutions to achieve more at scale, more easily, with the proper enterprise-level responsible AI and safety and security protections. Azure AI Studio provides a full lifecycle toolchain customers can use to ground these models on their own data, create prompt workflows, and help ensure they are deployed and used safely.
+
+GitHub Copilot is at the forefront of AI-powered software development, giving developers a tool to write code easier and faster. From GitHub to Visual Studio, we provide a developer tool chain for everyone, no matter the technical experience, across all platforms.
+
+We have a long-term partnership with OpenAI, a leading AI research and deployment company. We deploy OpenAI's models across our consumer and enterprise products. As OpenAI's exclusive cloud provider, Azure powers all of OpenAI's workloads. We have also increased our investments in the development and deployment of specialized supercomputing systems to accelerate OpenAI's research.
+
+Our hybrid infrastructure offers integrated, end-to-end security, compliance, identity, and management capabilities to support the real-world needs and evolving regulatory requirements of commercial customers and enterprises. Our industry clouds bring together capabilities across the entire Microsoft Cloud, along with industry-specific customizations. Azure Arc simplifies governance and management by delivering a consistent multi-cloud and on-premises management platform.
+
+The Microsoft Intelligent Data Platform fully integrates databases, analytics, and governance. Microsoft Fabric is an end-to-end, unified analytics platform that brings together all the data and analytics tools that organizations need.
+
+Nuance is a leader in conversational AI and ambient intelligence across industries, including healthcare, financial services, retail, and telecommunications. Microsoft and Nuance enable organizations to accelerate their business goals with security-focused, cloud-based solutions infused with AI.
+
+As the rate and pace of cyberthreats continue to accelerate, security is a top priority for every organization. Microsoft offers customers integrated products addressing security, compliance, identity, management, and privacy across customers' multi-cloud, application, and device assets. With Copilot for Security, Microsoft offers an AI cybersecurity product that enables security professionals to respond to cyberthreats quickly.
+
+Windows 365 enables users to stream a full Windows experience from the Microsoft Cloud to any device.
+
+#### ***Create More Personal Computing***
+
+We strive to make computing more personal, enabling users to interact with technology in more intuitive, engaging, and dynamic ways.
+
+Windows 11 offers innovations focused on performance, productivity, and creativity, including Copilot in Windows. Windows 11 security and privacy features include operating system security, application security, and user and identity security. Dev Home is an open-source experience in Windows to help developer productivity. We are committed to designing and marketing first-party devices to help drive innovation, create new device categories, and stimulate demand in the Windows ecosystem. The Surface family includes Surface Pro, Surface Laptop, and other Surface products. Copilot+ PCs are a new class of Windows 11 PCs that are powered by a neural processing unit. These PCs use on-device AI for enhanced performance and features.
+
+Copilot is an AI assistant that helps users navigate the web, answer questions, and create content. Microsoft Edge is our fast and secure browser that helps protect users' data and offers enhanced browsing capabilities including quick access to AI-powered tools, apps, and more. The AI-powered Bing search engine with Copilot delivers better search, more complete answers, and the ability to generate content.
+
+Microsoft is expanding how billions of people globally access and play video games on PC, console, mobile, and cloud. We put game development front and center, backed by innovative hardware, experiences, and a subscription service, Xbox Game Pass, that allows those games to reach more players across more devices. Activision Blizzard, Inc. ("Activision Blizzard"), a leader in game development and an interactive entertainment content publisher, joined Microsoft in October 2023.
+
+### ***Our Future Opportunity***
+
+We are focused on helping customers use the breadth and depth of the Microsoft Cloud to get the most value out of their digital spend while leading the AI platform wave across our solution areas. We continue to develop complete, intelligent solutions for our customers that empower people to be productive and collaborate, while safeguarding businesses and simplifying IT management. Our goal is to lead the industry in several distinct areas of technology over the long term, which we expect will translate to sustained growth. We are investing significant resources in:
+
+- Transforming the workplace to deliver new modern, modular business applications, drive deeper insights, and improve how people communicate, collaborate, learn, work, and interact with one another.
+- Building and running cloud-based services in ways that utilize ubiquitous computing to unleash new experiences and opportunities for businesses and individuals.
+- Applying AI and ambient intelligence to drive insights, revolutionize many types of work and business processes, and provide substantive productivity gains using natural methods of communication.
+- Tackling security from all angles with our integrated, end-to-end solutions spanning security, compliance, identity, and management, across all clouds and platforms.
+- Inventing new gaming experiences that bring people together around their shared love for games on any devices and pushing the boundaries of innovation with console and PC gaming.
+- Using Windows to fuel our cloud business, grow our share of the PC market, and drive increased engagement with our services like Microsoft Edge, Bing, Microsoft Teams, Microsoft 365 Consumer, Xbox Game Pass, and more.
+
+Our future growth depends on our ability to transcend current product category definitions, business models, and sales motions.
+
+### **Corporate Social Responsibility**
+
+#### ***Commitment to Sustainability***
+
+Microsoft's approach to addressing climate change starts with the sustainability of our own business. In 2020, we committed to being a carbon negative, water positive, and zero waste company by 2030.
+
+Since announcing that commitment, we have seen major changes both in the technology sector and in our understanding of what it will take to meet our climate goals. New technologies, including generative AI, hold promise for new innovations that can help address the climate crisis. At the same time, the infrastructure and electricity needed for these technologies create new challenges for meeting sustainability commitments across the tech sector.
+
+In May 2024, we released our Environmental Sustainability Report which looked back at our progress in several areas during fiscal year 2023. In four areas we are on track, and in each of these we see progress that has the potential to have global impact beyond our own sustainability work. These are:
+
+- Reducing our direct operational emissions (Scope 1 and 2).
+- Accelerating carbon removal.
+- Designing for circularity to minimize waste and reusing cloud hardware.
+- Improving biodiversity and protecting more land than we use.
+
+At the same time, there are two areas where we're not yet on track, and in each of these we are intensively engaged in work to identify and pursue additional breakthroughs. These are:
+
+- Reducing our indirect emissions (Scope 3).
+- Reducing our water use and replenishing more water than we consume in our datacenter operations.
+
+Even amid the challenges, we remain optimistic. We're encouraged by ongoing progress across our campuses and datacenters, and throughout our value chain.
+
+#### ***Addressing Racial Injustice and Inequity***
+
+In June 2020, we outlined a series of multi-year commitments designed to address the racial injustice and inequity experienced by racial and ethnic minorities in the United States, including Black and African American communities. We remain committed to addressing racial injustice and inequity and helping improve lived experiences at Microsoft, in employees' communities, and beyond.
+
+In fiscal year 2024, we continued to collaborate with partners and worked within neighborhoods and communities to advance projects and programs. We grew our Nonprofit Tech Acceleration for Black and African American Communities program, to help more than 3,000 local organizations in nearly 1,900 Black and African American communities use technical solutions to modernize and streamline operations. We also expanded our Technology Education and Learning Support ("TEALS") program to reach nearly 550 high schools across 21 racial equity expansion regions with the support of nearly 1,500 volunteers, 12% of whom identify as Black or African American.
+
+We have committed \$150 million in Minority Depository Institutions and funds supporting Black and African American-owned small businesses. These commitments drive sustained impact by directly enabling an increase of funds into local communities, improving diverse, small-business access to capital, and increasing skill development. We continue to partner with diverse-owned banking partners and asset managers to catalyze growth and industry participation. Additionally, we enriched our supplier pipeline, achieving our goal to spend \$500 million with double the number of Black- and African American-owned suppliers. We have also provided 162 low- or no-interest loans to our small to medium-sized partners through our Partner Capital Fund.
+
+We also continue to make progress toward our overall commitment to double the number of Black and African American and Hispanic and Latinx leaders in the U.S. by 2025.
+
+#### ***Investing in Digital Skills***
+
+Microsoft's Skills for Jobs initiative aims to support a more skills-based labor market, with greater flexibility and accessible learning paths to develop the right skills needed for the most in-demand jobs. This initiative brings together classes, Career Essentials Certificates, and other resources from LinkedIn, GitHub, and Microsoft Learn, and is built on data insights drawn from LinkedIn's Economic Graph. Our goal was to train and certify 10 million learners by 2025. As of May 2024, we have surpassed that goal, training and certifying 12.6 million learners. We also launched a campaign in the United States in 2021 to help skill and recruit 250,000 people into the nation's cybersecurity workforce by 2025, representing half of the country's workforce shortage. To that end, we are making curriculum available free of charge to all of the nation's higher education institutions, providing training for new and existing faculty, and providing scholarships and supplemental resources to 25,000 students. The cyber skills initiative has expanded to 27 additional countries that show elevated cyberthreat risks coupled with significant gaps in their cybersecurity workforces, where we've partnered with nonprofits and other educational institutions to train the next generation of cybersecurity workers.
+
+Generative AI is creating unparalleled opportunities to empower workers globally, but only if everyone has the skills to use it. In June 2023, we launched an AI Skills initiative to help everyone learn how to harness the power of AI. This includes a new LinkedIn learning pathway offering new coursework on learning the foundations of generative AI. We also launched a new global grant challenge to uncover new ways of training workers on generative AI and provide greater access to digital learning events and resources. Additionally, we extended our reach in rural communities, including through our TechSpark initiative in the United States. As of June 2024, we've helped more than 2.5 million people in 92% of the world's countries learn how to use AI.
+
+### **HUMAN CAPITAL RESOURCES**
+
+Microsoft aims to recruit, develop, and retain world-changing talent from a diversity of backgrounds. To foster their and our success, we seek to create an environment where people can thrive and do their best work. We strive to maximize the potential of our human capital resources by creating a respectful, rewarding, and inclusive work environment that enables our global employees to create products and services that further our mission. Microsoft's culture is grounded in growth mindset. This means everyone is on a continuous journey to learn and grow, operating as one company instead of multiple siloed businesses. Our culture also embeds the security of customers and Microsoft as a priority for every employee and across all of our organizations.
+
+As of June 30, 2024, we employed approximately 228,000 people on a full-time basis, 126,000 in the U.S. and 102,000 internationally. Of the total employed people, 86,000 were in operations, including product support and consulting services, datacenter operations, and manufacturing and distribution; 81,000 were in product research and development; 45,000 were in sales and marketing; and 16,000 were in general and administration. Certain employees are subject to collective bargaining agreements.
+
+We design our programs to attract, reward, and retain top talent, enable our employees' continual growth, and reinforce our culture and values. Our total compensation opportunity is highly differentiated and market competitive. Our intended result is a global performance and development approach that fosters our culture, drives company performance, and competitive compensation that ensures equitable pay by role while supporting pay for performance.
+
+Diversity and inclusion are core to our business. As reported in our Global Diversity and Inclusion Reports, we monitor pay equity and career progress across multiple dimensions. We encourage every person at Microsoft to play an active role in creating an inclusive environment.
+
+We have invested significantly in employee wellbeing and offer a differentiated benefits package which includes many physical, emotional, and financial wellness programs. Our Occupational Health and Safety program helps to protect employees' safety while they are working. We also have introduced Hybrid Workplace Flexibility guidance to better support leaders, managers, and employees in hybrid work scenarios.
+
+We believe providing employees with access to continual learning enables them to drive impact for the company. We provide individuals and teams with access to first and third-party content resources across professions, disciplines, and roles, and offer skilling opportunities to support employees' growth while driving organizations' needs.
+
+Our employee listening systems enable us to gather feedback directly from our workforce to inform our programs and employee needs globally, giving us real-time insights into ways we can support our employees. As a company, we will continue to leverage data and research to inform decision making, balancing the needs of the business, team, and individual.
+
+### OPERATING SEGMENTS
+
+We operate our business and report our financial performance using three segments: Productivity and Business Processes, Intelligent Cloud, and More Personal Computing. Our segments provide management with a comprehensive financial view of our key businesses. The segments enable the alignment of strategies and objectives across the development, sales, marketing, and services organizations, and they provide a framework for timely and rational allocation of resources within businesses.
+
+Additional information on our operating segments and geographic and product information is contained in Note 19 – Segment Information and Geographic Data of the Notes to Financial Statements.
+
+Our reportable segments are described below.
+
+#### **Productivity and Business Processes**
+
+Our Productivity and Business Processes segment consists of products and services in our portfolio of productivity, communication, and information services, spanning a variety of devices and platforms. This segment primarily comprises:
+
+- Office Commercial (Office 365 subscriptions, the Office 365 portion of Microsoft 365 Commercial subscriptions, and Office licensed on-premises), comprising Office, Exchange, SharePoint, Microsoft Teams, Office 365 Security and Compliance, Microsoft Viva, and Copilot for Microsoft 365.
+- Office Consumer, including Microsoft 365 Consumer and Copilot Pro subscriptions, Office licensed on-premises, and other Office services.
+- LinkedIn, including Talent Solutions, Marketing Solutions, Premium Subscriptions, and Sales Solutions.
+- Dynamics business solutions, including Dynamics 365, comprising a set of intelligent, cloud-based applications across ERP, CRM, Power Apps, and Power Automate; and on-premises ERP and CRM applications.
+
+#### ***Office Commercial***
+
+Office Commercial is designed to increase personal, team, and organizational productivity through a range of products and services. Growth depends on our ability to reach new users in new markets such as frontline workers, small and medium businesses, and growth markets, as well as add value to our core product and service offerings to span AI and productivity categories such as communication, collaboration, analytics, security, and compliance. Office Commercial revenue is mainly affected by a combination of continued installed base growth and average revenue per user expansion, as well as the continued shift from Office licensed on-premises to Office 365.
+
+#### ***Office Consumer***
+
+Office Consumer is designed to increase personal productivity and creativity through a range of products and services. Growth depends on our ability to reach new users, add value to our core product set with new features including AI tools, and continue to expand our product and service offerings into new markets. Office Consumer revenue is mainly affected by the percentage of customers that buy Office with their new devices and the continued shift from Office licensed on-premises to Microsoft 365 Consumer subscriptions. Office Consumer Services revenue is mainly affected by the demand for communication and storage through Skype, Outlook.com, and OneDrive, which is largely driven by subscriptions, advertising, and the sale of minutes.
+
+#### ***LinkedIn***
+
+LinkedIn connects the world's professionals to make them more productive and successful and transforms the way companies hire, market, sell, and learn. Our vision is to create economic opportunity for every member of the global workforce through the ongoing development of the world's first Economic Graph, a digital representation of the global economy. In addition to LinkedIn's free services, LinkedIn offers monetized solutions designed to offer AI-enabled insights and productivity: Talent Solutions, Marketing Solutions, Premium Subscriptions, and Sales Solutions. Talent Solutions provide insights for workforce planning and tools to hire, nurture, and develop talent. Talent Solutions also includes Learning Solutions, which help businesses close critical skills gaps in times where companies are having to do more with existing talent. Marketing Solutions help companies reach, engage, and convert their audiences at scale. Premium Subscriptions enable professionals to manage their professional identity, grow their network, find jobs, access knowledge, and connect with talent through additional services like premium search. Sales Solutions help companies strengthen customer relationships, empower teams with digital selling tools, and acquire new opportunities. Growth will depend on our ability to increase the number of LinkedIn members and our ability to continue offering insight and AI-enabled services that provide value for our members and increase their engagement. LinkedIn revenue is mainly affected by demand from enterprises and professionals for subscriptions to Talent Solutions, Sales Solutions, and Premium Subscriptions offerings, as well as member engagement and the quality of the sponsored content delivered to those members to drive Marketing Solutions.
+
+#### ***Dynamics***
+
+Dynamics provides cloud-based and on-premises business solutions for financial management, enterprise resource planning ("ERP"), customer relationship management ("CRM"), and supply chain management, as well as other low code application development platforms and AI offerings, for small and medium businesses, large organizations, and divisions of global enterprises. Dynamics revenue is driven by the number of users licensed and applications consumed, expansion of average revenue per user, and the continued shift to Dynamics 365, a unified set of cloud-based intelligent business applications, including our low code development platforms, such as Power Apps and Power Automate.
+
+### ***Competition***
+
+Competitors to Office include software and global application vendors, such as Apple, Cisco Systems, Google, Meta, Proofpoint, Slack, Symantec, Zoom, and numerous web-based and mobile application competitors as well as local application developers. Apple distributes versions of its pre-installed application software, such as email and calendar products, through its PCs, tablets, and phones. Cisco Systems is using its position in enterprise communications equipment to grow its unified communications business. Google provides a hosted messaging and productivity suite. Meta offers communication tools to enable productivity and engagement within organizations. Proofpoint and Symantec provide security solutions across email security, information protection, and governance. Slack provides teamwork and collaboration software. Zoom offers videoconferencing and cloud phone solutions. Web-based offerings competing with individual applications have also positioned themselves as alternatives to our products and services. We compete by providing
+
+powerful, flexible, secure, integrated industry-specific, and easy-to-use productivity and collaboration tools and services that create comprehensive solutions and work well with technologies our customers already have both on-premises or in the cloud.
+
+LinkedIn faces competition from online professional networks, recruiting companies, talent management companies, and larger companies that are focusing on talent management and human resource services; job boards; traditional recruiting firms; and companies that provide learning and development products and services. Marketing Solutions competes with online and offline outlets that generate revenue from advertisers and marketers, and Sales Solutions competes with online and offline outlets for companies with lead generation and customer intelligence and insights.
+
+Dynamics competes with cloud-based and on-premises business solution providers such as Oracle, Salesforce, SAP, Service Now, UI Path, and WorkDay.
+
+#### **Intelligent Cloud**
+
+Our Intelligent Cloud segment consists of our public, private, and hybrid server products and cloud services that can power modern business and developers. This segment primarily comprises:
+
+- Server products and cloud services, including Azure and other cloud services; SQL Server, Windows Server, Visual Studio, System Center, and related Client Access Licenses ("CALs"); and Nuance and GitHub.
+- Enterprise and partner services, including Enterprise Support Services, Industry Solutions, Nuance professional services, Microsoft Partner Network, and Learning Experience.
+
+#### ***Server Products and Cloud Services***
+
+Azure is a comprehensive set of cloud services that offer developers, IT professionals, and enterprises freedom to build, deploy, and manage applications on any platform or device. Customers can use Azure through our global network of datacenters for computing, networking, storage, mobile and web application services, AI, Internet of Things ("IoT"), cognitive services, and machine learning. Azure enables customers to devote more resources to development and use of applications that benefit their organizations, rather than managing on-premises hardware and software. Azure revenue is mainly affected by infrastructure-as-a-service and platform-as-a-service consumption-based services, and per user-based services such as Enterprise Mobility + Security.
+
+Azure AI offerings provide a competitive advantage as companies seek ways to optimize and scale their business with machine learning. With Azure's purpose-built, AI-optimized infrastructure, customers can use a variety of large language models and developer tools to create the next generation of AI apps and services.
+
+Our server products are designed to make IT professionals, developers, and their systems more productive and efficient. Server software is integrated server infrastructure and middleware designed to support software applications built on the Windows Server operating system. This includes the server platform, database, business intelligence, storage, management and operations, virtualization, service-oriented architecture platform, security, and identity software. We also license standalone and software development lifecycle tools for software architects, developers, testers, and project managers. Server products revenue is mainly affected by purchases through volume licensing programs, licenses sold to original equipment manufacturers ("OEM"), and retail packaged products. CALs provide access rights to certain server products, including SQL Server and Windows Server, and revenue is reported along with the associated server product.
+
+Nuance and GitHub include both cloud and on-premises offerings. Nuance provides healthcare and enterprise AI solutions. GitHub provides a collaboration platform and code hosting service for developers.
+
+#### ***Enterprise and Partner Services***
+
+Enterprise and Partner Services, including Enterprise Support Services, Industry Solutions, Nuance professional services, Microsoft Partner Network, and Learning Experience, assist customers in developing, deploying, and managing Microsoft
+
+server solutions, Microsoft desktop solutions, and Nuance conversational AI and ambient intelligent solutions, along with providing training and certification to developers and IT professionals on various Microsoft products.
+
+#### *Competition*
+
+Azure faces diverse competition from companies such as Amazon, Broadcom, Google, IBM, Oracle, and open source offerings. Azure's competitive advantage includes enabling a hybrid cloud, allowing deployment of existing datacenters with our public cloud into a single, cohesive infrastructure, and the ability to run at a scale that meets the needs of businesses of all sizes and complexities. Our AI offerings compete with AI products from hyperscalers such as Amazon and Google, as well as products from other emerging competitors, including Anthropic, OpenAI, Meta, and other open source offerings, many of which are also current or potential partners. Our Azure Security offerings include our cloud security solution and security information and event management solution, which compete with companies such as Palo Alto Networks and Cisco. Our Enterprise Mobility + Security offerings also compete with products from a range of competitors including identity vendors, security solution vendors, and numerous other security point solution vendors. We believe our cloud's global scale, coupled with our broad portfolio of identity and security solutions, allows us to effectively solve complex cybersecurity challenges for our customers and differentiates us from the competition.
+
+Our server products face competition from a wide variety of server operating systems and applications offered by companies with a range of market approaches. Vertically integrated computer manufacturers such as Hewlett-Packard, IBM, and Oracle offer their own versions of the Unix operating system preinstalled on server hardware and nearly all computer manufacturers offer server hardware for the Linux operating system.
+
+We compete to provide enterprise-wide computing and point solutions with numerous commercial software vendors that offer solutions and middleware technology platforms, software applications for connectivity, security, hosting, database, and e-business servers. IBM and Oracle lead a group of companies that compete with our enterprise-wide computing solutions. Commercial competitors for our server applications for PC-based distributed client-server environments include Broadcom, IBM, and Oracle. Our web application platform software competes with open source software such as Apache, Linux, MySQL, and PHP. In middleware, we compete against Java vendors.
+
+Our database, business intelligence, and data warehousing solutions offerings compete with products from Databricks, IBM, Oracle, SAP, Snowflake, and other companies. Our system management solutions compete with server management and server virtualization platform providers, such as BMC, Broadcom, Hewlett-Packard, and IBM. Our products for software developers compete against offerings from Adobe, IBM, Oracle, and other companies, and also against open source projects, including Eclipse (sponsored by IBM, Oracle, and SAP), PHP, and Ruby on Rails.
+
+We believe our server products provide customers with advantages in performance, total costs of ownership, and productivity by delivering superior applications, development tools, compatibility with a broad base of hardware and software applications, security, and manageability.
+
+Our Enterprise and Partner Services business competes with a wide range of companies that provide strategy and business planning, application development, and infrastructure services, including multinational consulting firms and small niche businesses focused on specific technologies.
+
+#### **More Personal Computing**
+
+Our More Personal Computing segment consists of products and services that put customers at the center of the experience with our technology. This segment primarily comprises:
+
+- Windows, including Windows OEM licensing and other non-volume licensing of the Windows operating system; Windows Commercial, comprising volume licensing of the Windows operating system, Windows cloud services, and other Windows commercial offerings; patent licensing; and Windows Internet of Things.
+- Devices, including Surface, HoloLens, and PC accessories.
+- Gaming, including Xbox hardware and Xbox content and services, comprising first-party content (such as Activision Blizzard) and third-party content, including games and in-game content; Xbox Game Pass and other subscriptions; Xbox Cloud Gaming; advertising; third-party disc royalties; and other cloud services.
+- Search and news advertising, comprising Bing (including Copilot), Microsoft News, Microsoft Edge, and third-party affiliates.
+
+#### **Windows**
+
+The Windows operating system is designed to deliver a more personal computing experience for users by enabling consistency of experience, applications, and information across their devices. Windows OEM revenue is impacted significantly by the number of Windows operating system licenses purchased by OEMs, which they pre-install on the devices they sell. In addition to computing device market volume, Windows OEM revenue is impacted by:
+
+- The mix of computing devices based on form factor and screen size.
+- Differences in device market demand between developed markets and growth markets.
+- Growth of the AI PC category
+- Attachment of Windows to devices shipped.
+- Customer mix between consumer, small and medium businesses, and large enterprises.
+- Changes in inventory levels in the OEM channel.
+- Pricing changes and promotions, pricing variation that occurs when the mix of devices manufactured shifts from local and regional system builders to large multinational OEMs, and different pricing of Windows versions licensed.
+- Constraints in the supply chain of device components.
+- Piracy.
+
+Windows Commercial revenue, which includes volume licensing of the Windows operating system and Windows cloud services such as Microsoft Defender for Endpoint, is affected mainly by the demand from commercial customers for Microsoft 365 and our advanced security offerings. Windows Commercial revenue often reflects the number of information workers in a licensed enterprise and is relatively independent of the number of PCs sold in a given year.
+
+Patent licensing includes our programs to license patents we own for use across a broad array of technology areas, including mobile devices and cloud offerings.
+
+Windows IoT extends the power of Windows and the cloud to intelligent systems by delivering specialized operating systems, tools, and services for use in embedded devices.
+
+#### **Devices**
+
+We design and sell devices, such as Surface (including Copilot+ PCs), HoloLens, and PC accessories. Our devices are designed to enable people and organizations to connect to the people and content that matter most using Windows and integrated Microsoft products and services. Surface is designed to help organizations, students, and consumers be more productive. Growth in Devices is dependent on total PC shipments, the ability to attract new customers, our product roadmap, and expanding into new categories.
+
+#### **Gaming**
+
+Our gaming platform is designed to provide a variety of entertainment through a unique combination of content, community, and cloud services. Our game content is developed through a collection of first-party studios creating iconic and differentiated gaming experiences. We continue to invest in new gaming studios and content to expand our intellectual property roadmap and leverage new content creators. These unique gaming experiences are the cornerstone of Xbox Game Pass, a subscription service and gaming community with access to a curated library of over 400 first- and third-party console and PC titles.
+
+The gamer remains at the heart of the Xbox ecosystem. We are identifying new opportunities to attract gamers across a variety of different end points through our first- and third-party content and business diversification across subscriptions, ads, and digital stores. We've seen new devices from third-party manufacturers along with key PC and mobile end points that help us empower gamers to play in a way that is most convenient to them. We are focused on growing the platform and expanding to new ecosystems to engage as many gamers as possible.
+
+Xbox enables people to connect and share online gaming experiences that are accessible on Xbox consoles, Windows-enabled devices, and other devices. Xbox is designed to benefit users by providing access to a network of certified applications and services and to benefit our developer and partner ecosystems by providing access to a large customer base. Xbox revenue is mainly affected by subscriptions and sales of first- and third-party content, as well as advertising. Growth of our Gaming business is determined by the overall active user base through Xbox enabled content, availability of games, providing exclusive game content that gamers seek, the computational power and reliability of the devices used to access our content and services, and the ability to create new experiences.
+
+#### ***Search and News Advertising***
+
+Our Search and news advertising business is designed to deliver relevant search, native, and display advertising to a global audience. Our Microsoft Edge browser and Bing search engine with Copilot are key tools to enable user acquisition and engagement, while our technology platform enables accelerated delivery of digital advertising solutions. In addition to first-party tools, we have several partnerships with companies, such as Yahoo, through which we provide and monetize search offerings. Growth depends on our ability to attract new users, understand intent, and match intent with relevant content on advertising offerings.
+
+#### ***Competition***
+
+Windows faces competition from various software products and from alternative platforms and devices, mainly from Apple and Google, and Microsoft Defender for Endpoint competes with CrowdStrike on endpoint security solutions. We believe Windows competes effectively by giving customers choice, value, flexibility, security, an easy-to-use interface, and compatibility with a broad range of hardware and software applications, including those that enable productivity.
+
+Devices face competition from various computer, tablet, and hardware manufacturers who offer a unique combination of high-quality industrial design and innovative technologies across various price points. These manufacturers, many of which are also current or potential partners and customers, include Apple and our Windows OEMs.
+
+Xbox and our cloud gaming services face competition from various online gaming ecosystems and game streaming services, including those operated by Amazon, Apple, Meta, and Tencent. We also compete with other providers of entertainment services such as video streaming platforms. Our gaming platform competes with console platforms from Nintendo and Sony, both of which have a large, established base of customers. We believe our gaming platform is effectively positioned against, and uniquely differentiated from, competitive products and services based on significant innovation in hardware architecture, user interface, developer tools, online gaming and entertainment services, and continued strong content from our own first-party game franchises as well as other digital content offerings.
+
+Our Search and news advertising business competes with Google, OpenAI, and a wide array of websites, social platforms like Meta, and portals that provide content and online offerings to end users.
+
+## **OPERATIONS**
+
+We have regional operations service centers that support our operations, including customer contract and order processing, billing, credit and collections, customer lifecycle operations, information processing, and vendor management and logistics. The centers in Ireland and Romania support the African, European, and Middle East regions; the centers in India and Ireland support the Asia-Pacific region; and the centers in Arlington, Virginia, Atlanta, Georgia, Charlotte, North Carolina, Fargo, North Dakota, Fort Lauderdale, Florida, Redmond, Washington, Reno, Nevada, and San Jose, Costa Rica support the Americas regions.
+
+In addition to our operations centers, we also operate datacenters throughout each of these regions. We continue to identify and evaluate opportunities to expand our datacenter locations and increase our server capacity to meet the evolving needs of our customers, particularly given the growing demand for AI services. Our datacenters depend on the availability of permitted and buildable land, predictable energy, networking supplies, and servers, including graphics processing units ("GPUs") and other components.
+
+Our devices are primarily manufactured by third-party contract manufacturers. For the majority of our products, we have the ability to use other manufacturers if a current vendor becomes unavailable or unable to meet our requirements. However, some of our products contain certain components for which there are very few qualified suppliers. Extended disruptions at these suppliers could impact our ability to manufacture devices on time to meet consumer demand.
+
+### RESEARCH AND DEVELOPMENT
+
+#### **Product and Service Development, and Intellectual Property**
+
+We develop most of our products and services internally through the following engineering groups.
+
+- *Cloud and AI* – focuses on making IT professionals, developers, partners, independent software vendors, and their systems more productive and efficient through development of Azure AI platform and cloud infrastructure, server, database, CRM, ERP, software development tools and services, AI cognitive services, and other business process applications and services for enterprises.
+- *Strategic Missions and Technologies* – focuses on incubating technical products and support solutions with transformative potential for the future of cloud computing and continued company growth, such as quantum computing and advanced AI for science.
+- *Experiences and Devices* – focuses on delivering high value end-user experiences across our products, services, and devices, including Microsoft 365, Windows, Microsoft Teams, and the Surface line of devices.
+- *Microsoft AI* – focuses on delivering online experiences targeted at consumers (including Bing, Copilot, Start/MSN, and other advertising-based services) and developing advanced AI models.
+- *Microsoft Security* – focuses on delivering a comprehensive portfolio of services that protect our customers' digital infrastructure through cloud platform and application security, data protection and governance, identity and network access, and device management.
+- *Technology and Research* – focuses on fundamental research, product and business incubations, and forward-looking AI innovations that span infrastructure, services, and applications. This engineering group includes Microsoft Research, one of the world's largest corporate research organizations, which focuses on fundamental research in AI, computer science, and a broad range of other disciplines.
+- *LinkedIn* – focuses on our services that transform the way professionals grow their network and find jobs and the way businesses hire, market, sell, and learn.
+- *Gaming* – focuses on developing hardware, content, and services across a large range of platforms to help grow our user base through game experiences and social interaction.
+
+Internal development allows us to maintain competitive advantages that come from product differentiation and closer technical control over our products and services. It also gives us the freedom to decide which modifications and enhancements are most important and when they should be implemented. We strive to obtain information as early as possible about changing usage patterns and hardware advances that may affect software and hardware design. Before releasing new software platforms, and as we make significant modifications to existing platforms, we provide application vendors with a range of resources and guidelines for development, training, and testing. Generally, we also create product documentation internally.
+
+We protect our intellectual property investments in a variety of ways. We work actively in the U.S. and internationally to ensure the enforcement of copyright, trademark, trade secret, and other protections that apply to our software and hardware products, services, business plans, and branding. We are a leader among technology companies in pursuing patents and currently have a portfolio of over 63,000 U.S. and international patents issued and over 23,000 pending worldwide. While we employ much of our internally-developed intellectual property in our products and services, we also engage in outbound licensing of specific patented technologies that are incorporated into licensees' products. From time to time, we enter into broader cross-license agreements with other technology companies covering entire groups of patents. We may also purchase or license technology that we incorporate into our products and services. At times, we make select intellectual property broadly available at no or low cost to achieve a strategic objective, such as promoting industry standards, advancing interoperability, supporting societal and/or environmental efforts, or attracting and enabling our external development community. Our engagement with open source software also causes us to license our intellectual property rights broadly in certain situations.
+
+While it may be necessary in the future to seek or renew licenses relating to various aspects of our products and services, we believe, based upon past experience and industry practice, such licenses generally can be obtained on commercially reasonable terms. We believe our continuing research and product development are not materially dependent on any single license or other agreement with a third party relating to the development of our products.
+
+#### **Investing in the Future**
+
+Our success is based on our ability to create new and compelling products, services, and experiences for our users, to initiate and embrace disruptive technology trends, to enter new geographic and product markets, and to drive broad adoption of our products and services. We invest in a range of emerging technology trends and breakthroughs that we believe offer significant opportunities to deliver value to our customers and growth for the company. Based on our assessment of key technology trends, we maintain our long-term commitment to research and development across a wide spectrum of technologies, tools, and platforms spanning digital work and life experiences, cloud computing, AI, devices, and operating systems.
+
+While our main product research and development facilities are located in Redmond, Washington, we also operate research and development facilities in other parts of the U.S. and around the world. This global approach helps us remain competitive in local markets and enables us to continue to attract top talent from across the world.
+
+We plan to continue to make significant investments in a broad range of product research and development activities, and as appropriate we will coordinate our research and development across operating segments and leverage the results across the company. This includes continuing to support fundamental research, which provides us with a unique perspective on future trends and contributes to our innovation.
+
+### **DISTRIBUTION, SALES, AND MARKETING**
+
+We market and distribute our products and services through the following channels: OEMs, direct, and distributors and resellers. Our sales organization performs a variety of functions, including working directly with commercial enterprises and public-sector organizations worldwide to identify and meet their technology and digital transformation requirements; managing OEM relationships; and supporting system integrators, independent software vendors, and other partners who engage directly with our customers to perform sales, consulting, and fulfillment functions for our products and services.
+
+#### **OEMs**
+
+We distribute our products and services through OEMs that pre-install our software on new devices and servers they sell. The largest component of the OEM business is the Windows operating system pre-installed on devices. OEMs also sell devices pre-installed with other Microsoft products and services, including applications such as Office and the capability to subscribe to Microsoft 365 Consumer.
+
+There are two broad categories of OEMs. The largest category of OEMs are direct OEMs as our relationship with them is managed through a direct agreement between Microsoft and the OEM. We have distribution agreements covering one or more of our products with virtually all the multinational OEMs, including Dell, Hewlett-Packard, Lenovo, and with many regional and local OEMs. The second broad category of OEMs are system builders consisting of lower-volume PC manufacturers, which source Microsoft software for pre-installation and local redistribution primarily through the Microsoft distributor channel rather than through a direct agreement or relationship with Microsoft.
+
+#### **Direct**
+
+Many organizations that license our products and services transact directly with us through Enterprise Agreements and Enterprise Services contracts, with sales support from system integrators, independent software vendors, web agencies, and partners that advise organizations on licensing our products and services ("Enterprise Agreement Software Advisors" or "ESA"). Microsoft offers direct sales programs targeted to reach small, medium, and corporate customers, in addition to those offered through the reseller channel. A large network of partner advisors support many of these sales.
+
+We also sell commercial and consumer products and services directly to customers, such as cloud services, search, and gaming, through our digital marketplaces and online stores. Additionally, our Microsoft Experience Centers are designed to facilitate deeper engagement with our partners and customers across industries.
+
+#### **Distributors and Resellers**
+
+Organizations also license our products and services indirectly, primarily through licensing solution partners ("LSP"), distributors, value-added resellers ("VAR"), and retailers. Although each type of reselling partner may reach organizations of all sizes, LSPs are primarily engaged with large organizations, distributors resell primarily to VARs, and VARs typically
+
+reach small and medium organizations. ESAs are also typically authorized as LSPs and operate as resellers for our other volume licensing programs. Microsoft Cloud Solution Provider is our main partner program for reselling cloud services.
+
+We distribute our retail packaged products primarily through independent non-exclusive distributors, authorized replicators, resellers, and retail outlets. Individual consumers obtain these products primarily through retail outlets. We distribute our devices through third-party retailers. We have a network of field sales representatives and field support personnel that solicit orders from distributors and resellers and provide product training and sales support.
+
+Our Dynamics business solutions are also licensed to enterprises through a global network of channel partners providing vertical solutions and specialized services.
+
+### LICENSING OPTIONS
+
+We offer options for organizations of varying sizes that want to purchase our cloud services and on-premise software. We license these organizations under volume licensing agreements to allow the customer to acquire multiple licenses of products and services instead of having to acquire separate licenses through retail channels. These volume licensing programs have varying programmatic requirements and benefits to best meet the needs of our customers.
+
+Software Assurance ("SA") conveys rights to new software and upgrades for perpetual licenses released over the contract period. It also provides support, tools, training, and other licensing benefits to help customers deploy and use software efficiently. SA is required to be purchased with certain volume licensing agreements and is an optional purchase with others.
+
+#### **Volume Licensing Programs**
+
+#### ***Enterprise Agreement***
+
+Enterprise Agreements offer large organizations a manageable volume licensing program that gives them the flexibility to buy cloud services and software licenses under one agreement. Enterprise Agreements are designed for medium or large organizations that want to license Microsoft products and services organization-wide over a three-year period. Organizations can elect to purchase perpetual licenses (covered with SA) and/or subscribe to cloud services.
+
+#### ***Microsoft Customer Agreement***
+
+Microsoft Customer Agreements are simplified purchase agreements presented, accepted, and stored through a digital experience. Microsoft Customer Agreements are non-expiring agreements that are designed to support all customers over time, whether purchasing through a partner or directly from Microsoft.
+
+#### ***Microsoft Online Subscription Agreement***
+
+Microsoft Online Subscription Agreements are designed for small and medium organizations that want to subscribe to, activate, provision, and maintain cloud services seamlessly and directly via the web. These agreements allow customers to acquire monthly or annual subscriptions for cloud-based services.
+
+#### **Microsoft Products and Services Agreement**
+
+Microsoft Products and Services Agreements are designed for medium and large organizations that want to license cloud services and on-premises software as needed, with no organization-wide commitment, under a single, non-expiring agreement. Organizations purchase perpetual licenses or subscribe to licenses. SA is optional for customers that purchase perpetual licenses.
+
+#### **Open Value**
+
+Open Value agreements are a simple, cost-effective way to acquire the latest Microsoft technology. These agreements are designed for small and medium organizations that want to license cloud services and on-premises software over a three-year period. Under Open Value agreements, organizations can elect to purchase perpetual licenses or subscribe to licenses and SA is included.
+
+#### **Select Plus**
+
+A Select Plus agreement is designed for government and academic organizations to acquire on-premises licenses at any affiliate or department level, while realizing advantages as one organization. Organizations purchase perpetual licenses and SA is optional.
+
+#### **Partner Programs**
+
+The Microsoft Cloud Solution Provider Program offers customers an easy way to license the cloud services they need in combination with the value-added services offered by their systems integrator, managed services provider, or cloud reseller partner. Partners in this program can easily package their own products and services to directly provision, manage, and support their customer subscriptions.
+
+The Microsoft Services Provider License Agreement allows hosting service providers and independent software vendors who want to license eligible Microsoft software products to provide hosted applications and software services to their end customers. Partners license software over a three-year period and are billed monthly based on units licensed.
+
+The Independent Software Vendor Royalty Program enables partners to integrate Microsoft products into other applications and then license the unified business solution to their end users.
+
+### **CUSTOMERS**
+
+Our customers include individual consumers, small and medium organizations, large global enterprises, public-sector institutions, Internet service providers, application developers, and OEMs. Our practice is to ship our products promptly upon receipt of purchase orders from customers; consequently, backlog is not significant.
+
+### **GOVERNMENT REGULATION**
+
+We are subject to a wide range of laws, regulations, and legal requirements in the U.S. and globally, including those that may apply to our products and online services offerings, and those that impose requirements related to user privacy, telecommunications, data storage and protection, advertising, and online content. How these laws and regulations apply to our business is often unclear, subject to change over time, and sometimes may be inconsistent from jurisdiction to jurisdiction. To comply with the accelerating global regulatory obligations, we established a regulatory governance framework and to create a repeatable system-focused approach to regulatory governance with an initial focus on four domains: Responsible AI, Privacy, Digital Safety, and Cybersecurity. The framework is designed to help us maintain customer trust and confidence in our products, remain in compliance with regulators around the globe, and effectively scale our capability to address the growing number of complex regulations. Through the framework, our legal and regulatory subject matter experts ingest regulations, develop standards and implementation guidance, and, when appropriate, work with our engineers to develop and implement products to monitor compliance. Our business teams, with legal support, manage the compliance programs and prepare external regulatory and commercial reporting, and our internal audit teams conduct reviews of our programs and processes. While we intended to create a unified approach to regulatory compliance, some of the programs and processes established pursuant to the framework are tailored to meet specific regulatory
+
+obligations, such as with the creation of independent compliance functions required by the European Union ("EU") Digital Markets Act and the EU Digital Services Act, which oversee, monitor, and assess the company's compliance with these acts.
+
+For a description of the risks we face related to regulatory matters, refer to Risk Factors in our fiscal year 2024 Form 10-K.
+
+## AVAILABLE INFORMATION
+
+Our Internet address is [www.microsoft.com](http://www.microsoft.com). At our Investor Relations website, [www.microsoft.com/investor](http://www.microsoft.com/investor), we make available free of charge a variety of information for investors. Our goal is to maintain the Investor Relations website as a portal through which investors can easily find or navigate to pertinent information about us, including:
+
+- Our annual report on Form 10-K, quarterly reports on Form 10-Q, current reports on Form 8-K, and any amendments to those reports, as soon as reasonably practicable after we electronically file that material with or furnish it to the Securities and Exchange Commission ("SEC") at [www.sec.gov](http://www.sec.gov).
+- Information on our business strategies, financial results, and metrics for investors.
+- Announcements of investor conferences, speeches, and events at which our executives talk about our product, service, and competitive strategies. Archives of these events are also available.
+- Press releases on quarterly earnings, product and service announcements, legal developments, and international news.
+- Corporate governance information including our articles of incorporation, bylaws, governance guidelines, committee charters, codes of conduct and ethics, global corporate social responsibility initiatives, and other governance-related policies.
+- Other news and announcements that we may post from time to time that investors might find useful or interesting.
+- Opportunities to sign up for email alerts to have information pushed in real time.
+
+We publish a variety of reports and resources related to our Corporate Social Responsibility programs and progress on our Reports Hub website, [www.microsoft.com/corporate-responsibility/reports-hub](http://www.microsoft.com/corporate-responsibility/reports-hub), including reports on sustainability, responsible sourcing, accessibility, digital trust, and public policy engagement.
+
+The information found on these websites is not part of, or incorporated by reference into, this or any other report we file with, or furnish to, the SEC. In addition to these channels, we use social media to communicate to the public. It is possible that the information we post on social media could be deemed to be material to investors. We encourage investors, the media, and others interested in Microsoft to review the information we post on the social media channels listed on our Investor Relations website.
+
+## MANAGEMENT'S DISCUSSION AND ANALYSIS OF FINANCIAL CONDITION AND RESULTS OF OPERATIONS
+
+The following Management's Discussion and Analysis of Financial Condition and Results of Operations ("MD&A") is intended to help the reader understand the results of operations and financial condition of Microsoft Corporation. MD&A is provided as a supplement to, and should be read in conjunction with, our consolidated financial statements and the accompanying Notes to Financial Statements. This section generally discusses the results of our operations for the year ended June 30, 2024 compared to the year ended June 30, 2023. For a discussion of the year ended June 30, 2023 compared to the year ended June 30, 2022, please refer to "Management's Discussion and Analysis of Financial Condition and Results of Operations" in our Annual Report on Form 10-K for the year ended June 30, 2023.
+
+### OVERVIEW
+
+Microsoft is a technology company committed to making digital technology and artificial intelligence ("AI") available broadly and doing so responsibly, with a mission to empower every person and every organization on the planet to achieve more. We create platforms and tools, powered by AI, that deliver innovative solutions that meet the evolving needs of our customers.
+
+We generate revenue by offering a wide range of cloud-based solutions, content, and other services to people and businesses; licensing and supporting an array of software products; delivering relevant online advertising to a global audience; and designing and selling devices. Our most significant expenses are related to compensating employees; supporting and investing in our cloud-based services, including datacenter operations; designing, manufacturing, marketing, and selling our other products and services; and income taxes.
+
+Highlights from fiscal year 2024 compared with fiscal year 2023 included:
+
+- Microsoft Cloud revenue increased 23% to \$137.4 billion.
+- Office Commercial products and cloud services revenue increased 14% driven by Office 365 Commercial growth of 16%.
+- Office Consumer products and cloud services revenue increased 4% and Microsoft 365 Consumer subscribers grew to 82.5 million.
+- LinkedIn revenue increased 9%.
+- Dynamics products and cloud services revenue increased 19% driven by Dynamics 365 growth of 24%.
+- Server products and cloud services revenue increased 22% driven by Azure and other cloud services growth of 30%.
+- Windows revenue increased 8% with Windows original equipment manufacturer licensing ("Windows OEM") revenue growth of 7% and Windows Commercial products and cloud services revenue growth of 11%.
+- Devices revenue decreased 15%.
+- Xbox content and services revenue increased 50% driven by 44 points of net impact from the Activision Blizzard Inc. ("Activision Blizzard") acquisition. The net impact reflects the change of Activision Blizzard content from third-party to first-party.
+- Search and news advertising revenue excluding traffic acquisition costs increased 12%.
+
+On October 13, 2023, we completed our acquisition of Activision Blizzard for a total purchase price of \$75.4 billion, consisting primarily of cash. The financial results of Activision Blizzard have been included in our consolidated financial statements since the date of the acquisition. Activision Blizzard is reported as part of our More Personal Computing segment. Refer to Note 8 – Business Combinations of the Notes to Financial Statements for further discussion.
+
+#### **Industry Trends**
+
+Our industry is dynamic and highly competitive, with frequent changes in both technologies and business models. Each industry shift is an opportunity to conceive new products, new technologies, or new ideas that can further transform the industry and our business. At Microsoft, we push the boundaries of what is possible through a broad range of research and development activities that seek to identify and address the changing demands of customers and users, industry trends, and competitive forces.
+
+#### **Economic Conditions, Challenges, and Risks**
+
+The markets for software, devices, and cloud-based services are dynamic and highly competitive. Our competitors are developing new software and devices, while also deploying competing cloud-based services for consumers and businesses. The devices and form factors customers prefer evolve rapidly, influencing how users access services in the cloud and, in some cases, the user's choice of which suite of cloud-based services to use. Aggregate demand for our software, services, and devices is also correlated to global macroeconomic and geopolitical factors, which remain dynamic. We must continue to evolve and adapt over an extended time in pace with this changing environment.
+
+The investments we are making in cloud and AI infrastructure and devices will continue to increase our operating costs and may decrease our operating margins. We continue to identify and evaluate opportunities to expand our datacenter locations and increase our server capacity to meet the evolving needs of our customers, particularly given the growing demand for AI services. Our datacenters depend on the availability of permitted and buildable land, predictable energy, networking supplies, and servers, including graphics processing units ("GPUs") and other components. Our devices are primarily manufactured by third-party contract manufacturers. For the majority of our products, we have the ability to use other manufacturers if a current vendor becomes unavailable or unable to meet our requirements. However, some of our products contain certain components for which there are very few qualified suppliers. Extended disruptions at these suppliers could impact our ability to manufacture devices on time to meet consumer demand.
+
+Our success is highly dependent on our ability to attract and retain qualified employees. We hire a mix of university and industry talent worldwide. We compete for talented individuals globally by offering an exceptional working environment, broad customer reach, scale in resources, the ability to grow one's career across many different products and businesses, and competitive compensation and benefits.
+
+Our international operations provide a significant portion of our total revenue and expenses. Many of these revenue and expenses are denominated in currencies other than the U.S. dollar. As a result, changes in foreign exchange rates may significantly affect revenue and expenses. Fluctuations in the U.S. dollar relative to certain foreign currencies did not have a material impact on reported revenue and expenses from our international operations in fiscal year 2024.
+
+Refer to Risk Factors in our fiscal year 2024 Form 10-K for a discussion of these factors and other risks.
+
+#### **Seasonality**
+
+Our revenue fluctuates quarterly and is generally higher in the fourth quarter of our fiscal year. Fourth quarter revenue is driven by a higher volume of multi-year contracts executed during the period.
+
+#### **Change in Accounting Estimate**
+
+In July 2022, we completed an assessment of the useful lives of our server and network equipment. Due to investments in software that increased efficiencies in how we operate our server and network equipment, as well as advances in technology, we determined we should increase the estimated useful lives of both server and network equipment from four years to six years. This change in accounting estimate was effective beginning fiscal year 2023.
+
+#### **Reportable Segments**
+
+We report our financial performance based on the following segments: Productivity and Business Processes, Intelligent Cloud, and More Personal Computing. The segment amounts included in MD&A are presented on a basis consistent with our internal management reporting.
+
+Additional information on our reportable segments is contained in Note 19 – Segment Information and Geographic Data of the Notes to Financial Statements.
+
+#### **Metrics**
+
+We use metrics in assessing the performance of our business and to make informed decisions regarding the allocation of resources. We disclose metrics to enable investors to evaluate progress against our ambitions, provide transparency into performance trends, and reflect the continued evolution of our products and services. Our commercial and other business metrics are fundamentally connected based on how customers use our products and services. The metrics are disclosed in the MD&A or the Notes to Financial Statements. Financial metrics are calculated based on financial results prepared in accordance with accounting principles generally accepted in the United States of America ("GAAP"), and growth comparisons relate to the corresponding period of last fiscal year.
+
+In the first quarter of fiscal year 2024, we made updates to the presentation and method of calculation for certain metrics, revising our Microsoft Cloud revenue metric to include revenue growth and expanding our Microsoft 365 Consumer subscribers metric to include Microsoft 365 Basic subscribers, aligning with how we manage our business.
+
+#### ***Commercial***
+
+Our commercial business primarily consists of Server products and cloud services, Office Commercial, Windows Commercial, the commercial portion of LinkedIn, Enterprise and partner services, and Dynamics. Our commercial metrics allow management and investors to assess the overall health of our commercial business and include leading indicators of future performance.
+
+|                                             |                                                                                                                                                                                             |
+|---------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Commercial remaining performance obligation | Commercial portion of revenue allocated to remaining performance obligations, which includes unearned revenue and amounts that will be invoiced and recognized as revenue in future periods |
+| Microsoft Cloud revenue and revenue growth  | Revenue from Azure and other cloud services, Office 365 Commercial, the commercial portion of LinkedIn, Dynamics 365, and other commercial cloud properties                                 |
+| Microsoft Cloud gross margin percentage     | Gross margin percentage for our Microsoft Cloud business                                                                                                                                    |
+
+#### ***Productivity and Business Processes and Intelligent Cloud***
+
+Metrics related to our Productivity and Business Processes and Intelligent Cloud segments assess the health of our core businesses within these segments. The metrics reflect our cloud and on-premises product strategies and trends.
+
+|                                                              |                                                                                                                                                                                                                                                                                                                                       |
+|--------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Office Commercial products and cloud services revenue growth | Revenue from Office Commercial products and cloud services (Office 365 subscriptions, the Office 365 portion of Microsoft 365 Commercial subscriptions, and Office licensed on-premises), comprising Office, Exchange, SharePoint, Microsoft Teams, Office 365 Security and Compliance, Microsoft Viva, and Copilot for Microsoft 365 |
+| Office Consumer products and cloud services revenue growth   | Revenue from Office Consumer products and cloud services, including Microsoft 365 Consumer and Copilot Pro subscriptions, Office licensed on-premises, and other Office services                                                                                                                                                      |
+| Office 365 Commercial seat growth                            | The number of Office 365 Commercial seats at end of period where seats are paid users covered by an Office 365 Commercial subscription                                                                                                                                                                                                |
+| Microsoft 365 Consumer subscribers                           | The number of Microsoft 365 Consumer and Copilot Pro subscribers at end of period                                                                                                                                                                                                                                                     |
+| Dynamics products and cloud services revenue growth          | Revenue from Dynamics products and cloud services, including Dynamics 365, comprising a set of intelligent, cloud-based applications across ERP, CRM, Power Apps, and Power Automate; and on-premises ERP and CRM applications                                                                                                        |
+| LinkedIn revenue growth                                      | Revenue from LinkedIn, including Talent Solutions, Marketing Solutions, Premium Subscriptions, and Sales Solutions                                                                                                                                                                                                                    |
+| Server products and cloud services revenue growth            | Revenue from Server products and cloud services, including Azure and other cloud services; SQL Server, Windows Server, Visual Studio, System Center, and related Client Access Licenses ("CALs"); and Nuance and GitHub                                                                                                               |
+
+#### More Personal Computing
 
 Metrics related to our More Personal Computing segment assess the performance of key lines of business within this segment. These metrics provide strategic product insights which allow us to assess the performance across our commercial and consumer businesses. As we have diversity of target audiences and sales motions within the Windows business, we monitor metrics that are reflective of those varying motions.
 
@@ -292,7 +788,7 @@ Metrics related to our More Personal Computing segment assess the performance of
 | Xbox content and services revenue growth                      | Revenue from Xbox content and services, comprising first-party content (such as Activision Blizzard) and third-party content, including games and in-game content; Xbox Game Pass and other subscriptions; Xbox Cloud Gaming; advertising; third-party disc royalties; and other cloud services |
 | Search and news advertising revenue (ex TAC) growth           | Revenue from search and news advertising excluding traffic acquisition costs ("TAC") paid to Bing Ads network publishers and news partners                                                                                                                                                      |
 
-## SUMMARY RESULTS OF OPERATIONS
+### SUMMARY RESULTS OF OPERATIONS
 
 | <b>(In millions, except percentages and per share amounts)</b> | <b>2024</b>       | <b>2023</b> | <b>Percentage Change</b> |
 |----------------------------------------------------------------|-------------------|-------------|--------------------------|
@@ -308,7 +804,7 @@ Metrics related to our More Personal Computing segment assess the performance of
 
 Adjusted gross margin, operating income, net income, and diluted earnings per share ("EPS") are non-GAAP financial measures. Prior year non-GAAP financial measures exclude the impact of a \$1.2 billion charge in the second quarter of fiscal year 2023 ("Q2 charge"), which included employee severance expenses, impairment charges resulting from changes to our hardware portfolio, and costs related to lease consolidation activities. Refer to the Non-GAAP Financial Measures section below for a reconciliation of our financial results reported in accordance with GAAP to non-GAAP financial results.
 
-### **Fiscal Year 2024 Compared with Fiscal Year 2023**
+#### **Fiscal Year 2024 Compared with Fiscal Year 2023**
 
 Revenue increased \$33.2 billion or 16% driven by growth across each of our segments. Intelligent Cloud revenue increased driven by Azure. Productivity and Business Processes revenue increased driven by Office 365 Commercial. More Personal Computing revenue increased driven by Gaming.
 
@@ -327,24 +823,24 @@ Prior year gross margin, operating income, net income, and diluted EPS were nega
 
 ### SEGMENT RESULTS OF OPERATIONS
 
-| (In millions, except percentages)   | 2024              | 2023              | Percentage<br>Change |
-|-------------------------------------|-------------------|-------------------|----------------------|
-| <b>Revenue</b>                      |                   |                   |                      |
-| Productivity and Business Processes | \$ 77,728         | \$ 69,274         | 12%                  |
-| Intelligent Cloud                   | 105,362           | 87,907            | 20%                  |
-| More Personal Computing             | 62,032            | 54,734            | 13%                  |
-| Total                               | <u>\$ 245,122</u> | <u>\$ 211,915</u> | 16%                  |
-| <b>Operating Income</b>             |                   |                   |                      |
-| Productivity and Business Processes | \$ 40,540         | \$ 34,189         | 19%                  |
-| Intelligent Cloud                   | 49,584            | 37,884            | 31%                  |
-| More Personal Computing             | 19,309            | 16,450            | 17%                  |
-| Total                               | <u>\$ 109,433</u> | <u>\$ 88,523</u>  | 24%                  |
+| <b>(In millions, except percentages)</b> | <b>2024</b>       | <b>2023</b>       | <b>Percentage<br/>Change</b> |
+|------------------------------------------|-------------------|-------------------|------------------------------|
+| <b>Revenue</b>                           |                   |                   |                              |
+| Productivity and Business Processes      | \$ 77,728         | \$ 69,274         | 12%                          |
+| Intelligent Cloud                        | 105,362           | 87,907            | 20%                          |
+| More Personal Computing                  | 62,032            | 54,734            | 13%                          |
+| Total                                    | <u>\$ 245,122</u> | <u>\$ 211,915</u> | 16%                          |
+| <b>Operating Income</b>                  |                   |                   |                              |
+| Productivity and Business Processes      | \$ 40,540         | \$ 34,189         | 19%                          |
+| Intelligent Cloud                        | 49,584            | 37,884            | 31%                          |
+| More Personal Computing                  | 19,309            | 16,450            | 17%                          |
+| Total                                    | <u>\$ 109,433</u> | <u>\$ 88,523</u>  | 24%                          |
 
-#### Reportable Segments
+#### **Reportable Segments**
 
-#### *Fiscal Year 2024 Compared with Fiscal Year 2023*
+#### ***Fiscal Year 2024 Compared with Fiscal Year 2023***
 
-#### *Productivity and Business Processes*
+#### ***Productivity and Business Processes***
 
 Revenue increased \$8.5 billion or 12%.
 
@@ -358,7 +854,7 @@ Operating income increased \$6.4 billion or 19%.
 - Gross margin increased \$6.5 billion or 12% driven by growth in Office 365 Commercial. Gross margin percentage decreased slightly. Excluding the impact of the change in accounting estimate, gross margin percentage increased slightly driven by improvement in Office 365 Commercial.
 - Operating expenses increased \$159 million or 1%.
 
-#### *Intelligent Cloud*
+##### *Intelligent Cloud*
 
 Revenue increased \$17.5 billion or 20%.
 
@@ -370,7 +866,7 @@ Operating income increased \$11.7 billion or 31%.
 - Gross margin increased \$11.6 billion or 19% driven by growth in Azure. Gross margin percentage decreased slightly. Excluding the impact of the change in accounting estimate, gross margin percentage increased slightly primarily driven by improvement in Azure, inclusive of scaling our AI infrastructure, offset in part by sales mix shift to Azure.
 - Operating expenses decreased slightly primarily driven by the prior year Q2 charge, offset in part by investments in Azure.
 
-#### *More Personal Computing*
+##### *More Personal Computing*
 
 Revenue increased \$7.3 billion or 13%.
 
@@ -408,11 +904,11 @@ Research and development expenses increased \$2.3 billion or 9% driven by Gaming
 
 Sales and marketing expenses include payroll, employee benefits, stock-based compensation expense, and other headcount-related expenses associated with sales and marketing personnel, and the costs of advertising, promotions, trade shows, seminars, and other programs.
 
-#### ***Fiscal Year 2024 Compared with Fiscal Year 2023***
+##### ***Fiscal Year 2024 Compared with Fiscal Year 2023***
 
 Sales and marketing expenses increased \$1.7 billion or 7% driven by Gaming, with 6 points of growth from the Activision Blizzard acquisition.
 
-#### General and Administrative
+##### General and Administrative
 
 | (In millions, except percentages) | 2024     | 2023     | Percentage Change |
 |-----------------------------------|----------|----------|-------------------|
@@ -421,11 +917,11 @@ Sales and marketing expenses increased \$1.7 billion or 7% driven by Gaming, wit
 
 General and administrative expenses include payroll, employee benefits, stock-based compensation expense, employee severance expense incurred as part of a corporate program, and other headcount-related expenses associated with finance, legal, facilities, certain human resources and other administrative personnel, certain taxes, and legal and other administrative fees.
 
-#### ***Fiscal Year 2024 Compared with Fiscal Year 2023***
+##### ***Fiscal Year 2024 Compared with Fiscal Year 2023***
 
 General and administrative expenses increased slightly as growth from the Activision Blizzard acquisition was offset in part by the prior year Q2 charge.
 
-### OTHER INCOME (EXPENSE), NET
+#### OTHER INCOME (EXPENSE), NET
 
 The components of other income (expense), net were as follows:
 
@@ -447,7 +943,7 @@ We use derivative instruments to manage risks related to foreign currencies, int
 
 Interest and dividends income increased due to higher yields. Interest expense increased due to the issuance of commercial paper. Net recognized losses on investments increased primarily due to higher equity impairments and lower gains on equity investments. Net losses on derivatives decreased primarily due to lower losses on equity derivatives. Other, net primarily reflects net recognized losses on equity method investments.
 
-### INCOME TAXES
+#### INCOME TAXES
 
 #### **Effective Tax Rate**
 
@@ -571,7 +1067,7 @@ During fiscal years 2024 and 2023, our Board of Directors declared dividends tot
 
 We will continue to invest in sales, marketing, product support infrastructure, and existing and advanced areas of technology, as well as acquisitions that align with our business strategy. Additions to property and equipment will continue, including new facilities, datacenters, and computer systems for research and development, sales and marketing, support, and administrative staff. We expect capital expenditures to increase in coming years to support growth in our cloud offerings and our investments in AI infrastructure and training. We have operating and finance leases for datacenters, corporate offices, research and development facilities, Microsoft Experience Centers, and certain equipment. We have not engaged in any related party transactions or arrangements with unconsolidated entities or other persons that are reasonably likely to materially affect liquidity or the availability of capital resources.
 
-## **RECENT ACCOUNTING GUIDANCE**
+### **RECENT ACCOUNTING GUIDANCE**
 
 Refer to Note 1 – Accounting Policies of the Notes to Financial Statements for further discussion.
 
@@ -621,7 +1117,7 @@ The objectives of accounting for income taxes are to recognize the amount of tax
 
 Accounting for business combinations requires significant judgments when allocating the purchase price to the estimated fair values of assets acquired and liabilities assumed at the acquisition date. Determination of fair value involves estimates and assumptions which can be complex, most notably with respect to intangible assets. Critical estimates used in the valuation of intangible assets include, but are not limited to, the amount and timing of projected cash flows, useful lives, and discount rates. While management's estimates of fair value are based on assumptions that are believed to be reasonable, these assumptions are inherently uncertain as they pertain to forward-looking views of our business and market conditions. The judgments made in this valuation process could materially impact our consolidated financial statements.
 
-## STATEMENT OF MANAGEMENT'S RESPONSIBILITY FOR FINANCIAL STATEMENTS
+### STATEMENT OF MANAGEMENT'S RESPONSIBILITY FOR FINANCIAL STATEMENTS
 
 Management is responsible for the preparation of the consolidated financial statements and related information that are presented in this report. The consolidated financial statements, which include amounts based on management's estimates and judgments, have been prepared in conformity with accounting principles generally accepted in the United States of America.
 
@@ -640,17 +1136,17 @@ Executive Vice President and Chief Financial Officer
 Alice L. Jolla  
 Corporate Vice President and Chief Accounting Officer
 
-## QUANTITATIVE AND QUALITATIVE DISCLOSURES ABOUT MARKET RISK
+### QUANTITATIVE AND QUALITATIVE DISCLOSURES ABOUT MARKET RISK
 
 ### RISKS
 
 We are exposed to economic risk from foreign exchange rates, interest rates, credit risk, and equity prices. We use derivatives instruments to manage these risks, however, they may still impact our consolidated financial statements.
 
-### Foreign Currencies
+#### Foreign Currencies
 
 Certain forecasted transactions, assets, and liabilities are exposed to foreign currency risk. We monitor our foreign currency exposures daily to maximize the economic effectiveness of our foreign currency positions, including hedges. Principal currency exposures include the Euro, Japanese yen, British pound, Canadian dollar, and Australian dollar.
 
-### Interest Rate
+#### Interest Rate
 
 Securities held in our fixed-income portfolio are subject to different interest rate risks based on their maturities. We manage the average maturity of the fixed-income portfolio to achieve economic returns that correlate to certain global fixed-income indices.
 
@@ -658,7 +1154,7 @@ Securities held in our fixed-income portfolio are subject to different interest 
 
 Our fixed-income portfolio is diversified and consists primarily of investment-grade securities. We manage credit exposures relative to broad-based indices to facilitate portfolio diversification.
 
-### Equity
+#### Equity
 
 Securities held in our equity investments portfolio are subject to price risk.
 
@@ -827,27 +1323,27 @@ Refer to accompanying notes.
 
 (In millions, except per share amounts)
 
-| Year Ended June 30,                         | 2024              | 2023              | 2022              |
-|---------------------------------------------|-------------------|-------------------|-------------------|
-| <b>Common stock and paid-in capital</b>     |                   |                   |                   |
-| Balance, beginning of period                | \$ 93,718         | \$ 86,939         | \$ 83,111         |
-| Common stock issued                         | 2,002             | 1,866             | 1,841             |
-| Common stock repurchased                    | (5,712)           | (4,696)           | (5,688)           |
-| Stock-based compensation expense            | 10,734            | 9,611             | 7,502             |
-| Other, net                                  | 181               | (2)               | 173               |
-| Balance, end of period                      | <u>100,923</u>    | <u>93,718</u>     | <u>86,939</u>     |
-| <b>Retained earnings</b>                    |                   |                   |                   |
-| Balance, beginning of period                | 118,848           | 84,281            | 57,055            |
-| Net income                                  | 88,136            | 72,361            | 72,738            |
-| Common stock cash dividends                 | (22,293)          | (20,226)          | (18,552)          |
-| Common stock repurchased                    | (11,547)          | (17,568)          | (26,960)          |
-| Balance, end of period                      | <u>173,144</u>    | <u>118,848</u>    | <u>84,281</u>     |
-| <b>Accumulated other comprehensive loss</b> |                   |                   |                   |
-| Balance, beginning of period                | (6,343)           | (4,678)           | 1,822             |
-| Other comprehensive income (loss)           | 753               | (1,665)           | (6,500)           |
-| Balance, end of period                      | <u>(5,590)</u>    | <u>(6,343)</u>    | <u>(4,678)</u>    |
-| Total stockholders' equity                  | <u>\$ 268,477</u> | <u>\$ 206,223</u> | <u>\$ 166,542</u> |
-| Cash dividends declared per common share    | \$ 3.00           | \$ 2.72           | \$ 2.48           |
+| Year Ended June 30,                         | 2024       | 2023       | 2022       |
+|---------------------------------------------|------------|------------|------------|
+| <b>Common stock and paid-in capital</b>     |            |            |            |
+| Balance, beginning of period                | \$ 93,718  | \$ 86,939  | \$ 83,111  |
+| Common stock issued                         | 2,002      | 1,866      | 1,841      |
+| Common stock repurchased                    | (5,712)    | (4,696)    | (5,688)    |
+| Stock-based compensation expense            | 10,734     | 9,611      | 7,502      |
+| Other, net                                  | 181        | (2)        | 173        |
+| Balance, end of period                      | 100,923    | 93,718     | 86,939     |
+| <b>Retained earnings</b>                    |            |            |            |
+| Balance, beginning of period                | 118,848    | 84,281     | 57,055     |
+| Net income                                  | 88,136     | 72,361     | 72,738     |
+| Common stock cash dividends                 | (22,293)   | (20,226)   | (18,552)   |
+| Common stock repurchased                    | (11,547)   | (17,568)   | (26,960)   |
+| Balance, end of period                      | 173,144    | 118,848    | 84,281     |
+| <b>Accumulated other comprehensive loss</b> |            |            |            |
+| Balance, beginning of period                | (6,343)    | (4,678)    | 1,822      |
+| Other comprehensive income (loss)           | 753        | (1,665)    | (6,500)    |
+| Balance, end of period                      | (5,590)    | (6,343)    | (4,678)    |
+| Total stockholders' equity                  | \$ 268,477 | \$ 206,223 | \$ 166,542 |
+| Cash dividends declared per common share    | \$ 3.00    | \$ 2.72    | \$ 2.48    |
 
 Refer to accompanying notes.
 
@@ -861,21 +1357,21 @@ Our consolidated financial statements and accompanying notes are prepared in acc
 
 We have recast certain prior period amounts to conform to the current period presentation. The recast of these prior period amounts had no impact on our consolidated balance sheets, consolidated income statements, or consolidated cash flows statements.
 
-##### **Principles of Consolidation**
+#### **Principles of Consolidation**
 
 The consolidated financial statements include the accounts of Microsoft Corporation and its subsidiaries. Intercompany transactions and balances have been eliminated.
 
-##### **Estimates and Assumptions**
+#### **Estimates and Assumptions**
 
 Preparing financial statements requires management to make estimates and assumptions that affect the reported amounts of assets, liabilities, revenue, and expenses. Examples of estimates and assumptions include: for revenue recognition, determining the nature and timing of satisfaction of performance obligations, and determining the standalone selling price ("SSP") of performance obligations, variable consideration, and other obligations such as product returns and refunds; loss contingencies; product warranties; the fair value of and/or potential impairment of goodwill and intangible assets for our reporting units; product life cycles; useful lives of our tangible and intangible assets; allowances for doubtful accounts; the market value of, and demand for, our inventory; stock-based compensation forfeiture rates; when technological feasibility is achieved for our products; the potential outcome of uncertain tax positions that have been recognized in our consolidated financial statements or tax returns; and determining the timing and amount of impairments for investments. Actual results and outcomes may differ from management's estimates and assumptions due to risks and uncertainties.
 
 In July 2022, we completed an assessment of the useful lives of our server and network equipment. Due to investments in software that increased efficiencies in how we operate our server and network equipment, as well as advances in technology, we determined we should increase the estimated useful lives of both server and network equipment from four years to six years. This change in accounting estimate was effective beginning fiscal year 2023.
 
-##### **Foreign Currencies**
+#### **Foreign Currencies**
 
 Assets and liabilities recorded in foreign currencies are translated at the exchange rate on the balance sheet date. Revenue and expenses are translated at average rates of exchange prevailing during the year. Translation adjustments resulting from this process are recorded to other comprehensive income.
 
-##### **Revenue**
+#### **Revenue**
 
 ##### ***Product Revenue and Service and Other Revenue***
 
@@ -970,7 +1466,7 @@ We provide for the estimated costs of fulfilling our obligations under hardware 
 
 include parts and labor over a period generally ranging from 90 days to three years. For software warranties, we estimate the costs to provide bug fixes, such as security patches, over the estimated life of the software. We regularly reevaluate our estimates to assess the adequacy of the recorded warranty liabilities and adjust the amounts as necessary.
 
-##### **Research and Development**
+#### **Research and Development**
 
 Research and development expenses include payroll, employee benefits, stock-based compensation expense, and other headcount-related expenses associated with product development. Research and development expenses also include third-party development and programming costs and the amortization of purchased software code and services content. Such costs related to software development are included in research and development expense until the point that technological feasibility is reached, which for our software products, is generally shortly before the products are released to production. Once technological feasibility is reached, such costs are capitalized and amortized to cost of revenue over the estimated lives of the products.
 
@@ -978,17 +1474,17 @@ Research and development expenses include payroll, employee benefits, stock-base
 
 Sales and marketing expenses include payroll, employee benefits, stock-based compensation expense, and other headcount-related expenses associated with sales and marketing personnel, and the costs of advertising, promotions, trade shows, seminars, and other programs. Advertising costs are expensed as incurred. Advertising expense was \$1.7 billion, \$904 million, and \$1.5 billion in fiscal years 2024, 2023, and 2022, respectively.
 
-##### **Stock-Based Compensation**
+#### **Stock-Based Compensation**
 
 Compensation cost for stock awards, which include restricted stock units ("RSUs") and performance stock units ("PSUs"), is measured at the fair value on the grant date and recognized as expense, net of estimated forfeitures, over the related service or performance period. The fair value of stock awards is based on the quoted price of our common stock on the grant date less the present value of expected dividends not received during the vesting period. We measure the fair value of PSUs using a Monte Carlo valuation model. Compensation cost for RSUs is recognized using the straight-line method and for PSUs is recognized using the accelerated method.
 
 Compensation expense for the employee stock purchase plan ("ESPP") is measured as the discount the employee is entitled to upon purchase and is recognized in the period of purchase.
 
-##### **Income Taxes**
+#### **Income Taxes**
 
 Income tax expense includes U.S. and international income taxes, and interest and penalties on uncertain tax positions. Certain income and expenses are not reported in tax returns and financial statements in the same year. The tax effect of such temporary differences is reported as deferred income taxes. Deferred tax assets are reported net of a valuation allowance when it is more likely than not that a tax benefit will not be realized. All deferred income taxes are classified as long-term in our consolidated balance sheets.
 
-##### **Financial Instruments**
+#### **Financial Instruments**
 
 ##### ***Investments***
 
@@ -1012,7 +1508,7 @@ For derivative instruments designated as cash flow hedges, gains and losses are 
 
 For derivative instruments that are not designated as hedges, gains and losses from changes in fair values are primarily recognized in other income (expense), net.
 
-##### **Fair Value Measurements**
+#### **Fair Value Measurements**
 
 We account for certain assets and liabilities at fair value. The hierarchy below lists three levels of fair value based on the extent to which inputs used in measuring fair value are observable in the market. We categorize each of our fair value measurements in one of these three levels based on the lowest level input that is significant to the fair value measurement in its entirety. These levels are:
 
@@ -1025,15 +1521,15 @@ We measure equity investments without readily determinable fair values on a nonr
 
 Our other current financial assets and current financial liabilities have fair values that approximate their carrying values.
 
-##### **Inventories**
+#### **Inventories**
 
 Inventories are stated at average cost, subject to the lower of cost or net realizable value. Cost includes materials, labor, and manufacturing overhead related to the purchase and production of inventories. Net realizable value is the estimated selling price less estimated costs of completion, disposal, and transportation. We regularly review inventory quantities on hand, future purchase commitments with our suppliers, and the estimated utility of our inventory. If our review indicates a reduction in utility below carrying value, we reduce our inventory to a new cost basis through a charge to cost of revenue.
 
-##### **Property and Equipment**
+#### **Property and Equipment**
 
 Property and equipment is stated at cost less accumulated depreciation, and depreciated using the straight-line method over the shorter of the estimated useful life of the asset or the lease term. The estimated useful lives of our property and equipment are generally as follows: computer software developed or acquired for internal use, three years; computer equipment, two to six years; buildings and improvements, five to 15 years; leasehold improvements, three to 20 years; and furniture and equipment, one to 10 years. Land is not depreciated.
 
-##### **Leases**
+#### **Leases**
 
 We determine if an arrangement is a lease at inception. Operating leases are included in operating lease right-of-use ("ROU") assets, other current liabilities, and operating lease liabilities in our consolidated balance sheets. Finance leases are included in property and equipment, other current liabilities, and other long-term liabilities in our consolidated balance sheets.
 
@@ -1045,17 +1541,17 @@ We have lease agreements with lease and non-lease components, which are generall
 
 Goodwill is tested for impairment at the reporting unit level (operating segment or one level below an operating segment) on an annual basis (May 1) and between annual tests if an event occurs or circumstances change that would more likely than not reduce the fair value of a reporting unit below its carrying value.
 
-##### **Intangible Assets**
+#### **Intangible Assets**
 
 Our intangible assets are subject to amortization and are amortized over the estimated useful life in proportion to the economic benefits received. We evaluate the recoverability of intangible assets periodically by taking into account events or circumstances that may warrant revised estimates of useful lives or that indicate the asset may be impaired.
 
-##### **Related Party Transactions**
+#### **Related Party Transactions**
 
 In March 2024, we entered into an agreement with Inflection AI, Inc. ("Inflection"), pursuant to which we obtained a non-exclusive license to Inflection's intellectual property. Reid Hoffman, a member of our Board of Directors, is a co-founder of and serves on the board of directors of Inflection. As of the date of the agreement with Inflection, Reprogrammed Interchange LLC ("Reprogrammed") and entities affiliated with Greylock Ventures ("Greylock") each held less than a 10% equity interest in Inflection. Mr. Hoffman may be deemed to beneficially own the shares held by Reprogrammed and Greylock by virtue of his relationship with such entities. Mr. Hoffman did not participate in any portions of the meetings of our Board of Directors or any committee thereof to review and approve the transaction with Inflection.
 
-##### **Recent Accounting Guidance**
+#### **Recent Accounting Guidance**
 
-#### ***Segment Reporting – Improvements to Reportable Segment Disclosures***
+##### ***Segment Reporting – Improvements to Reportable Segment Disclosures***
 
 In November 2023, the Financial Accounting Standards Board ("FASB") issued a new standard to improve reportable segment disclosures. The guidance expands the disclosures required for reportable segments in our annual and interim consolidated financial statements, primarily through enhanced disclosures about significant segment expenses. The standard will be effective for us beginning with our annual reporting for fiscal year 2025 and interim periods thereafter, with early adoption permitted. We are currently evaluating the impact of this standard on our segment disclosures.
 
@@ -1096,7 +1592,7 @@ The components of other income (expense), net were as follows:
 | Net recognized gains (losses) on investments          | (118)             | 260           | 461           |
 | Net losses on derivatives                             | (187)             | (456)         | (52)          |
 | Net gains (losses) on foreign currency remeasurements | (244)             | 181           | (75)          |
-| Other, net                                            | <u>(1,319)</u>    | <u>(223)</u>  | <u>(32)</u>   |
+| Other, net                                            | (1,319)           | (223)         | (32)          |
 | Total                                                 | <u>\$ (1,646)</u> | <u>\$ 788</u> | <u>\$ 333</u> |
 
 Other, net primarily reflects net recognized losses on equity method investments.
@@ -1397,12 +1893,12 @@ Goodwill was assigned to our More Personal Computing segment. The goodwill was p
 
 Following are the details of the purchase price allocated to the intangible assets acquired:
 
-| (In millions, except average life)       | Amount           | Weighted<br>Average Life |
-|------------------------------------------|------------------|--------------------------|
-| Marketing-related                        | \$ 11,619        | 24 years                 |
-| Technology-based                         | 9,689            | 4 years                  |
-| Customer-related                         | 661              | 4 years                  |
-| Fair value of intangible assets acquired | <u>\$ 21,969</u> | 15 years                 |
+| (In millions, except average life)       | Amount           | Weighted Average Life |
+|------------------------------------------|------------------|-----------------------|
+| Marketing-related                        | \$ 11,619        | 24 years              |
+| Technology-based                         | 9,689            | 4 years               |
+| Customer-related                         | 661              | 4 years               |
+| Fair value of intangible assets acquired | <u>\$ 21,969</u> | 15 years              |
 
 Following is the net impact of the Activision Blizzard acquisition on our consolidated income statements since the date of acquisition:
 
@@ -2058,3 +2554,325 @@ Long-lived assets, excluding financial instruments and tax assets, classified by
 | United States   | \$ 186,106        | \$ 114,380        | \$ 106,430        |
 | Other countries | 115,263           | 72,859            | 59,938            |
 | Total           | <u>\$ 301,369</u> | <u>\$ 187,239</u> | <u>\$ 166,368</u> |
+
+## REPORT OF INDEPENDENT REGISTERED PUBLIC ACCOUNTING FIRM
+
+To the Stockholders and the Board of Directors of Microsoft Corporation
+
+### Opinion on the Financial Statements
+
+We have audited the accompanying consolidated balance sheets of Microsoft Corporation and subsidiaries (the "Company") as of June 30, 2024 and 2023, the related consolidated statements of income, comprehensive income, cash flows, and stockholders' equity, for each of the three years in the period ended June 30, 2024, and the related notes (collectively referred to as the "financial statements"). In our opinion, the financial statements present fairly, in all material respects, the financial position of the Company as of June 30, 2024 and 2023, and the results of its operations and its cash flows for each of the three years in the period ended June 30, 2024, in conformity with accounting principles generally accepted in the United States of America.
+
+We have also audited, in accordance with the standards of the Public Company Accounting Oversight Board (United States) (PCAOB), the Company's internal control over financial reporting as of June 30, 2024, based on criteria established in *Internal Control — Integrated Framework (2013)* issued by the Committee of Sponsoring Organizations of the Treadway Commission and our report dated July 30, 2024, expressed an unqualified opinion on the Company's internal control over financial reporting.
+
+### Basis for Opinion
+
+These financial statements are the responsibility of the Company's management. Our responsibility is to express an opinion on the Company's financial statements based on our audits. We are a public accounting firm registered with the PCAOB and are required to be independent with respect to the Company in accordance with the U.S. federal securities laws and the applicable rules and regulations of the Securities and Exchange Commission and the PCAOB.
+
+We conducted our audits in accordance with the standards of the PCAOB. Those standards require that we plan and perform the audit to obtain reasonable assurance about whether the financial statements are free of material misstatement, whether due to error or fraud. Our audits included performing procedures to assess the risks of material misstatement of the financial statements, whether due to error or fraud, and performing procedures that respond to those risks. Such procedures included examining, on a test basis, evidence regarding the amounts and disclosures in the financial statements. Our audits also included evaluating the accounting principles used and significant estimates made by management, as well as evaluating the overall presentation of the financial statements. We believe that our audits provide a reasonable basis for our opinion.
+
+### Critical Audit Matters
+
+The critical audit matters communicated below are matters arising from the current-period audit of the financial statements that were communicated or required to be communicated to the audit committee and that (1) relate to accounts or disclosures that are material to the financial statements and (2) involved our especially challenging, subjective, or complex judgments. The communication of critical audit matters does not alter in any way our opinion on the financial statements, taken as a whole, and we are not, by communicating the critical audit matters below, providing separate opinions on the critical audit matters or on the accounts or disclosures to which they relate.
+
+#### ***Revenue Recognition – Refer to Note 1 to the financial statements***
+
+##### *Critical Audit Matter Description*
+
+The Company recognizes revenue upon transfer of control of promised products or services to customers in an amount that reflects the consideration the Company expects to receive in exchange for those products or services. The Company offers customers the ability to acquire multiple licenses of software products and services, including cloud-based services, in its customer agreements through its volume licensing programs.
+
+Significant judgment is exercised by the Company in determining revenue recognition for certain customer agreements, and includes the following:
+
+- Determination of whether products and services are considered distinct performance obligations that should be accounted for separately versus together, such as software licenses and related services that are sold with cloud-based services.
+- The pattern of delivery (i.e., timing of when revenue is recognized) for each distinct performance obligation.
+- Identification and treatment of contract terms that may impact the timing and amount of revenue recognized (e.g., variable consideration, optional purchases, and free services).
+- Determination of stand-alone selling prices for each distinct performance obligation and for products and services that are not sold separately.
+
+Given these factors and due to the volume of transactions, the related audit effort in evaluating management's judgments in determining revenue recognition for certain customer agreements was extensive and required a high degree of auditor judgment.
+
+##### *How the Critical Audit Matter Was Addressed in the Audit*
+
+Our principal audit procedures related to the Company's revenue recognition for certain customer agreements included the following:
+
+- We tested the effectiveness of controls related to the identification of distinct performance obligations, the determination of the timing of revenue recognition, and the estimation of variable consideration.
+- We evaluated management's significant accounting policies related to certain customer agreements for reasonableness.
+- We selected a sample of customer agreements and performed the following procedures:
+  - Obtained and read contract source documents for each selection, including master agreements, and other documents that were part of the agreement.
+  - Tested management's identification and treatment of contract terms.
+  - Assessed the terms in the customer agreement and evaluated the appropriateness of management's application of their accounting policies, along with their use of estimates, in the determination of revenue recognition conclusions.
+- We evaluated the reasonableness of management's estimate of stand-alone selling prices for products and services that are not sold separately.
+- We tested the mathematical accuracy of management's calculations of revenue and the associated timing of revenue recognized in the financial statements.
+
+#### ***Income Taxes – Uncertain Tax Positions – Refer to Note 12 to the financial statements***
+
+##### *Critical Audit Matter Description*
+
+The Company's long-term income taxes liability includes uncertain tax positions related to transfer pricing issues that remain unresolved with the Internal Revenue Service ("IRS"). The Company remains under IRS audit, or subject to IRS audit, for tax years subsequent to 2003. In the current fiscal year, the Company received Notices of Proposed Adjustments ("NOPAs") for the tax years 2004 to 2013, primarily related to intercompany transfer pricing. While the Company has settled a portion of the IRS audits, resolution of the remaining matters could have a material impact on the Company's financial statements.
+
+Conclusions on recognizing and measuring uncertain tax positions involve significant estimates and management judgment and include complex considerations of the Internal Revenue Code, related regulations, tax case laws, and prior-year audit settlements. Given the complexity and the subjective nature of certain transfer pricing issues that remain unresolved with the IRS, evaluating management's estimates relating to their determination of uncertain tax positions required extensive audit effort and a high degree of auditor judgment, including involvement of our tax specialists.
+
+##### *How the Critical Audit Matter Was Addressed in the Audit*
+
+Our principal audit procedures to evaluate management's estimates of uncertain tax positions related to unresolved transfer pricing issues included the following:
+
+- We evaluated the appropriateness and consistency of management's methods and assumptions used in the identification, recognition, measurement, and disclosure of uncertain tax positions, which included testing the effectiveness of the related internal controls.
+- We read and evaluated management's documentation, including relevant accounting policies and information obtained by management from outside tax specialists, that detailed the basis of the uncertain tax positions.
+- We tested the reasonableness of management's judgments regarding the future resolution of the uncertain tax positions, including an evaluation of the technical merits of the uncertain tax positions.
+- For those uncertain tax positions that had not been effectively settled, we evaluated whether management had appropriately considered new information, including the NOPAs received in the current fiscal year, that could significantly change the recognition, measurement, or disclosure of the uncertain tax positions.
+- We evaluated the reasonableness of management's estimates by considering how tax law, including statutes, regulations, and case law, impacted management's judgments.
+
+#### ***Business Combinations – Estimate for Valuation of Acquired Intangible Assets – Refer to Note 8 to the financial statements***
+
+##### *Critical Audit Matter Description*
+
+On October 13, 2023, the Company completed the acquisition of Activision Blizzard, Inc. The Company accounted for the Activision Blizzard, Inc., acquisition as a business combination and, accordingly, allocated the purchase price to the assets acquired and liabilities assumed based on their respective estimated fair values as of the date of acquisition. Identifiable intangible assets acquired included marketing-related intangible assets, technology-based intangible assets, and customer-related intangible assets. The excess of the purchase consideration over the fair value of identifiable assets acquired and liabilities assumed was recorded as goodwill.
+
+We identified the fair value determination of certain marketing-related and technology-based intangible assets for the business combination as a critical audit matter due to the significant judgment required in determining their estimated fair values. Management's estimates of fair value included assumptions for revenue and expense forecasts and the selection of appropriate discount rates. There was a high degree of auditor judgment and subjectivity in applying audit procedures and evaluating the significant assumptions relating to the estimates, including involvement of our fair value specialists.
+
+##### *How the Critical Audit Matter Was Addressed in the Audit*
+
+Our audit procedures related to management's estimates of the fair value of certain marketing-related and technology-based intangible assets acquired included the following, among others:
+
+- We tested the operating effectiveness of internal controls over the business combination, including internal controls over the revenue and expense forecasts and the selection of appropriate discount rates.
+- We assessed the knowledge, skills, abilities, and objectivity of management's valuation specialist and evaluated the work performed.
+- When assessing the reasonableness of assumptions related to forecasted revenue and expenses, we evaluated whether the assumptions used were reasonable considering historical financial information of Activision Blizzard, Inc., and the Company's forecasted financial information.
+- With the assistance of our fair value specialists, we evaluated the reasonableness of the discount rates by:
+  - Testing the source information underlying the discount rates and testing the mathematical accuracy of the calculations.
+
+- Developing a range of independent estimates and comparing those to the discount rates selected by management.
+
+/s/ DELOITTE & TOUCHE LLP
+
+Seattle, Washington
+
+July 30, 2024
+
+We have served as the Company's auditor since 1983.
+
+## CHANGES IN AND DISAGREEMENTS WITH ACCOUNTANTS ON ACCOUNTING AND FINANCIAL DISCLOSURE
+
+Not applicable.
+
+## CONTROLS AND PROCEDURES
+
+Under the supervision and with the participation of our management, including the Chief Executive Officer and Chief Financial Officer, we have evaluated the effectiveness of our disclosure controls and procedures as required by Exchange Act Rule 13a-15(b) as of the end of the period covered by this report. Based on that evaluation, the Chief Executive Officer and Chief Financial Officer have concluded that these disclosure controls and procedures are effective.
+
+## REPORT OF MANAGEMENT ON INTERNAL CONTROL OVER FINANCIAL REPORTING
+
+Our management is responsible for establishing and maintaining adequate internal control over financial reporting for the Company. Internal control over financial reporting is a process to provide reasonable assurance regarding the reliability of our financial reporting for external purposes in accordance with accounting principles generally accepted in the United States of America. Internal control over financial reporting includes maintaining records that in reasonable detail accurately and fairly reflect our transactions; providing reasonable assurance that transactions are recorded as necessary for preparation of our consolidated financial statements; providing reasonable assurance that receipts and expenditures of company assets are made in accordance with management authorization; and providing reasonable assurance that unauthorized acquisition, use, or disposition of company assets that could have a material effect on our consolidated financial statements would be prevented or detected on a timely basis. Because of its inherent limitations, internal control over financial reporting is not intended to provide absolute assurance that a misstatement of our consolidated financial statements would be prevented or detected.
+
+Management conducted an evaluation of the effectiveness of our internal control over financial reporting based on the framework in *Internal Control – Integrated Framework (2013)* issued by the Committee of Sponsoring Organizations of the Treadway Commission. Our assessment of, and conclusion on, the effectiveness of internal control over financial reporting did not include the internal controls of Activision Blizzard, Inc., acquired on October 13, 2023, which is included in our consolidated financial statements since the date of acquisition and represented less than 1% of our total assets as of June 30, 2024 after excluding goodwill and intangible assets acquired, and 2% of our total revenues for the year ended June 30, 2024. Based on this evaluation, management concluded that the Company's internal control over financial reporting was effective as of June 30, 2024. There were no changes in our internal control over financial reporting during the quarter ended June 30, 2024 that have materially affected, or are reasonably likely to materially affect, our internal control over financial reporting. Deloitte & Touche LLP has audited our internal control over financial reporting as of June 30, 2024; their report follows.
+
+## REPORT OF INDEPENDENT REGISTERED PUBLIC ACCOUNTING FIRM
+
+To the Stockholders and the Board of Directors of Microsoft Corporation
+
+### Opinion on Internal Control over Financial Reporting
+
+We have audited the internal control over financial reporting of Microsoft Corporation and subsidiaries (the “Company”) as of June 30, 2024, based on criteria established in *Internal Control — Integrated Framework (2013)* issued by the Committee of Sponsoring Organizations of the Treadway Commission (COSO). In our opinion, the Company maintained, in all material respects, effective internal control over financial reporting as of June 30, 2024, based on criteria established in *Internal Control — Integrated Framework (2013)* issued by COSO.
+
+We have also audited, in accordance with the standards of the Public Company Accounting Oversight Board (United States) (PCAOB), the consolidated financial statements as of and for the year ended June 30, 2024, of the Company and our report dated July 30, 2024, expressed an unqualified opinion on those financial statements.
+
+As described in Report of Management on Internal Control over Financial Reporting, management excluded from its assessment the internal control over financial reporting at Activision Blizzard, Inc., which was acquired on October 13, 2023, and whose financial statements constitute less than 1 percent of total assets as of June 30, 2024 after excluding goodwill and intangible assets acquired, and 2 percent of total revenues for the year ended June 30, 2024. Accordingly, our audit did not include the internal control over financial reporting at Activision Blizzard, Inc.
+
+### Basis for Opinion
+
+The Company’s management is responsible for maintaining effective internal control over financial reporting and for its assessment of the effectiveness of internal control over financial reporting, included in the accompanying Report of Management on Internal Control over Financial Reporting. Our responsibility is to express an opinion on the Company’s internal control over financial reporting based on our audit. We are a public accounting firm registered with the PCAOB and are required to be independent with respect to the Company in accordance with the U.S. federal securities laws and the applicable rules and regulations of the Securities and Exchange Commission and the PCAOB.
+
+We conducted our audit in accordance with the standards of the PCAOB. Those standards require that we plan and perform the audit to obtain reasonable assurance about whether effective internal control over financial reporting was maintained in all material respects. Our audit included obtaining an understanding of internal control over financial reporting, assessing the risk that a material weakness exists, testing and evaluating the design and operating effectiveness of internal control based on the assessed risk, and performing such other procedures as we considered necessary in the circumstances. We believe that our audit provides a reasonable basis for our opinion.
+
+### Definition and Limitations of Internal Control over Financial Reporting
+
+A company’s internal control over financial reporting is a process designed to provide reasonable assurance regarding the reliability of financial reporting and the preparation of financial statements for external purposes in accordance with generally accepted accounting principles. A company’s internal control over financial reporting includes those policies and procedures that (1) pertain to the maintenance of records that, in reasonable detail, accurately and fairly reflect the transactions and dispositions of the assets of the company; (2) provide reasonable assurance that transactions are recorded as necessary to permit preparation of financial statements in accordance with generally accepted accounting principles, and that receipts and expenditures of the company are being made only in accordance with authorizations of management and directors of the company; and (3) provide reasonable assurance regarding prevention or timely detection of unauthorized acquisition, use, or disposition of the company’s assets that could have a material effect on the financial statements.
+
+Because of its inherent limitations, internal control over financial reporting may not prevent or detect misstatements. Also, projections of any evaluation of effectiveness to future periods are subject to the risk that controls may become inadequate because of changes in conditions, or that the degree of compliance with the policies or procedures may deteriorate.
+
+/s/ DELOITTE & TOUCHE LLP
+
+Seattle, Washington  
+July 30, 2024
+
+## DIRECTORS AND EXECUTIVE OFFICERS OF MICROSOFT CORPORATION
+
+### DIRECTORS
+
+#### **Satya Nadella**
+
+Chairman and Chief Executive Officer,  
+Microsoft Corporation
+
+#### **Catherine MacGregor** <sup>4</sup>
+
+Group Chief Executive Officer,  
+Engie S.A.
+
+#### **Carlos A. Rodriguez** <sup>1,2</sup>
+
+Director, Automatic Data  
+Processing, Inc.
+
+#### **Reid G. Hoffman** <sup>4</sup>
+
+Partner, Greylock Partners
+
+#### **Mark A. L. Mason** <sup>3</sup>
+
+Chief Financial Officer, Citigroup Inc.
+
+#### **Charles W. Scharf** <sup>2,3</sup>
+
+Chief Executive Officer, President,  
+and Director, Wells Fargo & Company
+
+#### **Hugh F. Johnston** <sup>1</sup>
+
+Senior Executive Vice President and  
+Chief Financial Officer,  
+The Walt Disney Company
+
+#### **Sandra E. Peterson** <sup>2,3</sup>
+
+Lead Independent Director,  
+Microsoft Corporation  
+Operating Partner, Clayton, Dubilier &  
+Rice, LLC
+
+#### **John W. Stanton** <sup>1,4</sup>
+
+Founder and Chairman, Trilogy  
+Partnerships
+
+#### **Teri L. List** <sup>1,3</sup>
+
+Former Executive Vice President and  
+Chief Financial Officer, Gap, Inc.
+
+#### **Penny S. Pritzker** <sup>4</sup>
+
+Founder and Chairman, PSP  
+Partners, LLC
+
+#### **Emma N. Walmsley** <sup>2,4</sup>
+
+Chief Executive Officer and Director,  
+GSK, plc
+
+### **Board Committees**
+
+1. Audit Committee
+2. Compensation Committee
+3. Governance and Nominating Committee
+4. Environmental, Social, and Public Policy Committee
+
+### EXECUTIVE OFFICERS
+
+#### **Satya Nadella**
+
+Chairman and Chief Executive Officer
+
+#### **Takeshi Numoto**
+
+Executive Vice President and Chief Marketing Officer
+
+#### **Judson B. Althoff**
+
+Executive Vice President and Chief Commercial Officer
+
+#### **Bradford L. Smith**
+
+Vice Chair and President
+
+#### **Kathleen T. Hogan**
+
+Executive Vice President and Chief Human Resources Officer
+
+#### **Christopher D. Young**
+
+Executive Vice President, Business Development,  
+Strategy, and Ventures
+
+#### **Amy E. Hood**
+
+Executive Vice President and Chief Financial Officer
+
+### INVESTOR RELATIONS
+
+#### Investor Relations
+
+You can contact Microsoft Investor Relations by calling toll-free at (800) 285-7772 or outside the United States, call (425) 706-4400. We can be contacted between the hours of 9:00 a.m. to 5:00 p.m. Pacific Time to answer investment-oriented questions about Microsoft.
+
+For access to additional financial information, visit the Investor Relations website online at:  
+[www.microsoft.com/investor](http://www.microsoft.com/investor)
+
+Our e-mail is [msft@microsoft.com](mailto:msft@microsoft.com)
+
+Our mailing address is:  
+Investor Relations  
+Microsoft Corporation  
+One Microsoft Way  
+Redmond, Washington 98052-6399
+
+#### Attending the Annual Meeting
+
+**The 2024 Annual Shareholders Meeting will be held as a virtual-only meeting.** Any shareholder can join the Annual Meeting, while shareholders of record as of September 30, 2024, will be able to vote and submit questions during the meeting.
+
+Date: Tuesday, December 10, 2024
+
+Time: 8:30 a.m. Pacific Time
+
+Virtual Shareholder Meeting:
+
+[www.virtualshareholdermeeting.com/MSFT24](http://www.virtualshareholdermeeting.com/MSFT24)
+
+#### Submit Your Question
+
+We invite you to submit any questions via the proxy voting site at [www.proxyvote.com](http://www.proxyvote.com). We will include as many of your questions as possible during the Q&A session of the meeting and will provide answers to questions on the Microsoft Investor Relations website under the Annual Meeting page.
+
+#### Registered Shareholder Services
+
+Computershare, our transfer agent, can help you with a variety of shareholder related services including:
+
+- Change of address
+- Lost stock certificates
+- Transfer of stock to another person
+- Additional administrative services
+
+Computershare also administers a direct stock purchase plan and a dividend reinvestment program for the company.
+
+Contact Computershare directly to find out more about these services and programs at 800-285-7772, option 1, or visit online at:
+
+<https://www.computershare.com/Microsoft>
+
+You can e-mail the transfer agent at:
+
+[web.queries@computershare.com](mailto:web.queries@computershare.com)
+
+You can also send mail to the transfer agent at:
+
+Computershare  
+P.O. Box 505000  
+Louisville, KY 40233-5000
+
+Shareholders can sign up for electronic alerts to access the annual report and proxy statement online. The service gets you the information you need faster and also gives you the power and convenience of online proxy voting. To sign up for this free service, visit the Annual Report site on the Investor Relations website at:
+
+<http://www.microsoft.com/investor/AnnualReports/default.aspx>
+
+### Environmental, Social, and Governance (ESG)
+
+To meet the expectations of our shareholder and other stakeholders and to maintain their trust, Microsoft is committed to conducting our business in ways that are principled, transparent, and accountable. Microsoft works with our customers and partners to help the world use digital technology to address business and societal challenges around the globe. In advancing this work and our mission, Microsoft's management benefits from the oversight and diverse perspectives offered by the Board of Directors and its committees, including key environmental and social matters listed in the charter of the Board's Environmental, Social, and Public Policy Committee.
+
+To learn more about Microsoft's corporate governance and our environmental and social practices, please see our reporting at [Microsoft.com/transparency](http://Microsoft.com/transparency).
+
+![FSC logo and product information](3cafed55aa3e96e1fa3f979e715f881b_img.jpg)
+
+The image shows the FSC (Forest Stewardship Council) logo, which consists of a stylized tree icon with a checkmark inside, followed by the letters "FSC" and the website "www.fsc.org". To the right of the logo, the text "MIX" is displayed, followed by "Paper | Supporting responsible forestry" and the product code "FSC™ C132107".
+
+**FSC**  
+www.fsc.org
+
+**MIX**  
+Paper | Supporting  
+responsible forestry  
+**FSC™ C132107**
+
+FSC logo and product information

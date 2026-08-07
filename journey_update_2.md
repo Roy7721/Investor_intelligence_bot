@@ -474,7 +474,133 @@ mentioning a term only that company would use.
 
 ---
 
-## 15. Where things stand
+## 15. KPI extraction
+
+The evaluation question set turned out to be the extraction spec. *"What was
+research and development expense in 2024?"* already returned $4,540M correctly —
+that question **is** the R&D extractor. The harness that proved the system works
+became the thing that produces the product's data.
+
+### One call per KPI, not one call for eight
+
+The obvious design — retrieve once, ask for all eight metrics — fails because a
+single retrieval biases the whole context toward whatever question was asked.
+Total assets would be extracted from chunks selected for revenue. Merging eight
+retrievals instead blows the token budget (8 × 15 chunks).
+
+So: one focused retrieval and one small LLM call per metric. Eight per filing,
+24 for three, cached once. Each context stays small, and a failure is traceable
+to its own retrieval rather than a shared blurry one.
+
+### Provenance, and why it paid for itself immediately
+
+Every extraction returns `source_quote` — the verbatim table row the value came
+from:
+
+```
+revenue   97,690   "Total revenues | $ 97,690 | $ 96,773 | $ 81,462 | $ 917 | 1 %"
+```
+
+Two returns on that. It gives a **free non-LLM correctness check** — if the
+quote doesn't contain the number, the extraction is wrong. And it made the next
+two bugs diagnosable at all.
+
+### Two failures that looked identical and weren't
+
+**`operating_cash_flow` returned null.** Its retrieval distance was 0.7722 —
+the *best* of all eight. Checking the store showed the answer at rank 1 **and**
+rank 2:
+
+```
+[1] 0.7722  (the cash flow table, containing 14,923)
+[2] 0.8089  "Net cash provided by operating activities increased by $1.67
+             billion to $14.92 billion during..."
+```
+
+Perfect retrieval, failed generation. The cause was in the prompt:
+
+```
+Metric: operating_cash_flow
+```
+
+That is a **JSON key**, not a financial term. The model had to map it onto "Net
+cash provided by operating activities" — and it was the most jargon-heavy key in
+the set. Every metric that worked reads naturally on its own: `revenue`,
+`net_income`, `total_assets`.
+
+Fixed with a separate `label` field carrying the filing's own wording, which
+turns extraction from a mapping problem into a matching one. **The identifier a
+data structure needs and the name a model needs are different things.**
+
+**`net_income` returned null.** Same symptom, entirely different cause — and
+only visible because the error branch kept the raw response:
+
+```json
+"raw": "{\"value\": 7153, \"units\": \"millions USD\",
+         \"source_quote\": \"Net income ... | \\$ 7,..."
+"error": "unparseable JSON: Invalid \\escape"
+```
+
+The model extracted **7153 correctly**, with right units and a verbatim quote.
+But the quote contained `\$` — Datalab escapes dollar signs — and `\$` is not a
+valid JSON escape, so `json.loads` rejected the entire object.
+
+Correct retrieval → correct extraction → correct instruction-following →
+discarded by the parser. The instruction to copy quotes *verbatim* is what
+carried the escape in; following instructions faithfully is what broke it.
+
+Fixed at both ends: `chunking_v5` strips `\$` at ingest (0 of 3,213 chunks now
+carry one), and `_parse_json` drops invalid escapes defensively.
+
+### Rejecting a threshold
+
+Microsoft's `risk_factors` returned four *market risk* categories — foreign
+exchange, interest rates, credit, equity prices — because its filing has no
+Item 1A and retrieval returned the nearest thing. Its retrieval distance was
+**1.4103**, worst of all 24 by a clear margin.
+
+The tempting fix was `DISTANCE_THRESHOLD = 1.30`. That is overfitting: one
+observation, one constant, and distances shift with embedding model, query
+phrasing and corpus size. It would look like it was working while silently
+mis-flagging on the fourth company.
+
+Rejected in favour of a deterministic precondition — does the filing contain the
+section at all:
+
+```python
+if marker and not section_present(company, year, marker):
+    return {..., "absent": f"{marker} not present in this filing"}
+```
+
+Free, exact, and it skips the LLM call entirely.
+
+**Prefer checks that are true by definition over checks fitted to
+observations.** The three that survived — the accounting identity
+(assets − liabilities = equity), the section marker, and quote-contains-number —
+all hold on documents neither of us has seen. `journey.md` requires this to
+generalise to unseen client filings; a threshold tuned on 24 samples does not.
+
+One subtlety in that check: the marker is `"Item 1A"`, deliberately **not**
+`"Risk Factors"`. Microsoft's report contains the phrase "Risk Factors" three
+times — all cross-references to a 10-K not in the document. Matching the phrase
+would report the section present and reopen the exact failure. A structural
+identifier and a phrase that appears in prose are not interchangeable.
+
+### Result
+
+18 of 18 numeric KPIs correct across three companies, units normalised to a
+fixed vocabulary, balance sheet identity holding on all three, and
+`risk_factors` correctly reporting absent where the section genuinely isn't
+there.
+
+The derived figures are free arithmetic on those six, and two of them say
+something: **Apple's return on equity at 164%** — years of buybacks against
+$93.7B of net income on $57.0B of equity — and **Tesla converting 2.09× its net
+income into operating cash**, which is what heavy depreciation looks like.
+
+---
+
+## 16. Where things stand
 
 **Done**
 - Extractor decided and documented: Datalab, with the reasoning and the

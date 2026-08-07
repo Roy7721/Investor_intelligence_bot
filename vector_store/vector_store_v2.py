@@ -55,52 +55,52 @@ def embed_and_store(chunks: list[dict], name: str = COLLECTION_NAME):
 
 
 
-# if __name__ == "__main__":
-#     import re
-#     import sys
-
-#     MD_DIR = ROOT / "data" / "markdown_datalab"
-
-#     def ingest(md_path: Path) -> None:
-#         # Company and year are DERIVED, never typed separately. They used to be
-#         # two independent literals and they drifted: md_path pointed at Apple
-#         # while source_company still said "Microsoft". Apple's filing went in
-#         # under Microsoft's label, and because embed_and_store deletes by
-#         # (company, year) first, the real Microsoft chunks were wiped.
-#         year, company = md_path.stem.split("_", 1)
-#         print(f"\n=== {company} {year}  <-  {md_path.name}")
-#         chunks = chunk_markdown(
-#             markdown_file=str(md_path),
-#             source_company=company,
-#             filing_year=int(year),
-#         )
-#         embed_and_store(chunks=chunks)
-
-#     # Only "{year}_{Company}.md" — excludes page-range test files like
-#     # 2024_Microsoft_p37-43.md, which would otherwise be ingested as a company
-#     # called "Microsoft_p37-43".
-#     targets = sorted(
-#         p for p in MD_DIR.glob("*.md")
-#         if re.fullmatch(r"\d{4}_[A-Za-z]+", p.stem)
-#     )
-#     if not targets:
-#         raise SystemExit(f"No filings found in {MD_DIR}")
-#     for p in targets:
-#         ingest(p)
-
 if __name__ == "__main__":
-    source_company = "Tesla"
-    filing_year = 2024
+    import re
+    import sys
 
-    md_path  = ROOT / "data" / "markdown_datalab" / "2024_Tesla.md"
+    MD_DIR = ROOT / "data" / "markdown_datalab"
 
-    chunks = chunk_markdown(
-                markdown_file=str(md_path),
-                source_company=source_company,
-                filing_year=filing_year,
-            )
+    def ingest(md_path: Path) -> None:
+        # Company and year are DERIVED, never typed separately. They used to be
+        # two independent literals and they drifted: md_path pointed at Apple
+        # while source_company still said "Microsoft". Apple's filing went in
+        # under Microsoft's label, and because embed_and_store deletes by
+        # (company, year) first, the real Microsoft chunks were wiped.
+        year, company = md_path.stem.split("_", 1)
+        print(f"\n=== {company} {year}  <-  {md_path.name}")
+        chunks = chunk_markdown(
+            markdown_file=str(md_path),
+            source_company=company,
+            filing_year=int(year),
+        )
+        embed_and_store(chunks=chunks)
 
-    embed_and_store(chunks=chunks)
+    # Only "{year}_{Company}.md" — excludes page-range test files like
+    # 2024_Microsoft_p37-43.md, which would otherwise be ingested as a company
+    # called "Microsoft_p37-43".
+    targets = sorted(
+        p for p in MD_DIR.glob("*.md")
+        if re.fullmatch(r"\d{4}_[A-Za-z]+", p.stem)
+    )
+    if not targets:
+        raise SystemExit(f"No filings found in {MD_DIR}")
+    for p in targets:
+        ingest(p)
+
+# if __name__ == "__main__":
+#     source_company = "Tesla"
+#     filing_year = 2024
+
+#     md_path  = ROOT / "data" / "markdown_datalab" / "2024_Tesla.md"
+
+#     chunks = chunk_markdown(
+#                 markdown_file=str(md_path),
+#                 source_company=source_company,
+#                 filing_year=filing_year,
+#             )
+
+#     embed_and_store(chunks=chunks)
 
 
 
