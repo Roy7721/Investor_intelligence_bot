@@ -587,7 +587,7 @@ The following graph shows a comparison of five-year cumulative total shareholder
 **COMPARISON OF 5-YEAR CUMULATIVE TOTAL RETURN**  
 **Among Apple Inc., the S&P 500 Index and the Dow Jones U.S. Technology Supersector Index**
 
-The graph displays the cumulative total return for three investment vehicles over a five-year period. The y-axis represents the dollar value of a \$100 investment, ranging from \$0 to \$500 in increments of \$100. The x-axis shows dates from 9/27/19 to 9/28/24. Apple Inc. (solid line) shows the highest growth, reaching approximately \$430. The Dow Jones U.S. Technology Supersector Index (dashed line) reaches approximately \$322. The S&P 500 Index (dashed line) reaches approximately \$210.
+The graph displays the cumulative total return for three investment indices over a five-year period. The y-axis represents the dollar amount, ranging from \$0 to \$500 in increments of \$100. The x-axis shows dates from 9/27/19 to 9/28/24. Apple Inc. (solid line) shows the highest growth, reaching approximately \$430. The Dow Jones U.S. Technology Supersector Index (dashed line) follows, reaching approximately \$322. The S&P 500 Index (dashed line) shows the lowest growth, reaching approximately \$210.
 
 | Date    | Apple Inc. | S&P 500 Index | Dow Jones U.S. Technology Supersector Index |
 |---------|------------|---------------|---------------------------------------------|
@@ -616,25 +616,25 @@ Item 6. [Reserved]
 
 The Company announces new product, service and software offerings at various times during the year. Significant announcements during fiscal year 2024 included the following:
 
-#### **First Quarter 2024:**
+#### First Quarter 2024:
 
 - MacBook Pro 14-in.;
 - MacBook Pro 16-in.; and
 - iMac.
 
-#### **Second Quarter 2024:**
+#### Second Quarter 2024:
 
 - MacBook Air 13-in.; and
 - MacBook Air 15-in.
 
-#### **Third Quarter 2024:**
+#### Third Quarter 2024:
 
 - iPad Air;
 - iPad Pro;
 - iOS 18, macOS Sequoia, iPadOS 18, watchOS 11, visionOS 2 and tvOS 18, updates to the Company's operating systems; and
 - Apple Intelligence™, a personal intelligence system that uses generative models.
 
-#### **Fourth Quarter 2024:**
+#### Fourth Quarter 2024:
 
 - iPhone 16, iPhone 16 Plus, iPhone 16 Pro and iPhone 16 Pro Max;
 - Apple Watch Series 10; and
@@ -652,14 +652,14 @@ Macroeconomic conditions, including inflation, interest rates and currency fluct
 
 The following table shows net sales by reportable segment for 2024, 2023 and 2022 (dollars in millions):
 
-|                      | 2024              | Change | 2023              | Change | 2022              |
-|----------------------|-------------------|--------|-------------------|--------|-------------------|
-| Americas             | \$ 167,045        | 3 %    | \$ 162,560        | (4)%   | \$ 169,658        |
-| Europe               | 101,328           | 7 %    | 94,294            | (1)%   | 95,118            |
-| Greater China        | 66,952            | (8)%   | 72,559            | (2)%   | 74,200            |
-| Japan                | 25,052            | 3 %    | 24,257            | (7)%   | 25,977            |
-| Rest of Asia Pacific | 30,658            | 4 %    | 29,615            | 1 %    | 29,375            |
-| Total net sales      | <u>\$ 391,035</u> | 2 %    | <u>\$ 383,285</u> | (3)%   | <u>\$ 394,328</u> |
+|                      | 2024              | Change     | 2023              | Change      | 2022              |
+|----------------------|-------------------|------------|-------------------|-------------|-------------------|
+| Americas             | \$ 167,045        | 3 %        | \$ 162,560        | (4)%        | \$ 169,658        |
+| Europe               | 101,328           | 7 %        | 94,294            | (1)%        | 95,118            |
+| Greater China        | 66,952            | (8)%       | 72,559            | (2)%        | 74,200            |
+| Japan                | 25,052            | 3 %        | 24,257            | (7)%        | 25,977            |
+| Rest of Asia Pacific | 30,658            | 4 %        | 29,615            | 1 %         | 29,375            |
+| Total net sales      | <u>\$ 391,035</u> | <u>2 %</u> | <u>\$ 383,285</u> | <u>(3)%</u> | <u>\$ 394,328</u> |
 
 #### *Americas*
 
@@ -859,7 +859,7 @@ The Company's exposure to foreign exchange rate risk relates primarily to the Co
 
 The Company applied a value-at-risk ("VAR") model to its foreign currency derivative positions to assess the potential impact of fluctuations in exchange rates. The VAR model used a Monte Carlo simulation. The VAR is the maximum expected loss in fair value, for a given confidence interval, to the Company's foreign currency derivative positions due to adverse movements in rates. Based on the results of the model, the Company estimates, with 95% confidence, a maximum one-day loss in fair value of \$538 million and \$669 million as of September 28, 2024 and September 30, 2023, respectively. Changes in the Company's underlying foreign currency exposures, which were excluded from the assessment, generally offset changes in the fair values of the Company's foreign currency derivatives.
 
-## Item 8. Financial Statements and Supplementary Data
+## **Item 8. Financial Statements and Supplementary Data**
 
 | <b>Index to Consolidated Financial Statements</b>                                                                                                        | <b>Page</b> |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
@@ -1179,25 +1179,25 @@ The following tables show the Company's cash, cash equivalents and marketable se
 | Subtotal                                  | 132,108       | 583              | (4,635)           | 128,056    | 1,966                     | 34,611                        | 91,479                            |
 | Total <sup>(2)(3)</sup>                   | \$ 160,600    | \$ 688           | \$ (4,638)        | \$ 156,650 | \$ 29,943                 | \$ 35,228                     | \$ 91,479                         |
 
-| 2023                                      |                   |                  |                    |                   |                           |                               |                                   |
-|-------------------------------------------|-------------------|------------------|--------------------|-------------------|---------------------------|-------------------------------|-----------------------------------|
-|                                           | Adjusted Cost     | Unrealized Gains | Unrealized Losses  | Fair Value        | Cash and Cash Equivalents | Current Marketable Securities | Non-Current Marketable Securities |
-| Cash                                      | \$ 28,359         | \$ —             | \$ —               | \$ 28,359         | \$ 28,359                 | \$ —                          | \$ —                              |
-| Level 1:                                  |                   |                  |                    |                   |                           |                               |                                   |
-| Money market funds                        | 481               | —                | —                  | 481               | 481                       | —                             | —                                 |
-| Mutual funds and equity securities        | 442               | 12               | (26)               | 428               | —                         | 428                           | —                                 |
-| Subtotal                                  | 923               | 12               | (26)               | 909               | 481                       | 428                           | —                                 |
-| Level 2 <sup>(1)</sup> :                  |                   |                  |                    |                   |                           |                               |                                   |
-| U.S. Treasury securities                  | 19,406            | —                | (1,292)            | 18,114            | 35                        | 5,468                         | 12,611                            |
-| U.S. agency securities                    | 5,736             | —                | (600)              | 5,136             | 36                        | 271                           | 4,829                             |
-| Non-U.S. government securities            | 17,533            | 6                | (1,048)            | 16,491            | —                         | 11,332                        | 5,159                             |
-| Certificates of deposit and time deposits | 1,354             | —                | —                  | 1,354             | 1,034                     | 320                           | —                                 |
-| Commercial paper                          | 608               | —                | —                  | 608               | —                         | 608                           | —                                 |
-| Corporate debt securities                 | 76,840            | 6                | (5,956)            | 70,890            | 20                        | 12,627                        | 58,243                            |
-| Municipal securities                      | 628               | —                | (26)               | 602               | —                         | 192                           | 410                               |
-| Mortgage- and asset-backed securities     | 22,365            | 6                | (2,735)            | 19,636            | —                         | 344                           | 19,292                            |
-| Subtotal                                  | 144,470           | 18               | (11,657)           | 132,831           | 1,125                     | 31,162                        | 100,544                           |
-| Total <sup>(3)</sup>                      | <u>\$ 173,752</u> | <u>\$ 30</u>     | <u>\$ (11,683)</u> | <u>\$ 162,099</u> | <u>\$ 29,965</u>          | <u>\$ 31,590</u>              | <u>\$ 100,544</u>                 |
+| 2023                                      |               |                  |                   |            |                           |                               |                                   |
+|-------------------------------------------|---------------|------------------|-------------------|------------|---------------------------|-------------------------------|-----------------------------------|
+|                                           | Adjusted Cost | Unrealized Gains | Unrealized Losses | Fair Value | Cash and Cash Equivalents | Current Marketable Securities | Non-Current Marketable Securities |
+| Cash                                      | \$ 28,359     | \$ —             | \$ —              | \$ 28,359  | \$ 28,359                 | \$ —                          | \$ —                              |
+| Level 1:                                  |               |                  |                   |            |                           |                               |                                   |
+| Money market funds                        | 481           | —                | —                 | 481        | 481                       | —                             | —                                 |
+| Mutual funds and equity securities        | 442           | 12               | (26)              | 428        | —                         | 428                           | —                                 |
+| Subtotal                                  | 923           | 12               | (26)              | 909        | 481                       | 428                           | —                                 |
+| Level 2 <sup>(1)</sup> :                  |               |                  |                   |            |                           |                               |                                   |
+| U.S. Treasury securities                  | 19,406        | —                | (1,292)           | 18,114     | 35                        | 5,468                         | 12,611                            |
+| U.S. agency securities                    | 5,736         | —                | (600)             | 5,136      | 36                        | 271                           | 4,829                             |
+| Non-U.S. government securities            | 17,533        | 6                | (1,048)           | 16,491     | —                         | 11,332                        | 5,159                             |
+| Certificates of deposit and time deposits | 1,354         | —                | —                 | 1,354      | 1,034                     | 320                           | —                                 |
+| Commercial paper                          | 608           | —                | —                 | 608        | —                         | 608                           | —                                 |
+| Corporate debt securities                 | 76,840        | 6                | (5,956)           | 70,890     | 20                        | 12,627                        | 58,243                            |
+| Municipal securities                      | 628           | —                | (26)              | 602        | —                         | 192                           | 410                               |
+| Mortgage- and asset-backed securities     | 22,365        | 6                | (2,735)           | 19,636     | —                         | 344                           | 19,292                            |
+| Subtotal                                  | 144,470       | 18               | (11,657)          | 132,831    | 1,125                     | 31,162                        | 100,544                           |
+| Total <sup>(3)</sup>                      | \$ 173,752    | \$ 30            | \$ (11,683)       | \$ 162,099 | \$ 29,965                 | \$ 31,590                     | \$ 100,544                        |
 
 - (1) The valuation techniques used to measure the fair values of the Company's Level 2 financial instruments, which generally have counterparties with high credit ratings, are based on quoted market prices or model-driven valuations using significant inputs derived from or corroborated by observable market data.
 - (2) As of September 28, 2024, cash and cash equivalents included \$2.6 billion held in escrow and restricted from general use. These restricted cash and cash equivalents were designated to settle the Company's obligation related to the State Aid Decision (refer to Note 7, "Income Taxes").
@@ -2376,9 +2376,9 @@ Nothing contained in this Award Agreement or the Plan constitutes an employment 
 
 ##### **5. Dividend and Voting Rights.**
 
-(a) **Limitations on Rights Associated with RSUs.** The Participant shall have no rights as a shareholder of the Company, no dividend rights (except as expressly provided in Section 5(b) with respect to Dividend Equivalent Rights) and no voting rights, with respect to the RSUs or any Shares underlying or issuable in respect of such RSUs until such Shares are actually issued to and held of record by the Participant. No adjustments will be made for dividends or other rights of a holder for which the record date is prior to the date of issuance of the Shares as reflected in the book entry evidencing such Shares.
+**(a) Limitations on Rights Associated with RSUs.** The Participant shall have no rights as a shareholder of the Company, no dividend rights (except as expressly provided in Section 5(b) with respect to Dividend Equivalent Rights) and no voting rights, with respect to the RSUs or any Shares underlying or issuable in respect of such RSUs until such Shares are actually issued to and held of record by the Participant. No adjustments will be made for dividends or other rights of a holder for which the record date is prior to the date of issuance of the Shares as reflected in the book entry evidencing such Shares.
 
-(b) **Dividend Equivalent Rights.** As of any date that the Company pays an ordinary cash dividend on its Shares, the Company shall credit the Participant with a dollar amount equal to (i) the per share cash dividend paid by the Company on its Shares on such date, multiplied by (ii) the total target number of RSUs (with such total number adjusted pursuant to Section 11 of the Plan) subject to the Award that are outstanding on the record date for that dividend (a “**Dividend Equivalent Right**”). Any Dividend Equivalent Rights credited pursuant to the foregoing provisions of this Section 5(b) shall be subject to the same vesting, payment and other terms, conditions and restrictions as the original RSUs to which they relate, including the obligation to satisfy the Tax-Related Items; provided, however, that the amount of any vested Dividend Equivalent Rights shall be paid in cash. For purposes of clarity, the percentage of the Dividend Equivalent Rights that are paid will correspond to the percentage of the total target number of RSUs that vest on the Vesting Date, after giving effect to Exhibit A. No crediting of Dividend Equivalent Rights shall be made pursuant to this Section 5(b) with respect to any RSUs which, as of the record date for that dividend, have either been paid pursuant to Section 7 or terminated pursuant to Section 8 or Exhibit A.
+**(b) Dividend Equivalent Rights.** As of any date that the Company pays an ordinary cash dividend on its Shares, the Company shall credit the Participant with a dollar amount equal to (i) the per share cash dividend paid by the Company on its Shares on such date, multiplied by (ii) the total target number of RSUs (with such total number adjusted pursuant to Section 11 of the Plan) subject to the Award that are outstanding on the record date for that dividend (a “**Dividend Equivalent Right**”). Any Dividend Equivalent Rights credited pursuant to the foregoing provisions of this Section 5(b) shall be subject to the same vesting, payment and other terms, conditions and restrictions as the original RSUs to which they relate, including the obligation to satisfy the Tax-Related Items; provided, however, that the amount of any vested Dividend Equivalent Rights shall be paid in cash. For purposes of clarity, the percentage of the Dividend Equivalent Rights that are paid will correspond to the percentage of the total target number of RSUs that vest on the Vesting Date, after giving effect to Exhibit A. No crediting of Dividend Equivalent Rights shall be made pursuant to this Section 5(b) with respect to any RSUs which, as of the record date for that dividend, have either been paid pursuant to Section 7 or terminated pursuant to Section 8 or Exhibit A.
 
 **6. Restrictions on Transfer.** Except as provided in Section 4(c) of the Plan, the Award, the Dividend Equivalent Rights and any interest therein or amount or Shares issued in respect thereof shall not be sold, assigned, transferred, pledged or otherwise disposed of, alienated or encumbered, either voluntarily or involuntarily.
 
@@ -2490,7 +2490,7 @@ In the event of any ambiguity or discrepancy, the determination of the Committee
 
 #### **NOTICE OF GRANT**
 
-Name: (the "Participant")
+Name: (the “Participant”)
 
 Employee ID:
 
@@ -2498,15 +2498,15 @@ Grant Number:
 
 No. of Units Subject to Award:
 
-Award Date: (the "Award Date")
+Award Date: (the “Award Date”)
 
-Vesting Commencement Date: (the "Vesting Commencement Date")
+Vesting Commencement Date: (the “Vesting Commencement Date”)
 
 Vesting Schedule:
 
-This restricted stock unit award (the "Award") is granted under and governed by the terms and conditions of the Apple Inc. 2022 Employee Stock Plan and the Terms and Conditions of Restricted Stock Unit Award, which are incorporated herein by reference.
+This restricted stock unit award (the “Award”) is granted under and governed by the terms and conditions of the Apple Inc. 2022 Employee Stock Plan and the Terms and Conditions of Restricted Stock Unit Award, which are incorporated herein by reference.
 
-You do not have to accept the Award. If you wish to decline your Award, you should promptly notify Apple Inc.'s Stock Plan Group of your decision at [peoplesupport@apple.com](mailto:peoplesupport@apple.com). If you do not provide such notification by the last day of the calendar month prior to the first Vesting Date, you will be deemed to have accepted your Award on the terms and conditions set forth herein.
+You do not have to accept the Award. If you wish to decline your Award, you should promptly notify Apple Inc.’s Stock Plan Group of your decision at [peoplesupport@apple.com](mailto:peoplesupport@apple.com). If you do not provide such notification by the last day of the calendar month prior to the first Vesting Date, you will be deemed to have accepted your Award on the terms and conditions set forth herein.
 
 ### **APPLE INC. 2022 EMPLOYEE STOCK PLAN RESTRICTED STOCK UNIT AWARD AGREEMENT**
 
@@ -2524,9 +2524,9 @@ Nothing contained in this Award Agreement or the Plan constitutes an employment 
 
 ##### **5. Dividend and Voting Rights.**
 
-(a) **Limitations on Rights Associated with RSUs.** The Participant shall have no rights as a shareholder of the Company, no dividend rights (except as expressly provided in Section 5(b) with respect to Dividend Equivalent Rights) and no voting rights, with respect to the RSUs or any Shares underlying or issuable in respect of such RSUs until such Shares are actually issued to and held of record by the Participant. No adjustments will be made for dividends or other rights of a holder for which the record date is prior to the date of issuance of the Shares as reflected in the book entry evidencing such Shares.
+**(a) Limitations on Rights Associated with RSUs.** The Participant shall have no rights as a shareholder of the Company, no dividend rights (except as expressly provided in Section 5(b) with respect to Dividend Equivalent Rights) and no voting rights, with respect to the RSUs or any Shares underlying or issuable in respect of such RSUs until such Shares are actually issued to and held of record by the Participant. No adjustments will be made for dividends or other rights of a holder for which the record date is prior to the date of issuance of the Shares as reflected in the book entry evidencing such Shares.
 
-(b) **Dividend Equivalent Rights.** As of any date that the Company pays an ordinary cash dividend on its Shares, the Company shall credit the Participant with a dollar amount equal to (i) the per share cash dividend paid by the Company on its Shares on such date, multiplied by (ii) the total number of RSUs (with such total number adjusted pursuant to Section 11 of the Plan) subject to the Award that are outstanding on the record date for that dividend (a “**Dividend Equivalent Right**”). Any Dividend Equivalent Rights credited pursuant to the foregoing provisions of this Section 5(b) shall be subject to the same vesting, payment and other terms, conditions and restrictions as the original RSUs to which they relate, including the obligation to satisfy the Tax-Related Items; provided, however, that the amount of any vested Dividend Equivalent Rights shall be paid in cash. No crediting of Dividend Equivalent Rights shall be made pursuant to this Section 5(b) with respect to any RSUs which, as of the record date for that dividend, have either been paid pursuant to Section 7 or terminated pursuant to Section 8.
+**(b) Dividend Equivalent Rights.** As of any date that the Company pays an ordinary cash dividend on its Shares, the Company shall credit the Participant with a dollar amount equal to (i) the per share cash dividend paid by the Company on its Shares on such date, multiplied by (ii) the total number of RSUs (with such total number adjusted pursuant to Section 11 of the Plan) subject to the Award that are outstanding on the record date for that dividend (a "**Dividend Equivalent Right**"). Any Dividend Equivalent Rights credited pursuant to the foregoing provisions of this Section 5(b) shall be subject to the same vesting, payment and other terms, conditions and restrictions as the original RSUs to which they relate, including the obligation to satisfy the Tax-Related Items; provided, however, that the amount of any vested Dividend Equivalent Rights shall be paid in cash. No crediting of Dividend Equivalent Rights shall be made pursuant to this Section 5(b) with respect to any RSUs which, as of the record date for that dividend, have either been paid pursuant to Section 7 or terminated pursuant to Section 8.
 
 **6. Restrictions on Transfer.** Except as provided in Section 4(c) of the Plan, the Award, the Dividend Equivalent Rights and any interest therein or amount or Shares issued in respect thereof shall not be sold, assigned, transferred, pledged or otherwise disposed of, alienated or encumbered, either voluntarily or involuntarily.
 
@@ -2534,9 +2534,9 @@ Nothing contained in this Award Agreement or the Plan constitutes an employment 
 
 ##### **8. Effect of Termination of Service.**
 
-(a) Except as expressly provided in Section 4 or this Section 8, the Participant's RSUs (as well as the related Dividend Equivalent Rights) shall terminate and be forfeited to the extent such RSUs have not become vested prior to the date of the Participant's Termination of Service (the “**Severance Date**”), regardless of the reason for the Participant's Termination of Service, whether with or without cause, voluntarily or involuntarily, or whether the Participant was employed or provided services for a portion of the vesting period prior to a Vesting Date.
+**(a)** Except as expressly provided in Section 4 or this Section 8, the Participant's RSUs (as well as the related Dividend Equivalent Rights) shall terminate and be forfeited to the extent such RSUs have not become vested prior to the date of the Participant's Termination of Service (the "**Severance Date**"), regardless of the reason for the Participant's Termination of Service, whether with or without cause, voluntarily or involuntarily, or whether the Participant was employed or provided services for a portion of the vesting period prior to a Vesting Date.
 
-(b) Notwithstanding the foregoing, and except as otherwise provided by the Committee, in the event of the Participant's Termination of Service due to the Participant's Retirement (defined below) on or after the first anniversary of the Award Date, any unvested RSUs (as well as the related Dividend Equivalent Rights) shall continue to be eligible to vest on a pro rata basis (in accordance
+**(b)** Notwithstanding the foregoing, and except as otherwise provided by the Committee, in the event of the Participant's Termination of Service due to the Participant's Retirement (defined below) on or after the first anniversary of the Award Date, any unvested RSUs (as well as the related Dividend Equivalent Rights) shall continue to be eligible to vest on a pro rata basis (in accordance
 
 with the schedule set forth in the Grant Notice and Section 8(d)), without regard to the Participant's Termination of Service, determined by multiplying (i) the number of RSUs eligible to vest on the applicable Vesting Date, by (ii) a fraction, the numerator of which shall be the number of days that have elapsed between the Award Date and the Participant's Retirement date, and the denominator of which shall be the total number of days contained in the period between the Award Date and the applicable Vesting Date. For purposes of this Award Agreement, "**Retirement**" means the Participant's Termination of Service on or after the Participant both has reached the age of sixty (60) and has completed ten (10) years of service with the Company, or any Subsidiary (including service with any entity acquired by the Company) as of the Severance Date, as determined in the sole discretion of the Committee. In the event the Participant's Termination of Service occurs prior to the first anniversary of the Award Date, this Section 8(b) shall not apply, unless the Committee shall otherwise determine in its sole discretion. For purposes of this Section 8(b), a Termination of Service shall not include the Participant's Termination of Service resulting from the Participant's Disability or death (in which case Section 8(c) or 8(d), as applicable, will apply).
 
@@ -2612,8 +2612,7 @@ Employee ID:
 
 Grant Number:
 
-Target No. of Units
-
+Target No. of Units  
 Subject to Award:
 
 Award Date: (the "Award Date")

@@ -5,14 +5,14 @@
     "revenue": {
       "value": 391035,
       "units": "millions USD",
-      "source_quote": "Total net sales | <u>$ 391,035</u> | 2 % | <u>$ 383,285</u> | (3)% | <u>$ 394,328</u> |",
+      "source_quote": "Total net sales | <u>$ 391,035</u> | <u>2 %</u> | <u>$ 383,285</u> | <u>(3)%</u> | <u>$ 394,328</u> |",
       "error": null,
       "absent": null
     },
     "net_income": {
       "value": 93736,
       "units": "millions USD",
-      "source_quote": "Net income | $ 93,736",
+      "source_quote": "Net income                                                                   | $ 93,736             | $ 96,995             | $ 99,803             ",
       "error": null,
       "absent": null
     },
@@ -33,7 +33,7 @@
     "total_assets": {
       "value": 364980,
       "units": "millions USD",
-      "source_quote": "Total assets | <u>$ 364,980</u> | <u>$ 352,583</u>",
+      "source_quote": "Total assets | $ 364,980 | $ 352,583",
       "error": null,
       "absent": null
     },
@@ -46,14 +46,14 @@
     },
     "risk_factors": {
       "value": [
-        "The Company may hold excess or insufficient amounts of components or products, or not fully utilize firm purchase commitments.",
-        "For certain types of losses, such insurance coverage may be insufficient to cover all losses that may arise.",
-        "Global supply chain interruptions could occur, resulting in interruptions to the supply of current products and offering of existing services, and delays in production ramps of new products and development of new services.",
+        "The Company may purchase excess or insufficient amounts of components or products, or not fully utilize firm purchase commitments.",
+        "The Company may be unable to maintain insurance coverage for certain types of losses, and such insurance coverage may be insufficient to cover all losses that may arise.",
+        "Global economic factors may result in interruptions to the supply of current products and offering of existing services, and delays in production ramps of new products and development of new services.",
         "There is no assurance the Company will successfully manage future introductions and transitions of products and services.",
         "There is no assurance these investments will achieve expected returns, and the Company may not be able to develop and market new products and services successfully.",
-        "The Company is subject to complex and changing laws and regulations worldwide, including laws related to privacy, data protection, competition, and business practices, all of which could materially adversely affect the Company's business, reputation, results of operations and financial condition.",
-        "The Company is subject to legal proceedings which could result in substantial judgments, settlements, fines or penalties, and other sanctions and claims against the Company and materially adversely affect the Company's business, reputation, results of operations, financial condition and stock price.",
-        "The Company's manufacturing and logistics operations could be disrupted or terminated, and the recoverability of manufacturing process equipment or prepayments can be negatively impacted."
+        "The Company is subject to laws and regulations concerning its business practices, all of which could materially adversely affect the Company's business, reputation, results of operations and financial condition.",
+        "The Company is subject to legal proceedings against the Company and materially adversely affect the Company's business, reputation, results of operations, financial condition and stock price.",
+        "The Company's supply chain could be disrupted or terminated, and the recoverability of manufacturing process equipment or prepayments can be negatively impacted."
       ],
       "units": null,
       "source_quote": "The Company's business, reputation, results of operations, financial condition and stock price can be affected by a number of factors, whether currently known or unknown, including those described below.",

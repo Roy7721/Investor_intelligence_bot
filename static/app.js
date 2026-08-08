@@ -151,7 +151,14 @@ function render(d) {
   $("drivers").innerHTML = Array.isArray(drivers) && drivers.length
     ? drivers.map(t => `<span class="chip">${esc(t)}</span>`).join("")
     : `<span class="chip">not disclosed</span>`;
+
+
+  // The composer starts disabled in the HTML so it can't be used before a
+  // filing is loaded — there would be nothing to scope the question to.
+  $("q").disabled = false;
+  $("composer").querySelector("button").disabled = false;
 }
+
 
 document.addEventListener("click", e => {
   const tab = e.target.closest(".tab");
@@ -166,6 +173,56 @@ document.addEventListener("click", e => {
     const open = box.dataset.open === "true";
     box.dataset.open = String(!open);
     btn.setAttribute("aria-expanded", String(!open));
+  }
+});
+
+
+function addMessage(who, text, cite) {
+  const log = $("chat-log");
+  log.querySelector(".chat-empty")?.remove();
+  const el = document.createElement("div");
+  el.className = `msg ${who}`;
+  el.innerHTML =
+    `<div class="who">${who === "you" ? "You" : "Analyst"}</div>` +
+    `<div class="body">${esc(text)}</div>` +
+    (cite ? `<div class="cite">${esc(cite)}</div>` : "");
+  log.appendChild(el);
+  el.scrollIntoView({ block: "nearest" });
+}
+
+$("composer").addEventListener("submit", async e => {
+  e.preventDefault();
+  const input = $("q");
+  const question = input.value.trim();
+  if (!question || !current) return;
+
+  addMessage("you", question);
+  input.value = "";
+  input.disabled = true;
+
+  // A placeholder that gets replaced, so the panel never looks frozen while
+  // retrieval and the model run.
+  addMessage("bot", "…", "thinking");
+  const pending = $("chat-log").lastElementChild;
+
+  try {
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        question, company: current.company, year: current.year,
+      }),
+    });
+    const data = await res.json();
+    pending.querySelector(".body").textContent =
+      res.ok ? data.answer : (data.detail || "Something went wrong.");
+    pending.querySelector(".cite").textContent = `${current.company} FY${current.year}`;
+  } catch (err) {
+    pending.querySelector(".body").textContent = "Could not reach the server.";
+    pending.querySelector(".cite").textContent = String(err);
+  } finally {
+    input.disabled = false;
+    input.focus();
   }
 });
 

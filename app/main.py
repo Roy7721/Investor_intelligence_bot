@@ -20,6 +20,18 @@ from fastapi.staticfiles import StaticFiles
 from config.config import ROOT
 from app.metrics import derive
 
+from pydantic import BaseModel
+
+# Imported at module scope on purpose: it costs ~20s (openai + chromadb +
+# langchain_google_genai). Paying that once at startup is better than making
+# the first person to ask a question wait 20 seconds while watching a spinner.
+# If the --reload loop gets annoying, move it inside chat() instead.
+from Rag.chatbot import ask
+
+
+
+
+
 
 STATIC = ROOT / "static"
 KPI_DIR = ROOT / "data" / "kpi"
@@ -83,6 +95,24 @@ def kpi(company: str, year: int) -> dict:
         "derived": derive(filing["metrics"]),
         "peers": peers,
     }
+
+
+class ChatRequest(BaseModel):
+    question: str
+    company: str
+    year: int | None = None
+
+@app.post("/api/chat")
+def chat(req: ChatRequest) -> dict:
+    """One question against one filing. All the work — retrieval, the scope
+    declaration, the prompt — already lives in ask(); this is only the seam
+    between HTTP and that function."""
+    question = req.question.strip()
+    if not question:
+        raise HTTPException(status_code=400, detail="Question is empty")
+
+    answer = ask(question=question, source_company=req.company, filing_year=req.year)
+    return {"answer": answer}
 
 
 # Mounted at /static rather than / so it can never shadow an /api route.

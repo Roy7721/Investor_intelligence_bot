@@ -255,14 +255,14 @@ The dividend declared on June 12, 2024 was included in other current liabilities
 
 ### STOCK PERFORMANCE
 
-### **COMPARISON OF 5 YEAR CUMULATIVE TOTAL RETURN\***
+### COMPARISON OF 5 YEAR CUMULATIVE TOTAL RETURN\*
 
 Among Microsoft Corporation, the S&P 500 Index  
 and the NASDAQ Computer Index
 
-![Line graph showing the 5-year cumulative total return for Microsoft Corporation, S&P 500, and NASDAQ Computer Index from 6/19 to 6/24. Microsoft Corporation shows the highest growth, reaching approximately $350, followed by NASDAQ Computer at $331.25, and S&P 500 at $201.54.](f519a5be118c846f631c992412353fb9_img.jpg)
+![Line graph showing the 5-year cumulative total return for Microsoft Corporation, S&P 500, and NASDAQ Computer Index from 6/19 to 6/24. Microsoft Corporation shows the highest growth, reaching approximately $349.91 by 6/24. The NASDAQ Computer Index follows, reaching approximately $331.25. The S&P 500 shows the lowest growth, reaching approximately $201.54.](f519a5be118c846f631c992412353fb9_img.jpg)
 
-The graph illustrates the performance of three investment indices over a five-year period. The Y-axis represents the cumulative total return in dollars, ranging from \$0 to \$400 in increments of \$50. The X-axis shows the dates from 6/19 to 6/24. Microsoft Corporation (squares) starts at \$100 and ends at \$349.91. NASDAQ Computer (circles) starts at \$100 and ends at \$331.25. S&P 500 (triangles) starts at \$100 and ends at \$201.54. All three indices show a general upward trend, with some fluctuations in the middle years.
+The graph illustrates the performance of three investment indices over a five-year period. Microsoft Corporation (squares) starts at \$100 and ends at \$349.91. The NASDAQ Computer Index (circles) starts at \$100 and ends at \$331.25. The S&P 500 (triangles) starts at \$100 and ends at \$201.54. All indices show a general upward trend with some fluctuations, particularly a dip around 6/22.
 
 |                       | 6/19   | 6/20   | 6/21   | 6/22   | 6/23   | 6/24   |
 |-----------------------|--------|--------|--------|--------|--------|--------|
@@ -270,7 +270,7 @@ The graph illustrates the performance of three investment indices over a five-ye
 | S&P 500               | 100.00 | 107.51 | 151.36 | 135.29 | 161.80 | 201.54 |
 | NASDAQ Computer       | 100.00 | 147.90 | 222.50 | 173.91 | 228.85 | 331.25 |
 
-Line graph showing the 5-year cumulative total return for Microsoft Corporation, S&P 500, and NASDAQ Computer Index from 6/19 to 6/24. Microsoft Corporation shows the highest growth, reaching approximately \$350, followed by NASDAQ Computer at \$331.25, and S&P 500 at \$201.54.
+Line graph showing the 5-year cumulative total return for Microsoft Corporation, S&P 500, and NASDAQ Computer Index from 6/19 to 6/24. Microsoft Corporation shows the highest growth, reaching approximately \$349.91 by 6/24. The NASDAQ Computer Index follows, reaching approximately \$331.25. The S&P 500 shows the lowest growth, reaching approximately \$201.54.
 
 |                       | 6/19   | 6/20   | 6/21   | 6/22   | 6/23   | 6/24          |
 |-----------------------|--------|--------|--------|--------|--------|---------------|
@@ -884,10 +884,10 @@ Operating income increased \$2.9 billion or 17%.
 
 #### Research and Development
 
-| (In millions, except percentages) | 2024      | 2023      | Percentage Change |
-|-----------------------------------|-----------|-----------|-------------------|
-| Research and development          | \$ 29,510 | \$ 27,195 | 9%                |
-| As a percent of revenue           | 12%       | 13%       | (1)ppt            |
+| (In millions, except percentages) | 2024      | 2023      | Percentage<br>Change |
+|-----------------------------------|-----------|-----------|----------------------|
+| Research and development          | \$ 29,510 | \$ 27,195 | 9%                   |
+| As a percent of revenue           | 12%       | 13%       | (1)ppt               |
 
 Research and development expenses include payroll, employee benefits, stock-based compensation expense, and other headcount-related expenses associated with product development. Research and development expenses also include third-party development and programming costs and the amortization of purchased software code and services content.
 
@@ -897,10 +897,10 @@ Research and development expenses increased \$2.3 billion or 9% driven by Gaming
 
 #### Sales and Marketing
 
-| (In millions, except percentages) | 2024      | 2023      | Percentage Change |
-|-----------------------------------|-----------|-----------|-------------------|
-| Sales and marketing               | \$ 24,456 | \$ 22,759 | 7%                |
-| As a percent of revenue           | 10%       | 11%       | (1)ppt            |
+| (In millions, except percentages) | 2024      | 2023      | Percentage<br>Change |
+|-----------------------------------|-----------|-----------|----------------------|
+| Sales and marketing               | \$ 24,456 | \$ 22,759 | 7%                   |
+| As a percent of revenue           | 10%       | 11%       | (1)ppt               |
 
 Sales and marketing expenses include payroll, employee benefits, stock-based compensation expense, and other headcount-related expenses associated with sales and marketing personnel, and the costs of advertising, promotions, trade shows, seminars, and other programs.
 
@@ -910,10 +910,10 @@ Sales and marketing expenses increased \$1.7 billion or 7% driven by Gaming, wit
 
 ##### General and Administrative
 
-| (In millions, except percentages) | 2024     | 2023     | Percentage Change |
-|-----------------------------------|----------|----------|-------------------|
-| General and administrative        | \$ 7,609 | \$ 7,575 | 0%                |
-| As a percent of revenue           | 3%       | 4%       | (1)ppt            |
+| (In millions, except percentages) | 2024     | 2023     | Percentage<br>Change |
+|-----------------------------------|----------|----------|----------------------|
+| General and administrative        | \$ 7,609 | \$ 7,575 | 0%                   |
+| As a percent of revenue           | 3%       | 4%       | (1)ppt               |
 
 General and administrative expenses include payroll, employee benefits, stock-based compensation expense, employee severance expense incurred as part of a corporate program, and other headcount-related expenses associated with finance, legal, facilities, certain human resources and other administrative personnel, certain taxes, and legal and other administrative fees.
 
@@ -1323,27 +1323,27 @@ Refer to accompanying notes.
 
 (In millions, except per share amounts)
 
-| Year Ended June 30,                         | 2024       | 2023       | 2022       |
-|---------------------------------------------|------------|------------|------------|
-| <b>Common stock and paid-in capital</b>     |            |            |            |
-| Balance, beginning of period                | \$ 93,718  | \$ 86,939  | \$ 83,111  |
-| Common stock issued                         | 2,002      | 1,866      | 1,841      |
-| Common stock repurchased                    | (5,712)    | (4,696)    | (5,688)    |
-| Stock-based compensation expense            | 10,734     | 9,611      | 7,502      |
-| Other, net                                  | 181        | (2)        | 173        |
-| Balance, end of period                      | 100,923    | 93,718     | 86,939     |
-| <b>Retained earnings</b>                    |            |            |            |
-| Balance, beginning of period                | 118,848    | 84,281     | 57,055     |
-| Net income                                  | 88,136     | 72,361     | 72,738     |
-| Common stock cash dividends                 | (22,293)   | (20,226)   | (18,552)   |
-| Common stock repurchased                    | (11,547)   | (17,568)   | (26,960)   |
-| Balance, end of period                      | 173,144    | 118,848    | 84,281     |
-| <b>Accumulated other comprehensive loss</b> |            |            |            |
-| Balance, beginning of period                | (6,343)    | (4,678)    | 1,822      |
-| Other comprehensive income (loss)           | 753        | (1,665)    | (6,500)    |
-| Balance, end of period                      | (5,590)    | (6,343)    | (4,678)    |
-| Total stockholders' equity                  | \$ 268,477 | \$ 206,223 | \$ 166,542 |
-| Cash dividends declared per common share    | \$ 3.00    | \$ 2.72    | \$ 2.48    |
+| Year Ended June 30,                         | 2024              | 2023              | 2022              |
+|---------------------------------------------|-------------------|-------------------|-------------------|
+| <b>Common stock and paid-in capital</b>     |                   |                   |                   |
+| Balance, beginning of period                | \$ 93,718         | \$ 86,939         | \$ 83,111         |
+| Common stock issued                         | 2,002             | 1,866             | 1,841             |
+| Common stock repurchased                    | (5,712)           | (4,696)           | (5,688)           |
+| Stock-based compensation expense            | 10,734            | 9,611             | 7,502             |
+| Other, net                                  | 181               | (2)               | 173               |
+| Balance, end of period                      | <u>100,923</u>    | <u>93,718</u>     | <u>86,939</u>     |
+| <b>Retained earnings</b>                    |                   |                   |                   |
+| Balance, beginning of period                | 118,848           | 84,281            | 57,055            |
+| Net income                                  | 88,136            | 72,361            | 72,738            |
+| Common stock cash dividends                 | (22,293)          | (20,226)          | (18,552)          |
+| Common stock repurchased                    | (11,547)          | (17,568)          | (26,960)          |
+| Balance, end of period                      | <u>173,144</u>    | <u>118,848</u>    | <u>84,281</u>     |
+| <b>Accumulated other comprehensive loss</b> |                   |                   |                   |
+| Balance, beginning of period                | (6,343)           | (4,678)           | 1,822             |
+| Other comprehensive income (loss)           | 753               | (1,665)           | (6,500)           |
+| Balance, end of period                      | <u>(5,590)</u>    | <u>(6,343)</u>    | <u>(4,678)</u>    |
+| Total stockholders' equity                  | <u>\$ 268,477</u> | <u>\$ 206,223</u> | <u>\$ 166,542</u> |
+| Cash dividends declared per common share    | \$ 3.00           | \$ 2.72           | \$ 2.48           |
 
 Refer to accompanying notes.
 
@@ -1769,7 +1769,7 @@ The following table presents our derivative instruments:
 
 | (In millions)                                             | Derivative<br>Assets | Derivative<br>Liabilities | Derivative<br>Assets | Derivative<br>Liabilities |
 |-----------------------------------------------------------|----------------------|---------------------------|----------------------|---------------------------|
-|                                                           |                      |                           | June 30,<br>2024     | June 30,<br>2023          |
+|                                                           | June 30,<br>2024     | June 30,<br>2024          | June 30,<br>2023     | June 30,<br>2023          |
 | <b>Designated as Hedging Instruments</b>                  |                      |                           |                      |                           |
 | Foreign exchange contracts                                | \$ 24                | \$ (76)                   | \$ 34                | \$ (67)                   |
 | Interest rate contracts                                   | 19                   | 0                         | 16                   | 0                         |
@@ -1893,12 +1893,12 @@ Goodwill was assigned to our More Personal Computing segment. The goodwill was p
 
 Following are the details of the purchase price allocated to the intangible assets acquired:
 
-| (In millions, except average life)       | Amount           | Weighted Average Life |
-|------------------------------------------|------------------|-----------------------|
-| Marketing-related                        | \$ 11,619        | 24 years              |
-| Technology-based                         | 9,689            | 4 years               |
-| Customer-related                         | 661              | 4 years               |
-| Fair value of intangible assets acquired | <u>\$ 21,969</u> | 15 years              |
+| (In millions, except average life)       | Amount           | Weighted<br>Average Life |
+|------------------------------------------|------------------|--------------------------|
+| Marketing-related                        | \$ 11,619        | 24 years                 |
+| Technology-based                         | 9,689            | 4 years                  |
+| Customer-related                         | 661              | 4 years                  |
+| Fair value of intangible assets acquired | <u>\$ 21,969</u> | 15 years                 |
 
 Following is the net impact of the Activision Blizzard acquisition on our consolidated income statements since the date of acquisition:
 
@@ -2400,10 +2400,10 @@ Stock-based compensation expense and related income tax benefits were as follows
 
 (In millions)
 
-| Year Ended June 30,                                     | 2024      | 2023     | 2022     |
-|---------------------------------------------------------|-----------|----------|----------|
-| Stock-based compensation expense                        | \$ 10,734 | \$ 9,611 | \$ 7,502 |
-| Income tax benefits related to stock-based compensation | 1,826     | 1,651    | 1,293    |
+| Year Ended June 30,                                     |    | 2024   |    | 2023  |    | 2022  |
+|---------------------------------------------------------|----|--------|----|-------|----|-------|
+| Stock-based compensation expense                        | \$ | 10,734 | \$ | 9,611 | \$ | 7,502 |
+| Income tax benefits related to stock-based compensation |    | 1,826  |    | 1,651 |    | 1,293 |
 
 #### Stock Plans
 
@@ -2417,22 +2417,22 @@ Under the Executive Incentive Plan, the Compensation Committee approves stock aw
 
 The fair value of stock awards was estimated on the date of grant using the following assumptions:
 
-| Year ended June 30,                     | 2024           | 2023           | 2022           |
-|-----------------------------------------|----------------|----------------|----------------|
-| Dividends per share (quarterly amounts) | \$ 0.68 – 0.75 | \$ 0.62 – 0.68 | \$ 0.56 – 0.62 |
-| Interest rates                          | 3.8% – 5.6%    | 2.0% – 5.4%    | 0.03% – 3.6%   |
+| Year ended June 30,                     |    | 2024        |    | 2023        |    | 2022         |
+|-----------------------------------------|----|-------------|----|-------------|----|--------------|
+| Dividends per share (quarterly amounts) | \$ | 0.68 – 0.75 | \$ | 0.62 – 0.68 | \$ | 0.56 – 0.62  |
+| Interest rates                          |    | 3.8% – 5.6% |    | 2.0% – 5.4% |    | 0.03% – 3.6% |
 
 During fiscal year 2024, the following activity occurred under our stock plans:
 
-|                                      | Shares        | Weighted Average Grant-Date Fair Value |
-|--------------------------------------|---------------|----------------------------------------|
-|                                      | (In millions) |                                        |
-| <b>Stock Awards</b>                  |               |                                        |
-| Nonvested balance, beginning of year | 96            | \$ 250.37                              |
-| Granted <sup>(a)</sup>               | 41            | 339.46                                 |
-| Vested                               | (42)          | 246.71                                 |
-| Forfeited                            | (7)           | 270.59                                 |
-| Nonvested balance, end of year       | 88            | \$ 292.28                              |
+|                                      | Shares        |    | Weighted Average<br>Grant-Date Fair Value |
+|--------------------------------------|---------------|----|-------------------------------------------|
+|                                      | (In millions) |    |                                           |
+| <b>Stock Awards</b>                  |               |    |                                           |
+| Nonvested balance, beginning of year | 96            | \$ | 250.37                                    |
+| Granted <sup>(a)</sup>               | 41            |    | 339.46                                    |
+| Vested                               | (42)          |    | 246.71                                    |
+| Forfeited                            | (7)           |    | 270.59                                    |
+| Nonvested balance, end of year       | 88            | \$ | 292.28                                    |
 
 (a) Includes 1 million of PSUs granted at target and performance adjustments above target levels for each of the fiscal years 2024, 2023, and 2022.
 
@@ -2643,8 +2643,7 @@ Our audit procedures related to management's estimates of the fair value of cert
 
 /s/ DELOITTE & TOUCHE LLP
 
-Seattle, Washington
-
+Seattle, Washington  
 July 30, 2024
 
 We have served as the Company's auditor since 1983.
@@ -2865,7 +2864,7 @@ To learn more about Microsoft's corporate governance and our environmental and s
 
 ![FSC logo and product information](3cafed55aa3e96e1fa3f979e715f881b_img.jpg)
 
-The image shows the FSC (Forest Stewardship Council) logo, which consists of a stylized tree icon with a checkmark inside, followed by the letters "FSC" and the website "www.fsc.org". To the right of the logo, the text "MIX" is displayed, followed by "Paper | Supporting responsible forestry" and the product code "FSC™ C132107".
+The image shows the FSC logo, which consists of a stylized tree icon with a checkmark inside, followed by the letters "FSC" and the website "www.fsc.org". To the right of the logo, the text "MIX" is displayed, followed by "Paper | Supporting responsible forestry" and the product code "FSC™ C132107".
 
 **FSC**  
 www.fsc.org
