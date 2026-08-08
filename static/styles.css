@@ -1,0 +1,270 @@
+/* ---------------------------------------------------------------------------
+   Investor Intelligence — dashboard styles.
+
+   Direction taken from the "Industry" design system: light technical ground, a
+   single steel-blue accent, square corners, hairline borders, and "+"
+   registration marks at card corners. Dark theme is a real blueprint — light
+   lines on deep blue — rather than an inverted light theme.
+
+   Barlow / Barlow Condensed are the system's faces. They are not bundled here,
+   so headings fall back to a condensed stack with uppercase and wide tracking,
+   which reads close. Drop the woff2 files into static/fonts/ and add @font-face
+   here if you want the real thing.
+   --------------------------------------------------------------------------- */
+
+:root {
+  --bg:          #f2f2f3;
+  --bg-sunk:     #dfe2e6;   /* chart tracks — must read as a well, not as the page */
+  --ink:         #1d1f20;
+  --ink-soft:    #5f666c;
+  --ink-faint:   #8c9399;
+  --line:        #c8ced4;
+  --line-strong: #9aa4ad;
+  --accent:      #5980a6;
+  --accent-soft: #dde5ee;
+  --bar-peer:    #7a8b9a;   /* solid, not the accent at low opacity — that washes out */
+  --absent:      #9a7b4f;
+  --absent-soft: #efe6d6;
+
+  --font-display: "Arial Narrow", "Helvetica Neue Condensed", "Liberation Sans Narrow", system-ui, sans-serif;
+  --font-body:    system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-data:    ui-monospace, "Cascadia Mono", Consolas, "DejaVu Sans Mono", monospace;
+
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px;
+}
+
+/* Keep these two dark blocks identical. They are different code paths — the
+   media query serves the OS preference, the attribute serves the in-page
+   toggle — and if they drift, the same page renders differently depending on
+   how dark mode was reached. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:#101820; --bg-sunk:#080d13; --ink:#dde4ea; --ink-soft:#93a1ad;
+    --ink-faint:#647380; --line:#2a3742; --line-strong:#3d4d5b;
+    --accent:#7fa8d1; --accent-soft:#1a2733; --bar-peer:#6f8598;
+    --absent:#c2a273; --absent-soft:#241d12;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:#101820; --bg-sunk:#080d13; --ink:#dde4ea; --ink-soft:#93a1ad;
+  --ink-faint:#647380; --line:#2a3742; --line-strong:#3d4d5b;
+  --accent:#7fa8d1; --accent-soft:#1a2733; --bar-peer:#6f8598;
+  --absent:#c2a273; --absent-soft:#241d12;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Faint modular grid — paper under a drawing. */
+body::before {
+  content: "";
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: .28;
+}
+
+.shell { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; padding: var(--s5); }
+
+/* ---------- header ---------- */
+header { border-bottom: 1px solid var(--line-strong); padding-bottom: var(--s4); margin-bottom: var(--s5); }
+
+.eyebrow {
+  font-family: var(--font-display); text-transform: uppercase;
+  letter-spacing: .18em; font-size: 12px; color: var(--accent); margin: 0 0 var(--s2);
+}
+h1 {
+  font-family: var(--font-display); text-transform: uppercase;
+  letter-spacing: .04em; font-size: clamp(30px, 5vw, 46px); font-weight: 700;
+  line-height: 1; margin: 0 0 var(--s2); text-wrap: balance;
+}
+.lede { color: var(--ink-soft); max-width: 62ch; margin: 0; }
+
+.controls { display: flex; flex-wrap: wrap; gap: var(--s2); align-items: center; margin-top: var(--s4); }
+#tabs { display: flex; flex-wrap: wrap; gap: var(--s2); }
+
+.tab {
+  font-family: var(--font-display); text-transform: uppercase; letter-spacing: .1em;
+  font-size: 13px; padding: var(--s2) var(--s4);
+  border: 1px solid var(--line-strong); background: transparent; color: var(--ink);
+  cursor: pointer; transition: background .15s, color .15s, border-color .15s;
+}
+.tab:hover { border-color: var(--accent); }
+.tab[aria-selected="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.tab:focus-visible, .src-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.fy { margin-left: auto; font-family: var(--font-data); font-size: 13px; color: var(--ink-soft); }
+
+/* ---------- layout ---------- */
+.grid { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: var(--s5); align-items: start; }
+@media (max-width: 900px) { .grid { grid-template-columns: minmax(0,1fr); } }
+
+/* ---------- blueprint card ---------- */
+.bp { position: relative; border: 1px solid var(--line-strong); padding: var(--s4); background: transparent; }
+.bp .corner {
+  position: absolute; width: 9px; height: 9px; pointer-events: none;
+  background:
+    linear-gradient(var(--line-strong), var(--line-strong)) center/100% 1px no-repeat,
+    linear-gradient(var(--line-strong), var(--line-strong)) center/1px 100% no-repeat;
+}
+.bp .tl { top:-5px; left:-5px; }  .bp .tr { top:-5px; right:-5px; }
+.bp .bl { bottom:-5px; left:-5px; } .bp .br { bottom:-5px; right:-5px; }
+
+/* ---------- kpi cards ---------- */
+.kpis { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: var(--s5); }
+@media (max-width: 720px) { .kpis { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 460px) { .kpis { grid-template-columns: minmax(0,1fr); } }
+
+.kicker {
+  font-family: var(--font-display); text-transform: uppercase; letter-spacing: .13em;
+  font-size: 11px; color: var(--ink-soft); margin: 0 0 var(--s2);
+}
+.figure {
+  font-family: var(--font-data); font-variant-numeric: tabular-nums;
+  font-size: clamp(20px, 2.4vw, 27px); letter-spacing: -.02em; margin: 0;
+}
+.unit { font-size: 12px; color: var(--ink-faint); font-family: var(--font-data); }
+
+.src-toggle {
+  margin-top: var(--s3); font-family: var(--font-display); text-transform: uppercase;
+  letter-spacing: .1em; font-size: 10px; color: var(--accent);
+  background: none; border: 0; padding: 0; cursor: pointer;
+}
+.src-toggle::before { content: "+ "; }
+.src-toggle[aria-expanded="true"]::before { content: "\2212 "; }
+.src {
+  display: none; margin-top: var(--s2); padding: var(--s2);
+  background: var(--accent-soft); border-left: 2px solid var(--accent);
+  font-family: var(--font-data); font-size: 11px; line-height: 1.5;
+  color: var(--ink-soft); overflow-x: auto; white-space: pre;
+}
+.src[data-open="true"] { display: block; }
+
+/* ---------- section rules ---------- */
+.rule { display: flex; align-items: center; gap: var(--s3); margin: var(--s7) 0 var(--s4); }
+.rule h2 {
+  font-family: var(--font-display); text-transform: uppercase; letter-spacing: .16em;
+  font-size: 12px; font-weight: 700; margin: 0; white-space: nowrap;
+}
+.rule::after { content: ""; flex: 1; height: 1px; background: var(--line-strong); }
+
+/* ---------- ratios ---------- */
+.ratios { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: var(--s4); }
+@media (max-width: 780px) { .ratios { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+.ratio .figure { font-size: 21px; }
+
+/* ---------- peer bars ---------- */
+.peers { display: grid; gap: var(--s5); }
+.metric-block { display: grid; gap: var(--s2); }
+.metric-name {
+  font-family: var(--font-display); text-transform: uppercase;
+  letter-spacing: .12em; font-size: 11px; color: var(--ink-soft);
+}
+.bar-row { display: grid; grid-template-columns: 88px 1fr 68px; align-items: center; gap: var(--s3); }
+.bar-label { font-family: var(--font-data); font-size: 12px; color: var(--ink-soft); }
+.bar-track {
+  height: 18px;
+  background: var(--bg-sunk);
+  border: 1px solid var(--line-strong);
+  /* Quarter ticks — gives the eye something to measure against, so two bars of
+     similar length are still comparable without reading the numbers. */
+  background-image: repeating-linear-gradient(
+    90deg, transparent 0, transparent calc(25% - 1px),
+    var(--line) calc(25% - 1px), var(--line) 25%);
+}
+/* Peers are hatched line-work, the selected filing is a solid fill. Value alone
+   could not carry this: darkening the peer tone enough to clear the track
+   pushed it to 1.02:1 against the accent — identical in lightness. Texture
+   separates them regardless, and it matches the design system's rule that
+   figures stay line drawings while one object on the board is solid. */
+.bar-fill {
+  /* display:block is load-bearing. This is a <span>, and an inline element
+     ignores width and height — so the inline width:N% set by app.js had no
+     effect and the bars rendered empty. The track escapes this only because
+     it is a grid item, which blockifies it automatically. */
+  display: block;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    45deg, var(--bar-peer) 0 2px, transparent 2px 5px);
+}
+.bar-row[data-me="true"] .bar-fill { background-image: none; background: var(--accent); }
+.bar-row[data-me="true"] .bar-label { color: var(--ink); font-weight: 600; }
+.bar-row[data-me="true"] .bar-val { color: var(--ink); font-weight: 600; }
+.bar-val { font-family: var(--font-data); font-variant-numeric: tabular-nums; font-size: 12px; text-align: right; }
+
+/* ---------- lists ---------- */
+/* Two columns. Risk factors are full sentences and there can be nine of them —
+   one per row doubled the page height for content most people skim. */
+.risks {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s3) var(--s5);
+}
+@media (max-width: 760px) { .risks { grid-template-columns: minmax(0, 1fr); } }
+.risks li {
+  display: grid; grid-template-columns: 14px 1fr; gap: var(--s2);
+  font-size: 13.5px; line-height: 1.45; align-items: start;
+}
+.risks li::before { content: "\25B8"; color: var(--accent); line-height: 1.45; }
+.chips { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.chip {
+  font-family: var(--font-data); font-size: 12px; padding: var(--s1) var(--s3);
+  border: 1px solid var(--line-strong); color: var(--ink-soft);
+}
+
+.absent-note { border-left: 3px solid var(--absent); background: var(--absent-soft); padding: var(--s4); }
+.absent-note strong {
+  display: block; font-family: var(--font-display); text-transform: uppercase;
+  letter-spacing: .12em; font-size: 11px; color: var(--absent); margin-bottom: var(--s2);
+}
+.absent-note p { margin: 0; font-size: 14px; color: var(--ink-soft); }
+
+/* ---------- chat rail ---------- */
+.rail { position: sticky; top: var(--s5); display: grid; gap: var(--s4); }
+@media (max-width: 900px) { .rail { position: static; } }
+.scope {
+  font-family: var(--font-data); font-size: 11px; color: var(--ink-soft);
+  border-bottom: 1px dashed var(--line-strong); padding-bottom: var(--s2); margin-bottom: var(--s3);
+}
+.chat-empty { font-size: 13px; color: var(--ink-faint); margin: 0 0 var(--s4); }
+.msg { margin-bottom: var(--s4); }
+.msg .who {
+  font-family: var(--font-display); text-transform: uppercase; letter-spacing: .12em;
+  font-size: 10px; color: var(--ink-faint); margin-bottom: var(--s1);
+}
+.msg.you .body { border-left: 2px solid var(--line-strong); padding-left: var(--s3); font-size: 14px; }
+.msg.bot .body { border-left: 2px solid var(--accent); padding-left: var(--s3); font-size: 14px; }
+.msg .cite { margin-top: var(--s2); font-family: var(--font-data); font-size: 10px; color: var(--ink-faint); }
+
+.composer { display: grid; grid-template-columns: 1fr auto; gap: var(--s2); }
+.composer input {
+  border: 1px solid var(--line-strong); background: transparent; color: var(--ink);
+  padding: var(--s3); font-family: var(--font-body); font-size: 14px;
+}
+.composer input:focus-visible { outline: 2px solid var(--accent); outline-offset: -1px; }
+.composer input:disabled, .composer button:disabled { opacity: .45; cursor: not-allowed; }
+.composer button {
+  border: 1px solid var(--accent); background: var(--accent); color: #fff;
+  font-family: var(--font-display); text-transform: uppercase; letter-spacing: .1em;
+  font-size: 12px; padding: 0 var(--s4); cursor: pointer;
+}
+
+footer {
+  margin-top: var(--s7); padding-top: var(--s4); border-top: 1px solid var(--line);
+  font-family: var(--font-data); font-size: 11px; color: var(--ink-faint);
+}
+
+.error { border-left: 3px solid var(--absent); padding: var(--s4); color: var(--ink-soft); }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

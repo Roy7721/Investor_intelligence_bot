@@ -4,17 +4,71 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Investor Intelligence</title>
+  <link rel="stylesheet" href="/static/styles.css">
 </head>
-<body style="font-family: system-ui; padding: 2rem;">
-  <h1>Investor Intelligence</h1>
-  <p>Static file served. Checking the API…</p>
-  <pre id="health">…</pre>
+<body>
 
-  <script>
-    fetch("/api/health")
-      .then(r => r.json())
-      .then(d => { document.getElementById("health").textContent = JSON.stringify(d); })
-      .catch(e => { document.getElementById("health").textContent = "API unreachable: " + e; });
-  </script>
+<!--
+  Every "slot" below is empty on purpose. index.html arrives with the structure
+  and nothing else; app.js fetches /api/kpi/... and fills the slots in. That is
+  why nothing here mentions Apple, Tesla or any figure.
+-->
+
+<div class="shell">
+
+  <header>
+    <p class="eyebrow">10-K analysis</p>
+    <h1>Investor Intelligence</h1>
+    <p class="lede">
+      Structured metrics pulled from a filing, each traceable to the exact table
+      row it came from.
+    </p>
+    <div class="controls">
+      <div id="tabs" role="tablist" aria-label="Company"></div>
+      <span class="fy" id="meta"></span>
+    </div>
+  </header>
+
+  <div class="grid">
+    <main>
+      <section class="kpis" id="kpis"></section>
+
+      <div class="rule"><h2>Margins &amp; returns</h2></div>
+      <section class="ratios" id="ratios"></section>
+
+      <div class="rule"><h2>Against peers</h2></div>
+      <section class="peers" id="peers"></section>
+
+      <div class="rule"><h2>Risk factors &middot; Item 1A</h2></div>
+      <section id="risks"></section>
+
+      <div class="rule"><h2>Growth drivers</h2></div>
+      <section><div class="chips" id="drivers"></div></section>
+
+      <footer id="footer"></footer>
+    </main>
+
+    <aside>
+      <div class="rail">
+        <div class="bp">
+          <span class="corner tl"></span><span class="corner tr"></span>
+          <span class="corner bl"></span><span class="corner br"></span>
+          <p class="kicker">Ask the filing</p>
+          <div class="scope" id="scope"></div>
+          <div id="chat-log">
+            <p class="chat-empty">Not wired up yet — that's step 6.</p>
+          </div>
+          <form class="composer" id="composer">
+            <input type="text" id="q" placeholder="Ask about this filing…"
+                   aria-label="Ask about this filing" disabled>
+            <button type="submit" disabled>Ask</button>
+          </form>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<script src="/static/app.js"></script>
 </body>
 </html>
