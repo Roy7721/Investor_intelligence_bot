@@ -1,4 +1,4 @@
-from vector_store.vector_store_v2 import _client, _embedder
+from vector_store.client import _client, _embedder
 from config.config import COLLECTION_NAME, RETRIEVAL_TOP_K
 
 

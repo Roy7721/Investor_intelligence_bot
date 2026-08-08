@@ -1,5 +1,4 @@
 from pathlib import Path
-from langchain_openai import ChatOpenAI
 from openai import OpenAI
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -10,13 +9,9 @@ load_dotenv()
 ### elemets that is required for pdf_to_markdown:
 ROOT = Path(__file__).resolve().parents[1]
 
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 DATALAB_API_KEY = os.getenv("DATALAB_API_KEY")
-# if not DATALAB_API_KEY:
-#     raise SystemExit(
-#         "DATALAB_API_KEY not set. Add it to .env:\n"
-#         "    DATALAB_API_KEY=...\n"
-#         "Key from https://www.datalab.to/app/api"
-#     )
+
 
 SUBMIT_URL = "https://www.datalab.to/api/v1/marker"
 POLL_INTERVAL_SECONDS = 3
@@ -25,8 +20,8 @@ MAX_POLLS = 200
 ## chunking requiements
 MIN_BODY_CHARS = 3
 
-llm_api_key = os.getenv("GROQ_API_KEY")
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+# llm_api_key = os.getenv("GROQ_API_KEY")
+
 
 LLM_MAX_TOKENS = 2000
 #openai/gpt-oss-120b
@@ -40,24 +35,7 @@ LLM_MAX_TOKENS = 2000
 #     max_tokens=LLM_MAX_TOKENS,
 # )
 LLM_MODEL = ChatGoogleGenerativeAI(model="gemini-3.1-flash-lite", temperature=None)
-# from langchain_openrouter import ChatOpenRouter
 
-# LLM_MODEL = ChatOpenRouter(
-#     model="openrouter/free",
-#     api_key=OPENROUTER_API_KEY,
-#     max_tokens=LLM_MAX_TOKENS,
-#     temperature=0,
-# )
-
-# from langchain_openai import ChatOpenAI
-
-# LLM_MODEL = ChatOpenAI(
-#     model="nvidia/nemotron-3-ultra-550b-a55b:free",
-#     base_url="https://openrouter.ai/api/v1",
-#     api_key=OPENROUTER_API_KEY,
-#     temperature=0,
-#     max_tokens=LLM_MAX_TOKENS,
-# )
 
 
 EMBEDDING_MODEL = "nvidia/nemotron-3-embed-1b:free"
