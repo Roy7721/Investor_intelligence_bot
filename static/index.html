@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Investor Intelligence</title>
+</head>
+<body style="font-family: system-ui; padding: 2rem;">
+  <h1>Investor Intelligence</h1>
+  <p>Static file served. Checking the API…</p>
+  <pre id="health">…</pre>
+
+  <script>
+    fetch("/api/health")
+      .then(r => r.json())
+      .then(d => { document.getElementById("health").textContent = JSON.stringify(d); })
+      .catch(e => { document.getElementById("health").textContent = "API unreachable: " + e; });
+  </script>
+</body>
+</html>

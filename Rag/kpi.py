@@ -9,7 +9,7 @@ import re, json
 
 KPIS = [
     {"key": "revenue",            "kind": "money", "label": "Total revenues", "question": "What were total revenues in {year}?"},
-    {"key": "net_income",         "kind": "money", "label": "Net income", "question": "What was net income in {year}?"},
+    {"key": "net_income",         "kind": "money", "label": "   ", "question": "What was net income in {year}?"},
     {"key": "operating_income",   "kind": "money",  "label": "Income from operations (operating income)","question": "What was operating income in {year}?"},
     {"key": "operating_cash_flow","kind": "money",  "label": "Net cash provided by operating activities","question": "What was net cash provided by operating activities in {year}?"},
     {"key": "total_assets",       "kind": "money",  "label": "Total assets","question": "What were total assets at the end of {year}?"},
