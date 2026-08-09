@@ -5,14 +5,14 @@
     "revenue": {
       "value": 97690,
       "units": "millions USD",
-      "source_quote": "Total revenues | $ 97,690 | $ 96,773 | $ 81,462 | $ 917 | 1 % | $ 15,311 | 19 %",
+      "source_quote": "Total revenues | $ 97,690 | $ 96,773 | $ 81,462",
       "error": null,
       "absent": null
     },
     "net_income": {
-      "value": 7153,
+      "value": 7091,
       "units": "millions USD",
-      "source_quote": "Net income | $ 7,153",
+      "source_quote": "Net income attributable to common stockholders                                                              | $ 7,091                | $ 14,997 | $ 12,556 |",
       "error": null,
       "absent": null
     },
@@ -26,14 +26,14 @@
     "operating_cash_flow": {
       "value": 14923,
       "units": "millions USD",
-      "source_quote": "Net cash provided by operating activities           | $ 14,923               | $ 13,256   | $ 14,724   |",
+      "source_quote": "Net cash provided by operating activities | $ 14,923 | $ 13,256 | $ 14,724",
       "error": null,
       "absent": null
     },
     "total_assets": {
       "value": 122070,
       "units": "millions USD",
-      "source_quote": "Total assets | $ 122,070",
+      "source_quote": "Total assets | 122,070 | 106,618",
       "error": null,
       "absent": null
     },
@@ -57,7 +57,7 @@
         "We may experience delays in launching and ramping the production of our products and features, or we may be unable to control our manufacturing costs."
       ],
       "units": null,
-      "source_quote": "We may be unable to meet our projected construction timelines, costs and production ramps at new factories, or we may experience difficulties in generating and maintaining demand for products manufactured there.",
+      "source_quote": "Additional funds may not be available to us when we need or want them. ... We may be unable to meet our projected construction timelines, costs and production ramps at new factories, or we may experience difficulties in generating and maintaining demand for products manufactured there. ... Our business may suffer if our products or features contain defects, fail to perform as expected or take longer than expected to become fully functional. ... If we are unable to attract, hire and retain key employees and qualified personnel, our ability to compete may be harmed. ... There is no guarantee that we will have sufficient cash flow from our business to pay our indebtedness or that we will not incur additional indebtedness. ... We face risks associated with maintaining and expanding our international operations, including unfavorable and uncertain regulatory, political, economic, tax and labor conditions. ... Our operations could be adversely affected by events outside of our control, such as natural disasters, wars or health epidemics. ... Our suppliers may fail to deliver components according to schedules, prices, quality and volumes that are acceptable to us, or we may be unable to manage these components effectively. ... We may experience delays in launching and ramping the production of our products and features, or we may be unable to control our manufacturing costs.",
       "error": null,
       "absent": null
     },
@@ -66,7 +66,8 @@
         "Megapack deployments",
         "Powerwall deployments",
         "sales of used vehicles",
-        "non-warranty maintenance services and collision revenue",
+        "non-warranty maintenance services",
+        "collision revenue",
         "paid Supercharging revenue",
         "insurance services revenue",
         "part sales revenue",

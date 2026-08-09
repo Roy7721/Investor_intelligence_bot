@@ -142,10 +142,71 @@ def ingest_pdf(pdf_bytes: bytes,company: str | None = None,
 
 
 
-
 if __name__ == "__main__":
+    import re
     import sys
-    path = Path(sys.argv[1])
-    def show(stage, detail=""):
-        print(f"  [{stage}] {detail}")
-    print(ingest_pdf(path.read_bytes(), on_progress=show,company="Microsoft",year= 2024))
+
+    RAW = ROOT / "data" / "raw_pdfs"
+
+    def _from_filename(path: Path) -> tuple[str | None, int | None]:
+        """Company and year from "{year}_{Company}.pdf".
+
+        A Docker build has nobody to ask. Microsoft's filing has no 10-K cover
+        page, so identify() cannot name it and ingest_pdf would raise
+        NeedsIdentification — failing the build. The filename supplies what the
+        cover page cannot, using the same convention as the markdown files.
+        """
+        m = re.fullmatch(r"(\d{4})_([A-Za-z][\w.-]*)", path.stem)
+        return (m.group(2), int(m.group(1))) if m else (None, None)
+
+
+
+    targets =[Path(a) if Path(a).exists() else RAW / a for a in sys.argv[1:]] or sorted(RAW.glob("*.pdf"))
+    if not targets:
+        raise SystemExit(f"No PDFs found in {RAW}")
+
+    failures = []
+    for pdf in targets:
+        company, year = _from_filename(pdf)
+        print(f"\n=== {pdf.name}  ->  {company or '?'} {year or '?'}", flush=True)
+        try:
+            result = ingest_pdf(
+                pdf.read_bytes(),
+                company=company,
+                year=year,
+                on_progress=lambda stage, detail="": print(f"  [{stage}] {detail}", flush=True),
+            )
+            print(f"  done: {result}", flush=True)
+        except Exception as e:                      # noqa: BLE001
+            # Deliberately broad: report every failure in one run rather than
+            # stopping at the first, so a build log shows all of them at once.
+            print(f"  FAILED: {type(e).__name__}: {e}", flush=True)
+            failures.append(pdf.name)
+
+    # Verify. A build that "succeeds" with an empty store is worse than one
+    # that fails, because it only surfaces in production.
+    from config.config import COLLECTION_NAME
+    from vector_store.client import _client, _embedder
+
+    chunks = _client.get_collection(COLLECTION_NAME, embedding_function=_embedder).count()
+    kpis = len(list((ROOT / "data" / "kpi").glob("*.json")))
+    print(f"\nstore: {chunks:,} chunks    kpi files: {kpis}")
+
+    if failures:
+        raise SystemExit(f"FAILED: {', '.join(failures)}")
+    if chunks == 0 or kpis == 0:
+        raise SystemExit("Build produced an empty store or no KPI files.")
+    print("OK")
+
+
+    
+
+
+
+
+# if __name__ == "__main__":
+#     import sys
+#     path = Path(sys.argv[1])
+#     def show(stage, detail=""):
+#         print(f"  [{stage}] {detail}")
+#     print(ingest_pdf(path.read_bytes(), on_progress=show,company="Microsoft",year= 2024))

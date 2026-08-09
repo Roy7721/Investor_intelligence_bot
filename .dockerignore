@@ -1,0 +1,30 @@
+# Everything here is excluded from the build context — it is never copied into
+# the image, and it never reaches the Docker daemon.
+
+# Secrets. The API keys reach the build through --secret, never through COPY.
+.env
+
+# The local virtualenv is ~2 GB and irrelevant: the image installs its own from
+# requirements.txt. Copying it would also drag in torch and transformers from
+# the abandoned docling trial.
+venv/
+.venv/
+
+# Regenerated inside the image by app.pipeline. Copying the local copies would
+# both bloat the image and make it depend on this machine's state.
+CHROMA_PERSIST_DIR/
+data/uploads/
+data/markdown_datalab/
+
+# Working notes, not application code.
+OPEN_ISSUES.md
+notes.txt
+check_quota.py
+journey*.md
+
+__pycache__/
+*.py[cod]
+.git/
+.gitignore
+.dockerignore
+Dockerfile

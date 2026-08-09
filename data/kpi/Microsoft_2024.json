@@ -33,7 +33,7 @@
     "total_assets": {
       "value": 512163,
       "units": "millions USD",
-      "source_quote": "Total assets | <u>$ 512,163</u> | <u>$ 411,976</u>",
+      "source_quote": "Total assets                                                                             | <u>$ 512,163</u> | <u>$ 411,976</u> |",
       "error": null,
       "absent": null
     },

@@ -51,11 +51,15 @@ def identify(markdown: str) -> dict:
     company = legal = None
     m = re.search(r"(?i)\(?exact name of\s+registrant", head)
     if m:
-        before = [l.strip() for l in head[:m.start()].split("\n") if l.strip()]
-        if before:
-            legal = re.sub(r"[*_#]", "", before[-1]).strip()
-            company = re.sub(_SUFFIX, "", legal, flags=re.I).strip().rstrip(",")
-
+        # Walk backwards to the first line that survives markdown stripping.
+        # Datalab sometimes leaves a dangling '**' on its own line right above
+        # the marker; taking the last line blindly yields "" for that filing.
+        for raw in reversed([l.strip() for l in head[:m.start()].split("\n") if l.strip()]):
+            candidate = re.sub(r"[*_#]", "", raw).strip()
+            if re.search(r"[A-Za-z]{2,}", candidate):
+                legal = candidate
+                company = re.sub(_SUFFIX, "", legal, flags=re.I).strip().rstrip(",")
+                break
     has_cover = bool(company and year)
     is_financial = score >= _FINANCIAL_THRESHOLD
 
