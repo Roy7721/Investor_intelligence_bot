@@ -25,6 +25,7 @@ OPEN_ISSUES.md
 # Throwaway retrieval experiments and their scratch vector stores.
 Scripts/exp_*.py
 data/experiments/
+data/uploads/
 
 # NOTE: data/cache/*.json is deliberately NOT ignored. Those converted chunks
 # cost 10-15 minutes of LLM calls against a limited daily free-tier quota to

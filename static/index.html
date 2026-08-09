@@ -9,64 +9,125 @@
 <body>
 
 <!--
-  Every "slot" below is empty on purpose. index.html arrives with the structure
-  and nothing else; app.js fetches /api/kpi/... and fills the slots in. That is
-  why nothing here mentions Apple, Tesla or any figure.
+  Two views in one page, swapped by app.js. The upload view is the landing:
+  drop a filing, watch it ingest, land on the dashboard. Already-ingested
+  filings are listed underneath so you can jump straight there without
+  re-uploading.
 -->
 
 <div class="shell">
 
-  <header>
-    <p class="eyebrow">10-K analysis</p>
-    <h1>Investor Intelligence</h1>
-    <p class="lede">
-      Structured metrics pulled from a filing, each traceable to the exact table
-      row it came from.
-    </p>
-    <div class="controls">
-      <div id="tabs" role="tablist" aria-label="Company"></div>
-      <span class="fy" id="meta"></span>
+  <!-- ============================ UPLOAD ============================ -->
+  <section id="view-upload">
+    <header class="upload-head">
+      <p class="eyebrow">SEC filing analysis</p>
+      <h1>Investor Intelligence</h1>
+      <p class="lede">
+        Drop a 10-K and get its key figures, each traceable to the table row it
+        came from — then ask the filing questions directly.
+      </p>
+    </header>
+
+    <div class="drop bp" id="drop">
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <span class="corner bl"></span><span class="corner br"></span>
+      <p class="drop-title">Drop a PDF here</p>
+      <p class="drop-sub">or <button type="button" class="linklike" id="browse">choose a file</button></p>
+      <p class="drop-note">Annual filings up to 25 MB. Conversion is billed per page.</p>
+      <input type="file" id="file" accept="application/pdf" hidden>
     </div>
-  </header>
 
-  <div class="grid">
-    <main>
-      <section class="kpis" id="kpis"></section>
+    <!-- progress log, revealed once a job starts -->
+    <div class="progress bp" id="progress" hidden>
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <span class="corner bl"></span><span class="corner br"></span>
+      <p class="kicker">Ingesting</p>
+      <ol class="stages" id="stages"></ol>
+    </div>
 
-      <div class="rule"><h2>Margins &amp; returns</h2></div>
-      <section class="ratios" id="ratios"></section>
+    <!-- shown when the cover page could not be read -->
+    <div class="identify bp" id="identify" hidden>
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <span class="corner bl"></span><span class="corner br"></span>
+      <p class="kicker">Who filed this?</p>
+      <p class="identify-why" id="identify-why"></p>
+      <form class="identify-form" id="identify-form">
+        <label>Company <input type="text" id="in-company" required placeholder="Microsoft"></label>
+        <label>Fiscal year <input type="number" id="in-year" required placeholder="2024" min="1990" max="2100"></label>
+        <button type="submit">Continue</button>
+      </form>
+    </div>
 
-      <div class="rule"><h2>Against peers</h2></div>
-      <section class="peers" id="peers"></section>
+    <div class="rejected bp" id="rejected" hidden>
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <span class="corner bl"></span><span class="corner br"></span>
+      <p class="kicker">Not ingested</p>
+      <p id="rejected-why"></p>
+      <button type="button" class="linklike" id="try-again">Try another file</button>
+    </div>
 
-      <div class="rule"><h2>Risk factors &middot; Item 1A</h2></div>
-      <section id="risks"></section>
+    <div class="existing">
+      <div class="rule"><h2>Already ingested</h2></div>
+      <div class="chips" id="existing-chips"></div>
+    </div>
+  </section>
 
-      <div class="rule"><h2>Growth drivers</h2></div>
-      <section><div class="chips" id="drivers"></div></section>
-
-      <footer id="footer"></footer>
-    </main>
-
-    <aside>
-      <div class="rail">
-        <div class="bp">
-          <span class="corner tl"></span><span class="corner tr"></span>
-          <span class="corner bl"></span><span class="corner br"></span>
-          <p class="kicker">Ask the filing</p>
-          <div class="scope" id="scope"></div>
-          <div id="chat-log">
-            <p class="chat-empty">Not wired up yet — that's step 6.</p>
-          </div>
-          <form class="composer" id="composer">
-            <input type="text" id="q" placeholder="Ask about this filing…"
-                   aria-label="Ask about this filing" disabled>
-            <button type="submit" disabled>Ask</button>
-          </form>
-        </div>
+  <!-- =========================== DASHBOARD =========================== -->
+  <section id="view-dashboard" hidden>
+    <header>
+      <p class="eyebrow">10-K analysis</p>
+      <h1>Investor Intelligence</h1>
+      <p class="lede">
+        Structured metrics pulled from a filing, each traceable to the exact
+        table row it came from.
+      </p>
+      <div class="controls">
+        <div id="tabs" role="tablist" aria-label="Company"></div>
+        <span class="fy" id="meta"></span>
+        <button type="button" class="tab" id="new-filing">+ New filing</button>
       </div>
-    </aside>
-  </div>
+    </header>
+
+    <div class="grid">
+      <main>
+        <section class="kpis" id="kpis"></section>
+
+        <div class="rule"><h2>Margins &amp; returns</h2></div>
+        <section class="ratios" id="ratios"></section>
+
+        <div class="rule"><h2>Against peers</h2></div>
+        <section class="peers" id="peers"></section>
+
+        <div class="rule"><h2>Risk factors &middot; Item 1A</h2></div>
+        <section id="risks"></section>
+
+        <div class="rule"><h2>Growth drivers</h2></div>
+        <section><div class="chips" id="drivers"></div></section>
+
+        <footer id="footer"></footer>
+      </main>
+
+      <aside>
+        <div class="rail">
+          <div class="bp">
+            <span class="corner tl"></span><span class="corner tr"></span>
+            <span class="corner bl"></span><span class="corner br"></span>
+            <p class="kicker">Ask the filing</p>
+            <div class="scope" id="scope"></div>
+            <div id="chat-log">
+              <p class="chat-empty">Ask about any figure in this filing.</p>
+            </div>
+            <form class="composer" id="composer">
+              <input type="text" id="q" placeholder="Ask about this filing…"
+                     aria-label="Ask about this filing" disabled>
+              <button type="submit" disabled>Ask</button>
+            </form>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
 </div>
 
 <script src="/static/app.js"></script>

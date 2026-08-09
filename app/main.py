@@ -28,8 +28,16 @@ from pydantic import BaseModel
 # If the --reload loop gets annoying, move it inside chat() instead.
 from Rag.chatbot import ask
 
+import asyncio
+import json as _json
+
+from fastapi import File, Form, UploadFile
+from fastapi.responses import StreamingResponse
+
+from app import jobs
 
 
+MAX_UPLOAD_MB = 25
 
 
 
@@ -114,6 +122,91 @@ def chat(req: ChatRequest) -> dict:
     answer = ask(question=question, source_company=req.company, filing_year=req.year)
     return {"answer": answer}
 
+
+@app.post("/api/upload")
+async def upload(
+    file: UploadFile = File(...),
+    company: str | None = Form(None),
+    year: int | None = Form(None),
+) -> dict:
+    """Accept a PDF and start ingesting it. Returns immediately with a job id;
+    progress arrives on /api/progress/{job_id}.
+
+    company and year are optional and normally absent — they are only sent on a
+    retry, after a first attempt raised NeedsIdentification because the document
+    had no 10-K cover page to read them from.
+    """
+    data = await file.read()
+    if not data:
+        raise HTTPException(status_code=400, detail="Empty file")
+    if len(data) > MAX_UPLOAD_MB * 1024 * 1024:
+        raise HTTPException(
+            status_code=413,
+            detail=f"File is larger than {MAX_UPLOAD_MB} MB. Conversion is billed "
+                   f"per page, so very large documents are rejected up front.",
+        )
+    if not data.startswith(b"%PDF"):
+        raise HTTPException(status_code=400, detail="That is not a PDF file.")
+
+    return {"job_id": jobs.start(data, company=company, year=year)}
+
+
+
+@app.get("/api/progress/{job_id}")
+async def progress(job_id: str) -> StreamingResponse:
+    """Server-Sent Events: one message per pipeline stage as it happens.
+
+    The pipeline already reports real detail at every stage — page counts,
+    chunk counts, table counts — so nothing here is invented.
+    """
+    if jobs.get(job_id) is None:
+        raise HTTPException(status_code=404, detail="Unknown job")
+
+    async def stream():
+        sent = 0
+        while True:
+            job = jobs.get(job_id)
+            while sent < len(job["events"]):
+                yield f"data: {_json.dumps(job['events'][sent])}\n\n"
+                sent += 1
+            if job["done"]:
+                yield "data: " + _json.dumps({
+                    "stage": "finished",
+                    "result": job["result"],
+                    "error": job["error"],
+                }) + "\n\n"
+                return
+            await asyncio.sleep(0.4)
+
+    return StreamingResponse(stream(), media_type="text/event-stream")
+
+@app.get("/api/progress/{job_id}")
+async def progress(job_id: str) -> StreamingResponse:
+    """Server-Sent Events: one message per pipeline stage as it happens.
+
+    The pipeline already reports real detail at every stage — page counts,
+    chunk counts, table counts — so nothing here is invented.
+    """
+    if jobs.get(job_id) is None:
+        raise HTTPException(status_code=404, detail="Unknown job")
+
+    async def stream():
+        sent = 0
+        while True:
+            job = jobs.get(job_id)
+            while sent < len(job["events"]):
+                yield f"data: {_json.dumps(job['events'][sent])}\n\n"
+                sent += 1
+            if job["done"]:
+                yield "data: " + _json.dumps({
+                    "stage": "finished",
+                    "result": job["result"],
+                    "error": job["error"],
+                }) + "\n\n"
+                return
+            await asyncio.sleep(0.4)
+
+    return StreamingResponse(stream(), media_type="text/event-stream")
 
 # Mounted at /static rather than / so it can never shadow an /api route.
 app.mount("/static", StaticFiles(directory=STATIC), name="static")

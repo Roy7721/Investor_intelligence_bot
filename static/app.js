@@ -51,25 +51,34 @@ const marks = () =>
 
 let filings = [];
 let current = null;
+let pendingFile = null;   // held so a NeedsIdentification retry can resend it
 
-async function boot() {
+function showView(name) {
+  $("view-upload").hidden = name !== "upload";
+  $("view-dashboard").hidden = name !== "dashboard";
+  window.scrollTo(0, 0);
+}
+
+async function refreshFilings() {
   try {
     filings = await (await fetch("/api/companies")).json();
-  } catch (e) {
-    $("kpis").innerHTML = `<div class="error">Could not reach the API: ${esc(e)}</div>`;
-    return;
+  } catch {
+    filings = [];
   }
-  if (!filings.length) {
-    $("kpis").innerHTML = `<div class="error">No filings in data/kpi/ yet.</div>`;
-    return;
-  }
+  $("existing-chips").innerHTML = filings.length
+    ? filings.map(f => `<button class="chip-link" data-company="${esc(f.company)}"
+                                data-year="${f.year}">${esc(f.company)} FY${f.year}</button>`).join("")
+    : `<span class="chip">nothing ingested yet</span>`;
 
-  $("tabs").innerHTML = filings.map((f, i) => `
-    <button class="tab" role="tab" aria-selected="${i === 0}"
+  $("tabs").innerHTML = filings.map(f => `
+    <button class="tab" role="tab" aria-selected="false"
             data-company="${esc(f.company)}" data-year="${f.year}">${esc(f.company)}</button>`
   ).join("");
+}
 
-  load(filings[0].company, filings[0].year);
+async function boot() {
+  await refreshFilings();
+  showView("upload");
 }
 
 async function load(company, year) {
@@ -79,7 +88,11 @@ async function load(company, year) {
     return;
   }
   current = await res.json();
+  document.querySelectorAll("#tabs .tab").forEach(t =>
+    t.setAttribute("aria-selected",
+      String(t.dataset.company === company && Number(t.dataset.year) === year)));
   render(current);
+  showView("dashboard");
 }
 
 function render(d) {
@@ -161,7 +174,8 @@ function render(d) {
 
 
 document.addEventListener("click", e => {
-  const tab = e.target.closest(".tab");
+  // "+ New filing" carries .tab for styling but is not a filing tab.
+  const tab = e.target.closest(".tab:not(#new-filing)");
   if (tab) {
     document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", String(t === tab)));
     load(tab.dataset.company, Number(tab.dataset.year));
@@ -224,6 +238,119 @@ $("composer").addEventListener("submit", async e => {
     input.disabled = false;
     input.focus();
   }
+});
+
+/* ------------------------------- upload ------------------------------- */
+
+const STAGE_LABEL = {
+  hashing: "Fingerprint", cached: "Cached", converting: "Converting",
+  identifying: "Identifying", chunking: "Chunking", embedding: "Embedding",
+  extracting: "Extracting", done: "Done",
+};
+
+function resetUpload() {
+  $("progress").hidden = true;
+  $("identify").hidden = true;
+  $("rejected").hidden = true;
+  $("stages").innerHTML = "";
+}
+
+function addStage(stage, detail) {
+  const stages = $("stages");
+  const last = stages.lastElementChild;
+  // Consecutive events for the same stage update in place rather than stacking.
+  // "converting" emits twice — once on entry, once with the character count.
+  if (last && last.dataset.stage === stage) {
+    last.querySelector(".stage-detail").textContent = detail;
+    return;
+  }
+  if (last) last.classList.add("settled");
+  const li = document.createElement("li");
+  li.dataset.stage = stage;
+  li.innerHTML = `<span class="stage-name">${esc(STAGE_LABEL[stage] || stage)}</span>` +
+                 `<span class="stage-detail">${esc(detail)}</span>`;
+  stages.appendChild(li);
+}
+
+function showRejected(message) {
+  $("progress").hidden = true;
+  $("rejected-why").textContent = message;
+  $("rejected").hidden = false;
+}
+
+function upload(file, company, year) {
+  if (!file) return;
+  pendingFile = file;              // kept so a NeedsIdentification retry can resend
+  resetUpload();
+  $("progress").hidden = false;
+  addStage("hashing", "uploading");
+
+  const form = new FormData();
+  form.append("file", file);
+  if (company) form.append("company", company);
+  if (year) form.append("year", year);
+
+  fetch("/api/upload", { method: "POST", body: form })
+    .then(async res => {
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.detail || "Upload failed");
+      follow(data.job_id);
+    })
+    .catch(err => showRejected(String(err.message || err)));
+}
+
+function follow(jobId) {
+  // EventSource is the browser's built-in SSE client: it opens one long-lived
+  // connection and fires onmessage for each "data:" line the server sends.
+  const es = new EventSource(`/api/progress/${jobId}`);
+
+  es.onmessage = ev => {
+    const msg = JSON.parse(ev.data);
+    if (msg.stage !== "finished") { addStage(msg.stage, msg.detail); return; }
+
+    es.close();
+    $("stages").lastElementChild?.classList.add("settled");
+
+    if (msg.error) {
+      if (msg.error.kind === "needs_identification") {
+        // Not a failure — the document is usable, we just don't know whose.
+        $("identify-why").textContent = msg.error.message;
+        $("identify").hidden = false;
+        $("in-company").focus();
+      } else {
+        showRejected(msg.error.message);
+      }
+      return;
+    }
+    refreshFilings().then(() => load(msg.result.company, msg.result.year));
+  };
+
+  es.onerror = () => { es.close(); showRejected("Lost the connection to the server."); };
+}
+
+const drop = $("drop");
+drop.addEventListener("click", e => { if (!e.target.closest("button")) $("file").click(); });
+$("browse").addEventListener("click", () => $("file").click());
+$("file").addEventListener("change", e => upload(e.target.files[0]));
+
+["dragenter", "dragover"].forEach(t =>
+  drop.addEventListener(t, e => { e.preventDefault(); drop.dataset.over = "true"; }));
+["dragleave", "drop"].forEach(t =>
+  drop.addEventListener(t, e => { e.preventDefault(); drop.dataset.over = "false"; }));
+drop.addEventListener("drop", e => upload(e.dataTransfer.files[0]));
+
+$("identify-form").addEventListener("submit", e => {
+  e.preventDefault();
+  $("identify").hidden = true;
+  upload(pendingFile, $("in-company").value.trim(), $("in-year").value);
+});
+
+$("try-again").addEventListener("click", resetUpload);
+$("new-filing").addEventListener("click", () => { resetUpload(); showView("upload"); });
+
+document.addEventListener("click", e => {
+  const chip = e.target.closest(".chip-link");
+  if (chip) load(chip.dataset.company, Number(chip.dataset.year));
 });
 
 boot();
