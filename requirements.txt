@@ -1,33 +1,37 @@
-# Investor Intelligence Bot — pinned to the versions this pipeline was built
-# and verified against (Apple & Tesla 2024 10-Ks).
+# Investor Intelligence — pinned to the versions the app is verified against.
 #
 #   python -m venv venv
 #   venv\Scripts\pip install -r requirements.txt
+#   uvicorn app.main:app --reload
+#
+# Derived from what the code actually imports, not from history. Anything not
+# imported by app/, Rag/, ingestion/, vector_store/ or config/ is not here.
 
-# --- Ingestion ---------------------------------------------------------
-pymupdf4llm==1.28.0              # PDF -> markdown, with table detection
+# --- web layer ---------------------------------------------------------
+fastapi==0.141.1                 # API + static serving
+uvicorn==0.52.0                  # ASGI server (not imported; runs the app)
+python-multipart==0.0.32         # required by FastAPI to parse file uploads
+
+# --- ingestion ---------------------------------------------------------
+requests==2.34.2                 # Datalab (Marker) PDF -> markdown API
 langchain-text-splitters==1.1.2  # RecursiveCharacterTextSplitter for prose
 
-# --- Models ------------------------------------------------------------
-langchain-openai==1.4.1          # ChatOpenAI pointed at Groq's OpenAI-compatible endpoint
-openai==2.52.0                   # raw client for OpenRouter embeddings
+# --- models ------------------------------------------------------------
+langchain-google-genai==4.3.2    # Gemini — answers and KPI extraction
+openai==2.52.0                   # raw client, used only for OpenRouter embeddings
 
-# --- Storage -----------------------------------------------------------
+# --- storage -----------------------------------------------------------
 chromadb==1.5.9                  # persistent vector store
 
-# --- Config ------------------------------------------------------------
-python-dotenv==1.2.2             # loads GROQ_API_KEY / OPENROUTER_API_KEY from .env
+# --- config ------------------------------------------------------------
+python-dotenv==1.2.2             # loads API keys from .env
 
-# --- Planned: app layer ------------------------------------------------
-# Listed in the original stack plan but not yet wired up — nothing in the
-# codebase imports these today.
-fastapi==0.141.1
-uvicorn==0.52.0
-
-# Removed from the previous requirements.text and why:
-#   sqlalchemy, psycopg2-binary  — no relational database in this design
-#   jinja2, python-multipart     — no templating or file-upload endpoint yet
-#   langchain-experimental       — was only for SemanticChunker, rejected in section 3
-#   pydantic                     — transitive via fastapi/langchain, not imported directly
-#   sentence-transformers        — was all-MiniLM-L6-v2, replaced by OpenRouter embeddings
-#                                  (section 5); still installed locally but unused
+# Removed, and why — so they don't creep back:
+#   langchain-openai   pulled in torch + transformers and cost 58s of import
+#                      time for a Groq path that is no longer used. Removing it
+#                      took app startup from 231s to 20.5s.
+#   pymupdf4llm        the original PDF converter, replaced by Datalab after a
+#                      four-tool comparison (see journey).
+#   docling, torch,    installed during the extractor trial, rejected. Never
+#   transformers       imported by the app; do not reinstall.
+#   pydantic           transitive via fastapi, not pinned separately.

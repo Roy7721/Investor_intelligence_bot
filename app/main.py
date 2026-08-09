@@ -180,33 +180,7 @@ async def progress(job_id: str) -> StreamingResponse:
 
     return StreamingResponse(stream(), media_type="text/event-stream")
 
-@app.get("/api/progress/{job_id}")
-async def progress(job_id: str) -> StreamingResponse:
-    """Server-Sent Events: one message per pipeline stage as it happens.
 
-    The pipeline already reports real detail at every stage — page counts,
-    chunk counts, table counts — so nothing here is invented.
-    """
-    if jobs.get(job_id) is None:
-        raise HTTPException(status_code=404, detail="Unknown job")
-
-    async def stream():
-        sent = 0
-        while True:
-            job = jobs.get(job_id)
-            while sent < len(job["events"]):
-                yield f"data: {_json.dumps(job['events'][sent])}\n\n"
-                sent += 1
-            if job["done"]:
-                yield "data: " + _json.dumps({
-                    "stage": "finished",
-                    "result": job["result"],
-                    "error": job["error"],
-                }) + "\n\n"
-                return
-            await asyncio.sleep(0.4)
-
-    return StreamingResponse(stream(), media_type="text/event-stream")
 
 # Mounted at /static rather than / so it can never shadow an /api route.
 app.mount("/static", StaticFiles(directory=STATIC), name="static")
