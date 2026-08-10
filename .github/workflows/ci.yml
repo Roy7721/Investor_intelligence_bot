@@ -1,0 +1,183 @@
+# Runs on every push. Free, and holds no credentials.
+#
+# Everything here is deliberately offline. The expensive half of this project --
+# PDF conversion, embedding, KPI extraction -- costs money and ~25 minutes per
+# run, so it is not on this path. See docker-publish.yml.
+#
+# What that leaves is still worth running. data/kpi/*.json is committed, so
+# extraction can be regression tested against known-correct output without a
+# single API call. The converted markdown is not committed, so identification
+# has no fixture to run against here; it is exercised by the upload path
+# instead.
+
+name: CI
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  code:
+    name: Code
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    # Placeholders, not secrets. Nothing in this job makes a network call.
+    # They exist because config.py constructs an OpenAI client at import time
+    # and that constructor rejects an empty key before any request is sent.
+    env:
+      GOOGLE_API_KEY: ci-not-a-real-key
+      OPENROUTER_API_KEY: ci-not-a-real-key
+      DATALAB_API_KEY: ci-not-a-real-key
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+          cache: pip
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt ruff
+
+      - name: Lint
+        # Errors only, not style. E9 is syntax, F63/F7/F82 are broken
+        # comparisons, misplaced statements and undefined names. A style gate
+        # that fails the build on line length trains people to ignore CI.
+        run: ruff check --select E9,F63,F7,F82 app ingestion Rag vector_store config
+
+      - name: Byte-compile
+        run: python -m compileall -q app ingestion Rag vector_store config
+
+      - name: Import the application
+        # Catches the failure mode that actually happens here: a module-level
+        # import or client construction that only works on a developer machine.
+        run: python -c "import app.main, app.pipeline, Rag.chatbot, Rag.kpi, ingestion.chunking_v5"
+
+      - name: KPI regression
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from app.metrics import derive
+          from Rag.kpi import looks_wrong, check_balance_sheet
+
+          # Hand-verified against the filings themselves.
+          HEADLINE = {
+              "Apple":     {"revenue": 391035, "net_income": 93736},
+              "Microsoft": {"revenue": 245122, "net_income": 88136},
+              "Tesla":     {"revenue":  97690, "net_income":  7091},
+          }
+
+          failures, numeric = [], 0
+
+          for path in sorted(Path("data/kpi").glob("*.json")):
+              d = json.load(path.open(encoding="utf-8"))
+              company, metrics = d["company"], d["metrics"]
+
+              for key, want in HEADLINE.get(company, {}).items():
+                  got = (metrics.get(key) or {}).get("value")
+                  if got != want:
+                      failures.append(f"{company}.{key}: expected {want}, got {got}")
+
+              # Every number must appear verbatim in the quote it claims to
+              # come from. This is what separates a value read from the filing
+              # from one the model produced.
+              for key, m in metrics.items():
+                  if isinstance(m.get("value"), (int, float)):
+                      numeric += 1
+                      if looks_wrong(m):
+                          failures.append(f"{company}.{key}: value absent from its own source_quote")
+
+              if (problem := check_balance_sheet(metrics)):
+                  failures.append(f"{company}: {problem}")
+
+              # Derived ratios must compute, not blow up on a None.
+              ratios = derive(metrics)
+              for key in ("operating_margin", "net_margin", "return_on_equity"):
+                  if not isinstance(ratios.get(key), float):
+                      failures.append(f"{company}.{key}: not derivable")
+
+              print(f"ok   {company:<10} {len(metrics)} metrics  "
+                    f"op_margin={ratios['operating_margin']:.4f}")
+
+          # Microsoft's filing has no Item 1A. Reporting it as absent is the
+          # behaviour under test: an earlier version fabricated it instead.
+          ms = json.load(Path("data/kpi/Microsoft_2024.json").open(encoding="utf-8"))
+          if not (ms["metrics"]["risk_factors"].get("absent")):
+              failures.append("Microsoft.risk_factors: should be reported absent")
+
+          if numeric != 18:
+              failures.append(f"expected 18 numeric values across 3 filings, found {numeric}")
+
+          if failures:
+              raise SystemExit("\n".join("FAIL " + f for f in failures))
+          print(f"\nKPI regression: {numeric}/18 numeric values, all traceable")
+          # Keep this script ASCII-only. It is fed to `python -` over stdin,
+          # which decodes using the locale rather than assuming UTF-8.
+          PY
+
+  image:
+    name: Image
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-buildx-action@v3
+
+      - name: Build dependencies and code
+        # --target base stops before the pipeline stage, so this needs no keys
+        # and makes no API calls. It still proves the Dockerfile is valid, the
+        # pins resolve on Python 3.14 with no compiler present, and the build
+        # context is complete.
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: base
+          push: false
+          load: true
+          tags: investor-intelligence:ci
+          # Without this, buildx produces a manifest list, and the docker
+          # exporter cannot load a manifest list into the daemon -- so `load`
+          # fails on a build that was otherwise fine.
+          provenance: false
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Application starts inside the image
+        # Stronger than importing on the runner: this is the interpreter, the
+        # installed versions and the file layout that actually ship. Asserting
+        # the routes exist catches an app that imports but registers nothing.
+        run: |
+          # -i is load-bearing. Without it docker does not attach stdin, so
+          # `python -` reads EOF, runs nothing and exits 0: a check that can
+          # never fail.
+          docker run --rm -i \
+            -e GOOGLE_API_KEY=ci-not-a-real-key \
+            -e OPENROUTER_API_KEY=ci-not-a-real-key \
+            -e DATALAB_API_KEY=ci-not-a-real-key \
+            investor-intelligence:ci \
+            python - <<'PY'
+          import app.main, app.pipeline, Rag.chatbot, Rag.kpi, ingestion.chunking_v5
+
+          expected = {
+              "/api/health", "/api/companies", "/api/chat",
+              "/api/upload", "/api/kpi/{company}/{year}", "/api/progress/{job_id}",
+          }
+          found = {r.path for r in app.main.app.routes if getattr(r, "path", "").startswith("/api")}
+
+          if missing := expected - found:
+              raise SystemExit(f"routes missing from the image: {sorted(missing)}")
+          print(f"image OK: {len(found)} API routes registered")
+          PY

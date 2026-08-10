@@ -5,6 +5,7 @@
 __pycache__/
 *.py[cod]
 *.egg-info/
+.ruff_cache/
 
 # Virtual environments
 venv/
@@ -27,6 +28,18 @@ Scripts/exp_*.py
 data/experiments/
 data/uploads/
 
+# Converted markdown. 1.4 MB of generated output regenerated from the PDFs in
+# data/raw_pdfs/, which are themselves committed. Ignoring the output and
+# keeping the input is the right way round: the PDFs are the source of truth
+# and every re-conversion rewrites these files as new blobs.
+#
+# Consequence, recorded so it is not rediscovered later: a fresh clone has no
+# markdown, so any build that starts from a clone must pay for conversion.
+data/markdown_datalab/
+data/markdown_datalab/
 # NOTE: data/cache/*.json is deliberately NOT ignored. Those converted chunks
 # cost 10-15 minutes of LLM calls against a limited daily free-tier quota to
 # regenerate, and they are small (~200-280KB). They stay in the repo.
+
+data\markdown_datalab
+data/markdown_datalab/

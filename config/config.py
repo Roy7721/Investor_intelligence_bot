@@ -20,20 +20,10 @@ MAX_POLLS = 200
 ## chunking requiements
 MIN_BODY_CHARS = 3
 
-# llm_api_key = os.getenv("GROQ_API_KEY")
 
 
-LLM_MAX_TOKENS = 2000
-#openai/gpt-oss-120b
-#llama-3.1-8b-instant
-#openrouter/auto-beta
 
-# LLM_MODEL = ChatOpenAI(
-#     model="openai/gpt-oss-120b",
-#     base_url="https://api.groq.com/openai/v1",
-#     api_key=llm_api_key,
-#     max_tokens=LLM_MAX_TOKENS,
-# )
+
 LLM_MODEL = ChatGoogleGenerativeAI(model="gemini-3.1-flash-lite", temperature=None)
 
 

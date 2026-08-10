@@ -16,7 +16,8 @@ CHROMA_PERSIST_DIR/
 data/uploads/
 data/markdown_datalab/
 
-# Working notes, not application code.
+# Working notes and CI config, not application code.
+.github/
 OPEN_ISSUES.md
 notes.txt
 check_quota.py
